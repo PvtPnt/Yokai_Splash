@@ -643,11 +643,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 543567553839816106, guid: a694943e75778ea4ba0dad1f8cb844d9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -705,8 +700,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 703416030228976679, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
-      propertyPath: WalkSpeed
-      value: 0
+      propertyPath: Damage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a694943e75778ea4ba0dad1f8cb844d9, type: 3}
@@ -1235,18 +1230,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
-      propertyPath: DashSpeed_multiplier
-      value: 80
+      propertyPath: HP
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
-      propertyPath: Start_timeBTWdash
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: maxVelocity
-      value: 17.5
+      propertyPath: InvincibleTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}

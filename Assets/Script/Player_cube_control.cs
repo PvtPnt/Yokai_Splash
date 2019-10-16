@@ -66,11 +66,6 @@ public class Player_cube_control : MonoBehaviour
         }
         else { timeBTWdash -= Time.deltaTime; }
 
-        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
-        {
-            BurstMode = true;
-            StartCoroutine("Expire", BurstTime);
-        }
 
         isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
 
@@ -133,39 +128,45 @@ public class Player_cube_control : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
         {
             BurstMode = true;
-            HP += 30;
             StartCoroutine("Expire", BurstTime);
         }
     }
 
+
     void Dash()
-    {
-        
+    {       
         if (IsWalkingLeft == true)
         { GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force); }
         else if (IsWalkingLeft == false)
         { GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force); };
         timeBTWdash = Start_timeBTWdash;
     }
+    
+    public void BurstHeal()
+    {
+        HP += 30;
+    }
 
     void FixedUpdate()
-    {
+    {   //Velocity Limit
         if (GetComponent<Rigidbody2D>().velocity.magnitude > maxVelocity)
-        {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxVelocity;
-        }
+        {GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxVelocity;}
     }
-    //IEnumerator TakeDamage(int damage)
-    //{
-    //HP -= damage; // HP = HP - damage
-    //gameObject.layer = 12; //Player_Invin layer
 
+    public void P_ReceiveDamage(int Damage)
+    {
+        HP -= Damage;
+        Debug.Log("Player take damage");
+        StartCoroutine("Hit_Iframe", InvincibleTime);
+    }
 
-    //     yield return new WaitForSeconds(InvincibleTime);
+    IEnumerator Hit_Iframe()
+    {
+        gameObject.layer = 12; //Player_Invin layer
+        yield return new WaitForSeconds(InvincibleTime);
+        gameObject.layer = 11; //Player layer
 
-    //     gameObject.layer = 11; //Player layer
-    //     
-    //}
+    }
 
     //public void ReceiveDamage(int Damage)
     // {

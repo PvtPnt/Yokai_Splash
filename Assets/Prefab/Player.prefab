@@ -190,15 +190,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpCount: 0
+  Start_timeBTWdash: 0.3
   WalkSpeed: 40
-  maxVelocity: 25
+  DashSpeed_multiplier: 80
+  maxVelocity: 17.5
   JumpForce: 1500
   groundCheckRange: 0.6
   HP: 10
   InvincibleTime: 1
   XOffset: 3
   YOffset: 0.5
-  BurstTime: 3
+  BurstTime: 6
   isAlive: 0
   isLoss: 0
   isGrounded: 0
@@ -262,11 +264,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Start_timeBTWattack: 0.1
+  AttackRange: 1.2
+  BurstTime: 10
   AttackPosFront: {fileID: 177773576550807219}
   AttackPosBack: {fileID: 177773576216474594}
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  AttackRange: 1.2
-  Damage: 10
   IsWalkingLeft: 0
+  BurstMode: 0
+  Damage: 0
+  NormalMelee: 3
+  BurstMelee: 5
