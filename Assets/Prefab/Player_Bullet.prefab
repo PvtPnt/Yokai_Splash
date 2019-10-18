@@ -95,6 +95,7 @@ MonoBehaviour:
   isMovingLeft: 0
   LifeTime: 3
   Bullet: {fileID: 0}
+  bulletSprite: {fileID: -3141981460028214905}
   AttackPos: {fileID: 1095690150}
   EnemyLayer:
     serializedVersion: 2

@@ -10,6 +10,7 @@ public class BulletController : MonoBehaviour
     public bool isMovingLeft;
     public float LifeTime = 1f;
     public GameObject Bullet;
+    public SpriteRenderer bulletSprite;
 
     public Transform AttackPos;
     public LayerMask EnemyLayer;
@@ -27,6 +28,7 @@ public class BulletController : MonoBehaviour
     {
         if (isMovingLeft)
         {
+            bulletSprite.flipX = true;
             transform.Translate(-Vector3.right * Time.deltaTime * Speed);
         }
         else
