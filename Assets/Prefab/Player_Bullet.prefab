@@ -91,9 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBullet: 1
   Speed: 25
-  Damage: 10
+  Damage: 5
   isMovingLeft: 0
-  LifeTime: 3
+  LifeTime: 1.5
   Bullet: {fileID: 0}
   bulletSprite: {fileID: -3141981460028214905}
   AttackPos: {fileID: 1095690150}
