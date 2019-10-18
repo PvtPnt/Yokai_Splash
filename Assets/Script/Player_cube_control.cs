@@ -16,7 +16,7 @@ public class Player_cube_control : MonoBehaviour
     public float HP;
     public float InvincibleTime = 1f;
     public float XOffset = 3f;
-    public float YOffset = 0.5f;
+    public float YOffset = 1f;
     public float BurstTime = 10f;
 
     public bool isAlive;
@@ -47,7 +47,7 @@ public class Player_cube_control : MonoBehaviour
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
 
-        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
+        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
         { Burst(); }
 
         if (Direction.x < 0)
@@ -61,7 +61,7 @@ public class Player_cube_control : MonoBehaviour
             IsWalkingLeft = false;  
         }
 
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             if (timeBTWdash <= 0)
             { Dash(); }
@@ -95,18 +95,20 @@ public class Player_cube_control : MonoBehaviour
         }
 
         //TRAP
-        if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft)
+        if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == true
+            || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft == true)
         {
             GameObject NewTrap =
-                Instantiate(Trap, transform.position + Vector3.right * XOffset + Vector3.down * YOffset, Quaternion.identity);
-            NewTrap.GetComponent<TrapController>().isMovingLeft = IsWalkingLeft;
+                Instantiate(Trap, transform.position + Vector3.left * XOffset + Vector3.down * YOffset, Quaternion.identity);
+            NewTrap.GetComponent<TrapController>().IsWalkingLeft = IsWalkingLeft;
         }
 
-        else if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == false)
+        else if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == false
+            || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft)
         {
             GameObject NewTrap =
                   Instantiate(Trap, transform.position + Vector3.right * XOffset + Vector3.down * YOffset, Quaternion.identity);
-            NewTrap.GetComponent<TrapController>().isMovingLeft = IsWalkingLeft;
+            NewTrap.GetComponent<TrapController>().IsWalkingLeft = IsWalkingLeft;
         }
     }
 
