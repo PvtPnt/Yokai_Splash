@@ -89,7 +89,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4563655845844144898}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -110,7 +110,7 @@ MonoBehaviour:
   Speed: 3
   Damage: 10
   isMovingLeft: 0
-  isWalkingLeft: 0
+  IsWalkingLeft: 0
   LifeTime: 2
   Wave: {fileID: 4563655845844144898}
   Player: {fileID: 0}
