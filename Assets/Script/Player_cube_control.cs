@@ -123,12 +123,16 @@ public class Player_cube_control : MonoBehaviour
     {
         yield return new WaitForSeconds(BurstTime);
         BurstMode = false;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        gameObject.layer = 11; //Player layer
     }
 
     void Burst()
     {
             BurstMode = true;
             StartCoroutine("Expire", BurstTime);
+        GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+        gameObject.layer = 12; //Player_Invin layer
     }
 
 
@@ -162,7 +166,9 @@ public class Player_cube_control : MonoBehaviour
     IEnumerator Hit_Iframe()
     {
         gameObject.layer = 12; //Player_Invin layer
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(InvincibleTime);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
         gameObject.layer = 11; //Player layer
 
     }

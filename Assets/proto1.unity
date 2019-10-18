@@ -647,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
@@ -703,6 +703,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Damage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 703416030228976679, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: HP
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a694943e75778ea4ba0dad1f8cb844d9, type: 3}
@@ -1162,38 +1167,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2134063926 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 177773576671884094, guid: 4a63982f1f14dca40947fa5967be0189,
-    type: 3}
-  m_PrefabInstance: {fileID: 177773577058842658}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &2134063932
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134063926}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25304604, y: -0.1771326}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.75, y: 4.83}
-    newSize: {x: 2.75, y: 4.83}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.6365986, y: 4.070862}
-  m_EdgeRadius: 0
 --- !u!1001 &177773577058842658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1261,45 +1234,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
-      propertyPath: HP
-      value: 100
+      propertyPath: Start_timeBTWattack
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
-      propertyPath: InvincibleTime
-      value: 1
+      propertyPath: Start_Combo_1
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
-      propertyPath: maxVelocity
-      value: 15.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: WalkSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: m_GravityScale
+      propertyPath: BurstTime
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884035, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
