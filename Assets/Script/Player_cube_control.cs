@@ -47,6 +47,8 @@ public class Player_cube_control : MonoBehaviour
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
 
+        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
+        { Burst(); }
 
         if (Direction.x < 0)
         {
@@ -125,11 +127,8 @@ public class Player_cube_control : MonoBehaviour
 
     void Burst()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
-        {
             BurstMode = true;
             StartCoroutine("Expire", BurstTime);
-        }
     }
 
 

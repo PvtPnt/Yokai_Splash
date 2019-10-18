@@ -226,6 +226,7 @@ MonoBehaviour:
   ZOffset: 0
   YOffset: 0
   XOffset: 0
+  SmoothDamp: 0
 --- !u!1 &610962552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,17 +1274,22 @@ PrefabInstance:
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: maxVelocity
-      value: 17.5
+      value: 15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: WalkSpeed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_GravityScale
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Mass
-      value: 0.75
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
