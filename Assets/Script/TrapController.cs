@@ -7,7 +7,7 @@ public class TrapController : MonoBehaviour
     public bool PlayerTrap;
     public float Speed = 3f;
     public float Damage = 10f;
-    public bool isMovingLeft;
+    public bool IsWalkingLeft;
     public float LifeTime = 1f;
     public GameObject Trap;
     public GameObject Wave;
@@ -29,18 +29,32 @@ public class TrapController : MonoBehaviour
             XOffset = 3.0f;
         }
 
-
+    
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        //Direction Control
+        if (Direction.x < 0)
+        { IsWalkingLeft = true; }
+        else if (Direction.x > 0)
+        { IsWalkingLeft = false; }
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton1))
+
+        if (Input.GetAxis("Fire1") > 0 || Input.GetKeyDown(KeyCode.P))
         {
-            GameObject NewWave =
-        Instantiate(Wave, transform.position + Vector3.right * XOffset, Quaternion.identity);
-        //NewWave.GetComponent<WaveController>().isMovingLeft = IsWalkingLeft;
+            if (IsWalkingLeft == false)
+            {
+                GameObject NewWave =
+                Instantiate(Wave, transform.position + Vector3.right * XOffset, Quaternion.identity);
+            }
+            else if (IsWalkingLeft == true)
+            {
+                GameObject NewWave =
+                Instantiate(Wave, transform.position + Vector3.left * XOffset, Quaternion.identity);
+            }
 
             Destroy(this.gameObject);
         }
