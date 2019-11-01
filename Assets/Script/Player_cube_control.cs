@@ -42,10 +42,13 @@ public class Player_cube_control : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
+        //Velocity Limit
+        if (GetComponent<Rigidbody2D>().velocity.magnitude > maxVelocity)
+        { GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxVelocity; }
 
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
         { Burst(); }
@@ -71,7 +74,10 @@ public class Player_cube_control : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
 
-        if (isGrounded) { JumpCount = 0; }
+        if (isGrounded)
+        {
+            JumpCount = 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
             || Input.GetKeyDown(KeyCode.K) && isGrounded)
@@ -84,7 +90,7 @@ public class Player_cube_control : MonoBehaviour
             || Input.GetKeyDown(KeyCode.K) && isGrounded == false && JumpCount < 2)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.5f);
             JumpCount = 2;
         }
 
@@ -150,12 +156,6 @@ public class Player_cube_control : MonoBehaviour
     public void BurstHeal()
     {
         HP += 30;
-    }
-
-    void FixedUpdate()
-    {   //Velocity Limit
-        if (GetComponent<Rigidbody2D>().velocity.magnitude > maxVelocity)
-        {GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxVelocity;}
     }
 
     public void P_ReceiveDamage(int Damage)

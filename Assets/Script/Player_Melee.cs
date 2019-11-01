@@ -22,6 +22,8 @@ public class Player_Melee : MonoBehaviour
     public int Damage;
     public int NormalMelee;
     public int BurstMelee;
+    public int atk_direction_x;
+    public int atk_direction_y;
 
 
     // Start is called before the first frame update
@@ -31,30 +33,53 @@ public class Player_Melee : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
+        Vector2 ATK_Direction_X = new Vector2(atk_direction_x, 0);
+        Vector2 ATK_Direction_Y = new Vector2(0, atk_direction_y);
         if (BurstMode == false) { Damage = NormalMelee; };
 
         //Direction Control
         if (Direction.x < 0)
-        {IsWalkingLeft = true;}
+        {
+            IsWalkingLeft = true;
+            atk_direction_x = -1;
+        }
         else if (Direction.x > 0)
-        {IsWalkingLeft = false;}
+        {
+            IsWalkingLeft = false;
+            atk_direction_x = 1;
+        }
 
         //Burst Trigger
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
         {Burst();}
 
-        //Melee Attack -- Refer to Player_Melee.cs
+        if (GetComponent<Player_cube_control>().isGrounded == false)
+        {
+            ATK_Direction_X = Vector2.zero;
+            atk_direction_y = 0;
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.down * 1000, ForceMode2D.Force);
+            }
+        }
+        else { atk_direction_y = 1; }
+
+
         if (timeBTWattack <= 0)
         // you can attack
         {
             if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
             {
+                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed, ForceMode2D.Force);
+                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 100, ForceMode2D.Force);
                 AttackDirection(Damage);
                 timeBTWattack = Start_timeBTWattack;
             }
+
         }
         else {timeBTWattack -= Time.deltaTime;}
     }

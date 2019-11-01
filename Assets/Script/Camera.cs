@@ -5,28 +5,17 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public Transform Player;
-    public float ZOffset;
-    public float YOffset;
-    public float XOffset;
-    public float SmoothDamp = 0.010f;
+    public Vector3 Offset;
+    public float SmoothDamp = 0.125f;
     // Start is called before the first frame update
-    void Start()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        if (Player)
-        {
-            ZOffset = transform.position.z - Player.position.z;
-            YOffset = 3.5f;
-            XOffset = 2.0f;
-        }
-    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 TargetPosition;
-        TargetPosition = Player.transform.position + Vector3.forward * ZOffset + Vector3.up * YOffset;
-        Vector3 Velocity = Vector3.zero;
-        transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothDamp);
+        Vector3 TargetPosition = Player.position + Offset;
+        Vector3 SmoothedPosition = Vector3.Lerp(transform.position, TargetPosition, SmoothDamp);
+        transform.position = SmoothedPosition;
+
+        //transform.LookAt(Player);
     }
 }
