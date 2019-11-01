@@ -267,6 +267,7 @@ MonoBehaviour:
   Start_timeBTWattack: 0.1
   AttackRange: 1.2
   BurstTime: 10
+  Start_Combo_1: 0
   AttackPosFront: {fileID: 177773576550807219}
   AttackPosBack: {fileID: 177773576216474594}
   EnemyLayer:
