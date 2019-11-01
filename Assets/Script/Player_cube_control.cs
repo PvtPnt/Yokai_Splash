@@ -74,7 +74,10 @@ public class Player_cube_control : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
 
-        if (isGrounded) { JumpCount = 0; }
+        if (isGrounded)
+        {
+            JumpCount = 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
             || Input.GetKeyDown(KeyCode.K) && isGrounded)
