@@ -44,15 +44,19 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Get Direction as of X-axis as 1 or -1
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
+
         //Velocity Limit
         if (GetComponent<Rigidbody2D>().velocity.magnitude > maxVelocity)
         { GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxVelocity; }
 
+        //Burst Mode Trigger
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
         { Burst(); }
 
+        //Sprite Animation flipping
         if (Direction.x < 0)
         {
             PlayerSprite.flipX = true;
@@ -116,6 +120,16 @@ public class Player_cube_control : MonoBehaviour
                   Instantiate(Trap, transform.position + Vector3.right * XOffset + Vector3.down * YOffset, Quaternion.identity);
             NewTrap.GetComponent<TrapController>().IsWalkingLeft = IsWalkingLeft;
         }
+    }
+
+    void Update()
+    {
+        //Movement and animation
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            GetComponent<Animator>().SetBool("Run", true);
+            Debug.Log("Player running");
+        } else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) { GetComponent<Animator>().SetBool("Run", false); }
     }
 
     void Shoot()
