@@ -61,9 +61,9 @@ public class Player_Melee : MonoBehaviour
             ATK_Direction_X = Vector2.zero;
             atk_direction_y = 0;
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.down * 1000, ForceMode2D.Force);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.down * GetComponent<Player_cube_control>().JumpForce * 0.5f, ForceMode2D.Force);
             }
         }
         else { atk_direction_y = 1; }

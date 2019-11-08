@@ -9,7 +9,7 @@ public class Player_cube_control : MonoBehaviour
     private float timeBTWdash;
     public float Start_timeBTWdash;
     public float WalkSpeed;
-    public float DashSpeed_multiplier;
+    public float DashSpeed;
     public float maxVelocity;
     public float JumpForce;
     public float groundCheckRange = 1f;
@@ -38,7 +38,7 @@ public class Player_cube_control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -68,6 +68,7 @@ public class Player_cube_control : MonoBehaviour
             IsWalkingLeft = false;  
         }
 
+        //Dashing
         if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             if (timeBTWdash <= 0)
@@ -75,18 +76,16 @@ public class Player_cube_control : MonoBehaviour
         }
         else { timeBTWdash -= Time.deltaTime; }
 
-
+        //Jumping
         isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
 
         if (isGrounded)
-        {
-            JumpCount = 0;
-        }
+        {JumpCount = 0;}
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
             || Input.GetKeyDown(KeyCode.K) && isGrounded)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce, ForceMode2D.Force);
             JumpCount += 1;
         }
 
@@ -94,7 +93,7 @@ public class Player_cube_control : MonoBehaviour
             || Input.GetKeyDown(KeyCode.K) && isGrounded == false && JumpCount < 2)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.5f);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.5f, ForceMode2D.Force);
             JumpCount = 2;
         }
 
@@ -161,9 +160,16 @@ public class Player_cube_control : MonoBehaviour
     void Dash()
     {       
         if (IsWalkingLeft == true)
-        { GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force); }
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * DashSpeed*10, ForceMode2D.Force);
+            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
+        }
         else if (IsWalkingLeft == false)
-        { GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force); };
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * DashSpeed *10, ForceMode2D.Force);
+            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
+        };
+
         timeBTWdash = Start_timeBTWdash;
     }
     
@@ -186,7 +192,37 @@ public class Player_cube_control : MonoBehaviour
         yield return new WaitForSeconds(InvincibleTime);
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
         gameObject.layer = 11; //Player layer
+    }
 
+
+    void SpawnTrailPart()
+    {
+        GameObject trailPart = new GameObject();
+        SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
+        trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
+        trailPart.transform.position = transform.position;
+        trailPart.transform.localScale = transform.localScale;
+
+        Vector2 Trail_Scale = transform.localScale;
+        Trail_Scale.x *= -1;
+
+        if (PlayerSprite.flipX == true)
+        { trailPart.transform.localScale = Trail_Scale; }
+        else if (PlayerSprite.flipX == false)
+        { trailPart.transform.localScale = transform.localScale;  }
+
+        StartCoroutine(FadeTrailPart(trailPartRenderer));
+        Destroy(trailPart, 0.2f); // replace 0.5f with needed lifeTime
+    }
+
+    IEnumerator FadeTrailPart(SpriteRenderer trailPartRenderer)
+    {
+        Color color = trailPartRenderer.color;
+        color.a -= 0.5f; // replace 0.5f with needed alpha decrement
+        trailPartRenderer.color = color;
+
+        yield return new WaitForSeconds(0.3f);
+        CancelInvoke("SpawnTrailPart");
     }
 
     //public void ReceiveDamage(int Damage)

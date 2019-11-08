@@ -2011,6 +2011,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1479496768 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 177773576671884095, guid: 4a63982f1f14dca40947fa5967be0189,
+    type: 3}
+  m_PrefabInstance: {fileID: 177773577058842658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1519914428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3205,26 @@ PrefabInstance:
         type: 3}
       propertyPath: BurstTime
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: DashSpeed_multiplier
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: DashSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: TrailSprite
+      value: 
+      objectReference: {fileID: 1479496768}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: JumpForce
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
