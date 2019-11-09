@@ -97,6 +97,7 @@ public class Player_cube_control : MonoBehaviour
             JumpCount = 2;
         }
 
+
         //ATTACK--Shoot
         if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
         {
@@ -123,6 +124,20 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
+        GetComponent<Animator>().SetBool("jump", false);
+        if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
+            || Input.GetKeyDown(KeyCode.K) && isGrounded)
+        {
+            GetComponent<Animator>().SetBool("jump", true);
+            Debug.Log("Player jumped");
+        }
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded == false && JumpCount < 2
+            || Input.GetKeyDown(KeyCode.K) && isGrounded == false && JumpCount < 2)
+        {
+            GetComponent<Animator>().SetBool("jump", true);
+            Debug.Log("Player jumped twice");
+        }
         //Movement and animation
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
