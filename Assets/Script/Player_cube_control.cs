@@ -111,6 +111,7 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
+        GetComponent<Animator>().SetBool("jump", false);
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
     || Input.GetKeyDown(KeyCode.K) && isGrounded)
         {
@@ -118,6 +119,7 @@ public class Player_cube_control : MonoBehaviour
             Debug.Log("Player jumped");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
             JumpCount += 1;
+        
         }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded == false && JumpCount < 2
