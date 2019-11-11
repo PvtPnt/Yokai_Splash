@@ -222,7 +222,7 @@ public class Player_cube_control : MonoBehaviour
         { trailPart.transform.localScale = transform.localScale; }
 
         StartCoroutine(FadeTrailPart(trailPartRenderer));
-        Destroy(trailPart, 0.2f); // replace 0.xf with needed lifeTime
+        Destroy(trailPart, 0.3f); // replace 0.xf with needed lifeTime
     }
 
     IEnumerator FadeTrailPart(SpriteRenderer trailPartRenderer)

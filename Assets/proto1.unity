@@ -3308,12 +3308,17 @@ PrefabInstance:
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: JumpForce
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: WalkSpeed
-      value: 100
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: DashSpeed_multiplier
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
