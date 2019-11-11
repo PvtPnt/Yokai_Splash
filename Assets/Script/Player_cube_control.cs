@@ -10,7 +10,6 @@ public class Player_cube_control : MonoBehaviour
     public float Start_timeBTWdash;
     public float WalkSpeed;
     public float DashSpeed_multiplier;
-    public float maxVelocity;
     public float JumpForce;
     public float groundCheckRange = 1f;
     public float HP;
@@ -44,44 +43,10 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Get Direction as of X-axis as 1 or -1
-        Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
-        GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
-
-        //Velocity Limit
-        if (GetComponent<Rigidbody2D>().velocity.magnitude > maxVelocity)
-        { GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxVelocity; }
-
-        //Burst Mode Trigger
-        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
-        { Burst(); }
-
-        //Sprite Animation flipping
-        if (Direction.x < 0)
-        {
-            PlayerSprite.flipX = true;
-            IsWalkingLeft = true;
-        }
-        else if (Direction.x > 0)
-        {
-            PlayerSprite.flipX = false;
-            IsWalkingLeft = false;  
-        }
-
-        if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
-        {
-            if (timeBTWdash <= 0)
-            { Dash(); }
-        }
-        else { timeBTWdash -= Time.deltaTime; }
+      
 
 
-        isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
-
-        if (isGrounded)
-        {
-            JumpCount = 0;
-        }
+       
 
 
 
@@ -111,6 +76,53 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
+        //Get Direction as of X-axis as 1 or -1
+        Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
+        GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
+
+        Vector2 velo = GetComponent<Rigidbody2D>().velocity;
+        velo.x = Direction.x * WalkSpeed * Time.deltaTime;
+
+        GetComponent<Rigidbody2D>().velocity = velo;
+
+
+        //Burst Mode Trigger
+        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
+        { Burst(); }
+
+        //Sprite Animation flipping
+        if (Direction.x < 0)
+        {
+            PlayerSprite.flipX = true;
+            IsWalkingLeft = true;
+        }
+        else if (Direction.x > 0)
+        {
+            PlayerSprite.flipX = false;
+            IsWalkingLeft = false;
+        }
+
+        if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            if (timeBTWdash <= 0)
+            { Dash(); }
+        }
+        else { timeBTWdash -= Time.deltaTime; }
+
+        //Movement and animation
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
+        {
+            GetComponent<Animator>().SetBool("Run", true);
+            Debug.Log("Player running");
+        }
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) { GetComponent<Animator>().SetBool("Run", false); }
+
+        isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
+
+        if (isGrounded)
+        {
+            JumpCount = 0;
+        }
         //jump controlling
         if (isGrounded) {
             GetComponent<Animator>().SetBool("jump", false);
@@ -118,7 +130,7 @@ public class Player_cube_control : MonoBehaviour
         }
         
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
-           || Input.GetKeyDown(KeyCode.K) && isGrounded)
+           || Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             GetComponent<Animator>().SetBool("jump", true);
             Debug.Log("Player jumped");
@@ -128,7 +140,7 @@ public class Player_cube_control : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded == false && JumpCount < 2
-            || Input.GetKeyDown(KeyCode.K) && isGrounded == false && JumpCount < 2)
+            || Input.GetKeyDown(KeyCode.Space) && isGrounded == false && JumpCount < 2)
         {
             GetComponent<Animator>().SetBool("jump2", true);
             Debug.Log("Player jumped twice");
@@ -136,12 +148,7 @@ public class Player_cube_control : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.5f);
             JumpCount = 2;
         }
-        //Movement and animation
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
-        {
-            GetComponent<Animator>().SetBool("Run", true);
-            Debug.Log("Player running");
-        } else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) { GetComponent<Animator>().SetBool("Run", false); }
+       
     }
 
     void Shoot()
