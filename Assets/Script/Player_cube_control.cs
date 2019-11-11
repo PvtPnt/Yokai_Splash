@@ -43,13 +43,6 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-      
-
-
-       
-
-
-
         //ATTACK--Shoot
         if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
         {
@@ -130,22 +123,21 @@ public class Player_cube_control : MonoBehaviour
         }
         
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
-           || Input.GetKeyDown(KeyCode.Space) && isGrounded)
+           || Input.GetKeyDown(KeyCode.K) && isGrounded)
         {
             GetComponent<Animator>().SetBool("jump", true);
             Debug.Log("Player jumped");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
             JumpCount += 1;
-        
         }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded == false && JumpCount < 2
-            || Input.GetKeyDown(KeyCode.Space) && isGrounded == false && JumpCount < 2)
+            || Input.GetKeyDown(KeyCode.K) && isGrounded == false && JumpCount < 2)
         {
             GetComponent<Animator>().SetBool("jump2", true);
             Debug.Log("Player jumped twice");
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.5f);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.1f);
             JumpCount = 2;
         }
        
@@ -180,9 +172,15 @@ public class Player_cube_control : MonoBehaviour
     void Dash()
     {       
         if (IsWalkingLeft == true)
-        { GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force); }
+        { 
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
+            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
+        }
         else if (IsWalkingLeft == false)
-        { GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force); };
+        { 
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
+            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
+        };
         timeBTWdash = Start_timeBTWdash;
     }
     
@@ -205,7 +203,36 @@ public class Player_cube_control : MonoBehaviour
         yield return new WaitForSeconds(InvincibleTime);
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
         gameObject.layer = 11; //Player layer
+    }
 
+    void SpawnTrailPart()
+    {   
+        GameObject trailPart = new GameObject();
+        SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
+        trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
+        trailPart.transform.position = transform.position;
+        trailPart.transform.localScale = transform.localScale;
+
+        Vector2 Trail_Scale = transform.localScale;
+        Trail_Scale.x *= -1;
+
+        if (PlayerSprite.flipX == true)
+        { trailPart.transform.localScale = Trail_Scale; }
+        else if (PlayerSprite.flipX == false)
+        { trailPart.transform.localScale = transform.localScale; }
+
+        StartCoroutine(FadeTrailPart(trailPartRenderer));
+        Destroy(trailPart, 0.2f); // replace 0.xf with needed lifeTime
+    }
+
+    IEnumerator FadeTrailPart(SpriteRenderer trailPartRenderer)
+    {
+        Color color = trailPartRenderer.color;
+        color.a -= 0.5f; // replace 0.xf with needed alpha decrement
+        trailPartRenderer.color = color;
+
+        yield return new WaitForSeconds(0.3f);
+        CancelInvoke("SpawnTrailPart");
     }
 
     //public void ReceiveDamage(int Damage)

@@ -9,9 +9,6 @@ public class Player_Melee : MonoBehaviour
     public float AttackRange;
     public float BurstTime = 10f;
 
-    private float time_Combo_1;
-    public float Start_Combo_1;
-
     public Transform AttackPosFront;
     public Transform AttackPosBack;
     public LayerMask EnemyLayer;
@@ -63,7 +60,7 @@ public class Player_Melee : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.down * 1000, ForceMode2D.Force);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.down * 500, ForceMode2D.Force);
             }
         }
         else { atk_direction_y = 1; }
