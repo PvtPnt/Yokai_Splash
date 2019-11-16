@@ -15,19 +15,21 @@ public class Enemy_basic : MonoBehaviour
     public int Damage;
 
     public bool IsWalkingLeft;
+    public bool isGrounded;
+    public bool isWalled;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
     public LayerMask playerLayer;
 
     public Transform EnemyHitbox;
-
-    public Vector2 RayOffset = Vector2.left;
+    public Transform Current_WallChecker;
+    public Transform WallChecker_Right;
+    public Transform WallChecker_Left;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -49,66 +51,61 @@ public class Enemy_basic : MonoBehaviour
 
     void Walking()
     {
-        if (IsWalkingLeft == true)
+        CheckWall();
+        isGrounded = Physics2D.OverlapCircle(transform.position, groundCheckRange, groundLayer);
+        if (isGrounded)
         {
-            CheckWall(-Vector2.right);
-            Debug.DrawRay(transform.position, -Vector2.up * groundCheckRange, Color.red);
-            if (Physics2D.Raycast(transform.position, -Vector2.up, groundCheckRange, groundLayer))
+            if (IsWalkingLeft == true)
             {
-                //Walk Left, Check hole on left
-                //EnemySprite.flipX = false;
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * -WalkSpeed * Time.deltaTime);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed, ForceMode2D.Force);
             }
-            else
+            else if (IsWalkingLeft == false)
             {
-                IsWalkingLeft = false;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed, ForceMode2D.Force);
             }
         }
-        else
+
+
+    }
+
+    void CheckWall()
+    {
+        if (IsWalkingLeft == true)
+        {Current_WallChecker = WallChecker_Left;} 
+        else if (IsWalkingLeft == false)
+        {Current_WallChecker = WallChecker_Right;}
+
+        isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer);
+
+        if (isWalled == true)
         {
-            CheckWall(Vector2.right);
-            Debug.DrawRay(transform.position, -Vector2.up * groundCheckRange, Color.red);
-            if (Physics2D.Raycast(transform.position, -Vector2.up, groundCheckRange, groundLayer))
-            {
-                //Walk Right, Check hole on right
-                //EnemySprite.flipX = true;
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime);
-            }
-            else
-            {
-                IsWalkingLeft = true;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
+            StartCoroutine("Wait_Before_Turning", 2f);
+            if (IsWalkingLeft == true)
+            { IsWalkingLeft = false; }
+            else if (IsWalkingLeft == false)
+            { IsWalkingLeft = true; }
         }
     }
 
-    void CheckWall(Vector2 direction)
+    IEnumerator Wait_Before_Turning()
     {
-        Debug.DrawRay(transform.position, direction * wallCheckRange, Color.cyan);
-        if (Physics2D.Raycast(transform.position, direction, wallCheckRange, wallLayer))
-        {
-            if (IsWalkingLeft)
-            {
-                IsWalkingLeft = false;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-            else
-            {
-                IsWalkingLeft = true;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-        }
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        yield return new WaitForSeconds(2f);
     }
 
     private void OnDrawGizmosSelected()
     {
         Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
         if (IsWalkingLeft == false)
-        { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
+        { 
+            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
+        }
 
         if (IsWalkingLeft == true)
-        { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
+        { 
+            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
+        }
     }
 }
