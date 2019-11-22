@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1888714782266681102}
   m_Layer: 9
   m_Name: Proto Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +169,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0d4d5c7d88e24064988787f2cbe0d39f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 13.55, y: 12.59}
@@ -191,15 +191,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  WalkSpeed: 10
-  Tsuchinoko_Jumpforce: 0.4
-  groundCheckRange: 1
+  WalkSpeed: 5
+  Tsuchinoko_Jumpforce: 0.35
+  groundCheckRange: 1.5
   wallCheckRange: 0.75
   EnemyCheckRange: 10
   AttackRange: 0.6
   Damage: 1
   IsWalkingLeft: 0
-  isGrounded: 0
+  isGrounded: 1
   isWalled: 0
   groundLayer:
     serializedVersion: 2
@@ -214,6 +214,7 @@ MonoBehaviour:
   Current_WallChecker: {fileID: 0}
   WallChecker_Right: {fileID: 1268942903}
   WallChecker_Left: {fileID: 712890394}
+  TsuchinokoSprite: {fileID: 5846593991540681484}
 --- !u!50 &9215341238363158527
 Rigidbody2D:
   serializedVersion: 4

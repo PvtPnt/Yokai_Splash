@@ -28,6 +28,8 @@ public class Enemy_basic : MonoBehaviour
     public Transform WallChecker_Right;
     public Transform WallChecker_Left;
 
+    public SpriteRenderer TsuchinokoSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,12 +61,12 @@ public class Enemy_basic : MonoBehaviour
             if (IsWalkingLeft == true)
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed, ForceMode2D.Force);
-                StartCoroutine("Tsuchinoko_Jump", 2f);
+                StartCoroutine("Tsuchinoko_Jump", 3f);
             }
             else if (IsWalkingLeft == false)
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed, ForceMode2D.Force);
-                StartCoroutine("Tsuchinoko_Jump", 2f);
+                StartCoroutine("Tsuchinoko_Jump", 3f);
             }
         }
 
@@ -74,9 +76,15 @@ public class Enemy_basic : MonoBehaviour
     void CheckWall()
     {
         if (IsWalkingLeft == true)
-        {Current_WallChecker = WallChecker_Left;} 
+        {
+            Current_WallChecker = WallChecker_Left;
+            TsuchinokoSprite.flipX = false;
+        } 
         else if (IsWalkingLeft == false)
-        {Current_WallChecker = WallChecker_Right;}
+        {
+            Current_WallChecker = WallChecker_Right;
+            TsuchinokoSprite.flipX = true;
+        }
 
         isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer);
 
@@ -92,7 +100,7 @@ public class Enemy_basic : MonoBehaviour
     IEnumerator Tsuchinoko_Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
     }
 
     private void OnDrawGizmosSelected()

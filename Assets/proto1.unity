@@ -1936,6 +1936,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5846593991540681484, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a694943e75778ea4ba0dad1f8cb844d9, type: 3}
 --- !u!1001 &1440200060
@@ -3102,7 +3107,7 @@ PrefabInstance:
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
@@ -3152,7 +3157,12 @@ PrefabInstance:
     - target: {fileID: 703416030228976679, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: Tsuchinoko_Jumpforce
-      value: 0.4
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846593991540681484, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a694943e75778ea4ba0dad1f8cb844d9, type: 3}
