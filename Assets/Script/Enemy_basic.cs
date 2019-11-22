@@ -7,6 +7,7 @@ public class Enemy_basic : MonoBehaviour
     public int HP;
 
     public float WalkSpeed;
+    public float Tsuchinoko_Jumpforce;
     public float groundCheckRange = 1f;
     public float wallCheckRange = 1f;
     public float EnemyCheckRange = 10f;
@@ -58,10 +59,12 @@ public class Enemy_basic : MonoBehaviour
             if (IsWalkingLeft == true)
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed, ForceMode2D.Force);
+                StartCoroutine("Tsuchinoko_Jump", 2f);
             }
             else if (IsWalkingLeft == false)
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed, ForceMode2D.Force);
+                StartCoroutine("Tsuchinoko_Jump", 2f);
             }
         }
 
@@ -79,7 +82,6 @@ public class Enemy_basic : MonoBehaviour
 
         if (isWalled == true)
         {
-            StartCoroutine("Wait_Before_Turning", 2f);
             if (IsWalkingLeft == true)
             { IsWalkingLeft = false; }
             else if (IsWalkingLeft == false)
@@ -87,9 +89,9 @@ public class Enemy_basic : MonoBehaviour
         }
     }
 
-    IEnumerator Wait_Before_Turning()
+    IEnumerator Tsuchinoko_Jump()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(2f);
     }
 
