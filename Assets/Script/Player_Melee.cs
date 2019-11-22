@@ -21,6 +21,10 @@ public class Player_Melee : MonoBehaviour
     public int BurstMelee;
     public int atk_direction_x;
     public int atk_direction_y;
+    public AudioSource myAudio;
+    public AudioClip attackingSound;
+
+
 
 
     // Start is called before the first frame update
@@ -71,6 +75,9 @@ public class Player_Melee : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
             {
+                myAudio.clip = attackingSound;
+      
+                myAudio.Play();
                 GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed, ForceMode2D.Force);
                 GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 100, ForceMode2D.Force);
                 AttackDirection(Damage);
