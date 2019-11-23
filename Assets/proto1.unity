@@ -9772,6 +9772,110 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!81 &1479496768
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479496761}
+  m_Enabled: 1
+--- !u!82 &1479496769
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479496761}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 34112f53aeeca1748adc16b711cc7cd1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1488423361
 GameObject:
   m_ObjectHideFlags: 0
@@ -13536,6 +13640,41 @@ PrefabInstance:
       propertyPath: DashSpeed_multiplier
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: myAudio
+      value: 
+      objectReference: {fileID: 1479496769}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: myAudioGetHit
+      value: 
+      objectReference: {fileID: 1479496769}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: myAudioShoot
+      value: 
+      objectReference: {fileID: 1479496769}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: dashingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a70c72f49bdc45418a69e6a2839d468, type: 3}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: getting_hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b87e65ba67e12e4aabcb8bb892ecbfa, type: 3}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: jumpingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5437dd76b043a384cbd0eab678499a7a, type: 3}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: splashingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b39ee3c13e712324a90902b1010f0da6, type: 3}
     m_RemovedComponents:
     - {fileID: 177773576671884035, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
