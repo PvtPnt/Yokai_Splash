@@ -33,15 +33,6 @@ public class Player_cube_control : MonoBehaviour
     public Transform GroundChecker;
     public SpriteRenderer PlayerSprite;
 
-    public AudioSource myAudio;
-    public AudioSource myAudioGetHit;
-    public AudioSource myAudioShoot;
-    public AudioClip dashingSound;
-    public AudioClip getting_hitSound;
-    public AudioClip jumpingSound;
-    public AudioClip splashingSound;
-    public AudioClip runningSound;
-
 
     // Start is called before the first frame update
     void Start()
@@ -97,13 +88,11 @@ public class Player_cube_control : MonoBehaviour
         {
             PlayerSprite.flipX = true;
             IsWalkingLeft = true;
-        
         }
         else if (Direction.x > 0)
         {
             PlayerSprite.flipX = false;
             IsWalkingLeft = false;
-           
         }
 
         if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
@@ -113,23 +102,11 @@ public class Player_cube_control : MonoBehaviour
         }
         else { timeBTWdash -= Time.deltaTime; }
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
-        {
-            myAudio.clip = runningSound;
-            myAudio.Play();
-            myAudio.loop = true;
-        }
-        else
-        {
-            myAudio.loop = false;
-        }
-
         //Movement and animation
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
         {
             GetComponent<Animator>().SetBool("Run", true);
             Debug.Log("Player running");
-           
         }
         else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) { GetComponent<Animator>().SetBool("Run", false); }
 
@@ -148,8 +125,6 @@ public class Player_cube_control : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
            || Input.GetKeyDown(KeyCode.K) && isGrounded)
         {
-            myAudio.clip = jumpingSound;
-            myAudio.Play();
             GetComponent<Animator>().SetBool("jump", true);
             Debug.Log("Player jumped");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
@@ -171,8 +146,6 @@ public class Player_cube_control : MonoBehaviour
     void Shoot()
     {
         //animator.SetTrigger("Attack");
-        myAudioShoot.clip = splashingSound;
-        myAudio.Play();
         GameObject NewBullet =
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
@@ -198,20 +171,15 @@ public class Player_cube_control : MonoBehaviour
 
     void Dash()
     {       
-
         if (IsWalkingLeft == true)
         { 
             GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
             InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
-            myAudio.clip = dashingSound;
-            myAudio.Play();
         }
         else if (IsWalkingLeft == false)
         { 
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
             InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
-            myAudio.clip = dashingSound;
-            myAudio.Play();
         };
         timeBTWdash = Start_timeBTWdash;
     }
@@ -226,8 +194,6 @@ public class Player_cube_control : MonoBehaviour
         HP -= Damage;
         Debug.Log("Player take damage");
         StartCoroutine("Hit_Iframe", InvincibleTime);
-        myAudioGetHit.clip = getting_hitSound;
-        myAudio.Play();
     }
 
     IEnumerator Hit_Iframe()
