@@ -43,6 +43,14 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Get Direction as of X-axis as 1 or -1
+        Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
+        GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
+
+        Vector2 velo = GetComponent<Rigidbody2D>().velocity;
+        velo.x = Direction.x * WalkSpeed * Time.deltaTime;
+
+        GetComponent<Rigidbody2D>().velocity = velo;
         //ATTACK--Shoot
         if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
         {
@@ -69,16 +77,7 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
-        //Get Direction as of X-axis as 1 or -1
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
-        GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
-
-        Vector2 velo = GetComponent<Rigidbody2D>().velocity;
-        velo.x = Direction.x * WalkSpeed * Time.deltaTime;
-
-        GetComponent<Rigidbody2D>().velocity = velo;
-
-
         //Burst Mode Trigger
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
         { Burst(); }

@@ -102,8 +102,8 @@ GameObject:
   - component: {fileID: 5846593991540681484}
   - component: {fileID: 703416030228976679}
   - component: {fileID: 9215341238363158527}
-  - component: {fileID: 8656905454639231347}
   - component: {fileID: 1888714782266681102}
+  - component: {fileID: 6882988784968524473}
   m_Layer: 9
   m_Name: Proto Enemy
   m_TagString: Enemy
@@ -191,12 +191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  WalkSpeed: 5
-  Tsuchinoko_Jumpforce: 0.35
+  WalkSpeed: 50
+  Tsuchinoko_Jumpforce: 0.375
   groundCheckRange: 1.5
   wallCheckRange: 0.75
   EnemyCheckRange: 10
-  AttackRange: 0.6
+  AttackRange: 0.75
   Damage: 1
   IsWalkingLeft: 0
   isGrounded: 1
@@ -236,22 +236,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &8656905454639231347
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543567553839816106}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.16, y: -0.12}
-  serializedVersion: 2
-  m_Radius: 0.89
 --- !u!95 &1888714782266681102
 Animator:
   serializedVersion: 3
@@ -271,6 +255,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &6882988784968524473
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543567553839816106}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.027775705, y: -0.06504369}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.355, y: 1.259}
+    newSize: {x: 13.55, y: 12.59}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2994486, y: 1.1289126}
+  m_EdgeRadius: 0
 --- !u!1 &6913318460610529659
 GameObject:
   m_ObjectHideFlags: 0

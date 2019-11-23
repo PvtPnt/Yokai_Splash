@@ -36,9 +36,13 @@ public class Enemy_basic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         if (HP <= 0) { Destroy(gameObject); }
+    }
+
+    void FixedUpdate()
+    {
         Walking();
 
         Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
@@ -60,13 +64,11 @@ public class Enemy_basic : MonoBehaviour
         {
             if (IsWalkingLeft == true)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed, ForceMode2D.Force);
-                StartCoroutine("Tsuchinoko_Jump", 3f);
+                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);
             }
             else if (IsWalkingLeft == false)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed, ForceMode2D.Force);
-                StartCoroutine("Tsuchinoko_Jump", 3f);
+                StartCoroutine("Tsuchinoko_MoveRight", 0.45f);
             }
         }
 
@@ -97,10 +99,18 @@ public class Enemy_basic : MonoBehaviour
         }
     }
 
-    IEnumerator Tsuchinoko_Jump()
+    IEnumerator Tsuchinoko_MoveLeft(float WaitTime)
     {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSecondsRealtime(WaitTime);
+    }
+
+    IEnumerator Tsuchinoko_MoveRight(float WaitTime)
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
+        yield return new WaitForSecondsRealtime(WaitTime);
     }
 
     private void OnDrawGizmosSelected()
