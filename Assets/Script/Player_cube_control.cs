@@ -33,7 +33,6 @@ public class Player_cube_control : MonoBehaviour
     public Transform GroundChecker;
     public SpriteRenderer PlayerSprite;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +50,7 @@ public class Player_cube_control : MonoBehaviour
         velo.x = Direction.x * WalkSpeed * Time.deltaTime;
 
         GetComponent<Rigidbody2D>().velocity = velo;
-        //ATTACK--Shoot
-        if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
-        {
-            Shoot();
-        }
+       
 
         //TRAP
         if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == true
@@ -100,7 +95,14 @@ public class Player_cube_control : MonoBehaviour
             { Dash(); }
         }
         else { timeBTWdash -= Time.deltaTime; }
+        //ATTACK--Shoot
 
+        if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
+        {
+            GetComponent<Animator>().SetBool("shoot", true);
+            Shoot();
+
+        }
         //Movement and animation
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
         {
@@ -144,10 +146,11 @@ public class Player_cube_control : MonoBehaviour
 
     void Shoot()
     {
-        //animator.SetTrigger("Attack");
         GameObject NewBullet =
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
+    
+        
     }
 
 
