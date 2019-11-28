@@ -72,6 +72,10 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
+
+        GetComponent<Animator>().SetBool("shoot", false);
+
+
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         //Burst Mode Trigger
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
@@ -149,7 +153,6 @@ public class Player_cube_control : MonoBehaviour
         GameObject NewBullet =
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
-    
         
     }
 
