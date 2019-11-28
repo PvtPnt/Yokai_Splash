@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Player_cube_control : MonoBehaviour
@@ -77,6 +78,11 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.P))
+            {
+            SceneManager.UnloadSceneAsync("proto1");
+            SceneManager.LoadScene("Title Scene");
+            }
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         //Burst Mode Trigger
         if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
