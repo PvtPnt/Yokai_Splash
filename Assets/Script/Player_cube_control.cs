@@ -74,7 +74,8 @@ public class Player_cube_control : MonoBehaviour
     {
 
         GetComponent<Animator>().SetBool("shoot", false);
-
+        GetComponent<Animator>().SetBool("damaged", false);
+        GetComponent<Animator>().SetBool("alive", true);
 
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         //Burst Mode Trigger
@@ -145,7 +146,17 @@ public class Player_cube_control : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.1f);
             JumpCount = 2;
         }
-       
+        if (Input.GetKeyDown(KeyCode.Z) )
+        {
+            GetComponent<Animator>().SetBool("damaged", true);
+           
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GetComponent<Animator>().SetBool("alive", false);
+
+        }
+
     }
 
     void Shoot()
