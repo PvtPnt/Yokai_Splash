@@ -113,8 +113,8 @@ public class Player_cube_control : MonoBehaviour
         {
             GetComponent<Animator>().SetBool("shoot", true);
             Shoot();
-
         }
+
         //Movement and animation
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
         {
@@ -153,16 +153,12 @@ public class Player_cube_control : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.1f);
             JumpCount = 2;
         }
+
         if (Input.GetKeyDown(KeyCode.Z) )
-        {
-            GetComponent<Animator>().SetBool("damaged", true);
+        {GetComponent<Animator>().SetBool("damaged", true);}
 
-        }
         if (Input.GetKeyDown(KeyCode.X))
-        {
-            GetComponent<Animator>().SetBool("alive", false);
-
-        }
+        {GetComponent<Animator>().SetBool("alive", false);}
 
     }
 
@@ -171,7 +167,6 @@ public class Player_cube_control : MonoBehaviour
         GameObject NewBullet =
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
-
     }
 
 
@@ -208,9 +203,7 @@ public class Player_cube_control : MonoBehaviour
     }
 
     public void BurstHeal()
-    {
-        HP += 30;
-    }
+    {HP += 30;}
 
     public void P_ReceiveDamage(int Damage)
     {

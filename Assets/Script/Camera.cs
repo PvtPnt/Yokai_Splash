@@ -18,21 +18,13 @@ public class Camera : MonoBehaviour
     void FixedUpdate()
     {
         if (Player.position.y >= Height_Threshold)
-        {
-            Current_Offset = High_Offset;
-        } 
+        {Current_Offset = High_Offset;} 
         else if (Player.position.y < Height_Threshold)
-        {
-            Current_Offset = Normal_Offset;
-        }
+        {Current_Offset = Normal_Offset;}
 
         Vector3 TargetPosition = Player.position + Current_Offset;
         Vector3 SmoothedPosition = Vector3.Lerp(transform.position, TargetPosition, SmoothDamp);
         transform.position = SmoothedPosition;
-        //transform.LookAt(Player);
-
-        
-
         }
 }
 

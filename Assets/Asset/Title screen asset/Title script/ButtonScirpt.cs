@@ -18,12 +18,8 @@ public class ButtonScirpt : MonoBehaviour
     }
 
     void OnMouseEnter()
-    {
-        ButtonSprite.color = Color.red;
-    }
+    {ButtonSprite.color = Color.red;}
 
     void OnMouseExit()
-    {
-        ButtonSprite.color = Color.white;
-    }
+    {ButtonSprite.color = Color.white;}
 }

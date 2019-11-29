@@ -32,9 +32,7 @@ public class BulletController : MonoBehaviour
             transform.Translate(-Vector3.right * Time.deltaTime * Speed);
         }
         else
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * Speed);
-        }
+        {transform.Translate(Vector3.right * Time.deltaTime * Speed);}
 
         Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
         for (int i = 0; i < DamageEnemy.Length; i++)
