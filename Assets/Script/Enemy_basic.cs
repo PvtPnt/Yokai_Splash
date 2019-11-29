@@ -7,6 +7,7 @@ public class Enemy_basic : MonoBehaviour
     public int HP;
 
     public float WalkSpeed;
+    public float Tsuchinoko_Jumpforce;
     public float groundCheckRange = 1f;
     public float wallCheckRange = 1f;
     public float EnemyCheckRange = 10f;
@@ -27,15 +28,21 @@ public class Enemy_basic : MonoBehaviour
     public Transform WallChecker_Right;
     public Transform WallChecker_Left;
 
+    public SpriteRenderer TsuchinokoSprite;
+
     // Start is called before the first frame update
     void Start()
     {
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         if (HP <= 0) { Destroy(gameObject); }
+    }
+
+    void FixedUpdate()
+    {
         Walking();
 
         Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
@@ -57,11 +64,11 @@ public class Enemy_basic : MonoBehaviour
         {
             if (IsWalkingLeft == true)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed, ForceMode2D.Force);
+                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);
             }
             else if (IsWalkingLeft == false)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed, ForceMode2D.Force);
+                StartCoroutine("Tsuchinoko_MoveRight", 0.45f);
             }
         }
 
@@ -71,15 +78,20 @@ public class Enemy_basic : MonoBehaviour
     void CheckWall()
     {
         if (IsWalkingLeft == true)
-        {Current_WallChecker = WallChecker_Left;} 
+        {
+            Current_WallChecker = WallChecker_Left;
+            TsuchinokoSprite.flipX = false;
+        } 
         else if (IsWalkingLeft == false)
-        {Current_WallChecker = WallChecker_Right;}
+        {
+            Current_WallChecker = WallChecker_Right;
+            TsuchinokoSprite.flipX = true;
+        }
 
         isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer);
 
         if (isWalled == true)
         {
-            StartCoroutine("Wait_Before_Turning", 2f);
             if (IsWalkingLeft == true)
             { IsWalkingLeft = false; }
             else if (IsWalkingLeft == false)
@@ -87,10 +99,18 @@ public class Enemy_basic : MonoBehaviour
         }
     }
 
-    IEnumerator Wait_Before_Turning()
+    IEnumerator Tsuchinoko_MoveLeft(float WaitTime)
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        yield return new WaitForSeconds(2f);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
+        yield return new WaitForSecondsRealtime(WaitTime);
+    }
+
+    IEnumerator Tsuchinoko_MoveRight(float WaitTime)
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
+        yield return new WaitForSecondsRealtime(WaitTime);
     }
 
     private void OnDrawGizmosSelected()
