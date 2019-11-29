@@ -9,7 +9,9 @@ public class Camera : MonoBehaviour
     public Vector3 Normal_Offset;
     public Vector3 Current_Offset;
     public Vector3 High_Offset;
-    public float SmoothDamp = 0.125f;
+
+    public float SmoothDamp;
+
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -27,9 +29,10 @@ public class Camera : MonoBehaviour
         Vector3 TargetPosition = Player.position + Current_Offset;
         Vector3 SmoothedPosition = Vector3.Lerp(transform.position, TargetPosition, SmoothDamp);
         transform.position = SmoothedPosition;
-
-
-
         //transform.LookAt(Player);
-    }
+
+        
+
+        }
 }
+

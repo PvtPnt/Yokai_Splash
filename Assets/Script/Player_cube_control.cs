@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Player_cube_control : MonoBehaviour
@@ -36,7 +37,7 @@ public class Player_cube_control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class Player_cube_control : MonoBehaviour
         velo.x = Direction.x * WalkSpeed * Time.deltaTime;
 
         GetComponent<Rigidbody2D>().velocity = velo;
-       
+
 
         //TRAP
         if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == true
@@ -76,6 +77,12 @@ public class Player_cube_control : MonoBehaviour
         GetComponent<Animator>().SetBool("shoot", false);
         GetComponent<Animator>().SetBool("damaged", false);
         GetComponent<Animator>().SetBool("alive", true);
+
+        if (Input.GetKeyUp(KeyCode.P))
+            {
+            SceneManager.UnloadSceneAsync("proto1");
+            SceneManager.LoadScene("Title Scene");
+            }
 
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         //Burst Mode Trigger
@@ -127,7 +134,7 @@ public class Player_cube_control : MonoBehaviour
             GetComponent<Animator>().SetBool("jump", false);
             GetComponent<Animator>().SetBool("jump2", false);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded
            || Input.GetKeyDown(KeyCode.K) && isGrounded)
         {
@@ -149,7 +156,7 @@ public class Player_cube_control : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) )
         {
             GetComponent<Animator>().SetBool("damaged", true);
-           
+
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -164,7 +171,7 @@ public class Player_cube_control : MonoBehaviour
         GameObject NewBullet =
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
-        
+
     }
 
 
@@ -186,20 +193,20 @@ public class Player_cube_control : MonoBehaviour
 
 
     void Dash()
-    {       
+    {
         if (IsWalkingLeft == true)
-        { 
+        {
             GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
             InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
         }
         else if (IsWalkingLeft == false)
-        { 
+        {
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
             InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
         };
         timeBTWdash = Start_timeBTWdash;
     }
-    
+
     public void BurstHeal()
     {
         HP += 30;
@@ -222,7 +229,7 @@ public class Player_cube_control : MonoBehaviour
     }
 
     void SpawnTrailPart()
-    {   
+    {
         GameObject trailPart = new GameObject();
         SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
         trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
