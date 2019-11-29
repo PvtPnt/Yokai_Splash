@@ -73,8 +73,8 @@ public class Player_Melee : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
             {
                 GetComponent<Animator>().SetBool("Melee", true);
-                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed, ForceMode2D.Force);
-                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 150, ForceMode2D.Force);
+                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
+                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
                 AttackDirection(Damage);
                 timeBTWattack = Start_timeBTWattack;
             }

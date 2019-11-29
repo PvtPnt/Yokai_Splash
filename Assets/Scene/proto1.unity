@@ -11584,6 +11584,16 @@ PrefabInstance:
       propertyPath: BurstTime
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: NormalMelee
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: BurstMelee
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_UseAutoMass
