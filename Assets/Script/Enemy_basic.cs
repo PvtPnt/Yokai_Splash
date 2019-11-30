@@ -7,6 +7,7 @@ public class Enemy_basic : MonoBehaviour
     public int HP;
 
     public float WalkSpeed;
+    public float Tsuchinoko_Jumpforce;
     public float groundCheckRange = 1f;
     public float wallCheckRange = 1f;
     public float EnemyCheckRange = 10f;
@@ -15,25 +16,33 @@ public class Enemy_basic : MonoBehaviour
     public int Damage;
 
     public bool IsWalkingLeft;
+    public bool isGrounded;
+    public bool isWalled;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
     public LayerMask playerLayer;
 
     public Transform EnemyHitbox;
+    public Transform Current_WallChecker;
+    public Transform WallChecker_Right;
+    public Transform WallChecker_Left;
 
-    public Vector2 RayOffset = Vector2.left;
+    public SpriteRenderer TsuchinokoSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         if (HP <= 0) { Destroy(gameObject); }
+    }
+
+    void FixedUpdate()
+    {
         Walking();
 
         Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
@@ -49,66 +58,74 @@ public class Enemy_basic : MonoBehaviour
 
     void Walking()
     {
-        if (IsWalkingLeft == true)
+        CheckWall();
+        isGrounded = Physics2D.OverlapCircle(transform.position, groundCheckRange, groundLayer);
+        if (isGrounded)
         {
-            CheckWall(-Vector2.right);
-            Debug.DrawRay(transform.position, -Vector2.up * groundCheckRange, Color.red);
-            if (Physics2D.Raycast(transform.position, -Vector2.up, groundCheckRange, groundLayer))
+            if (IsWalkingLeft == true)
             {
-                //Walk Left, Check hole on left
-                //EnemySprite.flipX = false;
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * -WalkSpeed * Time.deltaTime);
+                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);
             }
-            else
+            else if (IsWalkingLeft == false)
             {
-                IsWalkingLeft = false;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                StartCoroutine("Tsuchinoko_MoveRight", 0.45f);
             }
         }
-        else
+
+
+    }
+
+    void CheckWall()
+    {
+        if (IsWalkingLeft == true)
         {
-            CheckWall(Vector2.right);
-            Debug.DrawRay(transform.position, -Vector2.up * groundCheckRange, Color.red);
-            if (Physics2D.Raycast(transform.position, -Vector2.up, groundCheckRange, groundLayer))
-            {
-                //Walk Right, Check hole on right
-                //EnemySprite.flipX = true;
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime);
-            }
-            else
-            {
-                IsWalkingLeft = true;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
+            Current_WallChecker = WallChecker_Left;
+            TsuchinokoSprite.flipX = false;
+        } 
+        else if (IsWalkingLeft == false)
+        {
+            Current_WallChecker = WallChecker_Right;
+            TsuchinokoSprite.flipX = true;
+        }
+
+        isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer);
+
+        if (isWalled == true)
+        {
+            if (IsWalkingLeft == true)
+            { IsWalkingLeft = false; }
+            else if (IsWalkingLeft == false)
+            { IsWalkingLeft = true; }
         }
     }
 
-    void CheckWall(Vector2 direction)
+    IEnumerator Tsuchinoko_MoveLeft(float WaitTime)
     {
-        Debug.DrawRay(transform.position, direction * wallCheckRange, Color.cyan);
-        if (Physics2D.Raycast(transform.position, direction, wallCheckRange, wallLayer))
-        {
-            if (IsWalkingLeft)
-            {
-                IsWalkingLeft = false;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-            else
-            {
-                IsWalkingLeft = true;
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-        }
+        GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
+        yield return new WaitForSecondsRealtime(WaitTime);
+    }
+
+    IEnumerator Tsuchinoko_MoveRight(float WaitTime)
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * Tsuchinoko_Jumpforce, ForceMode2D.Impulse);
+        yield return new WaitForSecondsRealtime(WaitTime);
     }
 
     private void OnDrawGizmosSelected()
     {
         Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
         if (IsWalkingLeft == false)
-        { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
+        { 
+            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
+        }
 
         if (IsWalkingLeft == true)
-        { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
+        { 
+            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
+        }
     }
 }
