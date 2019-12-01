@@ -65,10 +65,12 @@ public class Enemy_basic : MonoBehaviour
             if (IsWalkingLeft == true)
             {
                 StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);
+                GetComponent<Animator>().SetBool("moving", true);
             }
             else if (IsWalkingLeft == false)
             {
                 StartCoroutine("Tsuchinoko_MoveRight", 0.45f);
+                GetComponent<Animator>().SetBool("moving", true);
             }
         }
 

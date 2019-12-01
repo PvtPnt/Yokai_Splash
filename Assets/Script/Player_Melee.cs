@@ -31,7 +31,7 @@ public class Player_Melee : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         Vector2 ATK_Direction_X = new Vector2(atk_direction_x, 0);
