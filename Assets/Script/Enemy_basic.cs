@@ -37,9 +37,7 @@ public class Enemy_basic : MonoBehaviour
 
     // Update is called once per frame
      void Update()
-    {
-        if (HP <= 0) { Destroy(gameObject); }
-    }
+    {if (HP <= 0) {Destroy(gameObject);}}
 
     void FixedUpdate()
     {
@@ -63,18 +61,10 @@ public class Enemy_basic : MonoBehaviour
         if (isGrounded)
         {
             if (IsWalkingLeft == true)
-            {
-                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);
-                GetComponent<Animator>().SetBool("moving", true);
-            }
+            {StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);}
             else if (IsWalkingLeft == false)
-            {
-                StartCoroutine("Tsuchinoko_MoveRight", 0.45f);
-                GetComponent<Animator>().SetBool("moving", true);
-            }
+            {StartCoroutine("Tsuchinoko_MoveRight", 0.45f);}
         }
-
-
     }
 
     void CheckWall()
@@ -121,13 +111,9 @@ public class Enemy_basic : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
         if (IsWalkingLeft == false)
-        { 
-            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
-        }
+        {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
 
         if (IsWalkingLeft == true)
-        { 
-            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
-        }
+        {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
     }
 }
