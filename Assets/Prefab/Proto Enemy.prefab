@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  WalkSpeed: 50
+  WalkSpeed: 35
   Tsuchinoko_Jumpforce: 0.35
   groundCheckRange: 1.5
   wallCheckRange: 0.75

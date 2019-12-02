@@ -47,7 +47,7 @@ public class Enemy_basic : MonoBehaviour
 
         Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
         for (int i = 0; i < DamagePlayer.Length; i++)
-        { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+        {DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);}
     }
 
     public void ReceiveDamage(int Damage)

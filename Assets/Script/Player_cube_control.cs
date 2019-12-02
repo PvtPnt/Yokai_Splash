@@ -18,6 +18,7 @@ public class Player_cube_control : MonoBehaviour
     public float XOffset = 3f;
     public float YOffset = 1f;
     public float BurstTime = 10f;
+    public float Walking;
 
     public bool isAlive;
     public bool isLoss;
@@ -127,21 +128,20 @@ public class Player_cube_control : MonoBehaviour
         }
 
         //Movement and animation
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && isGrounded == true)
+        Walking = Input.GetAxis("Horizontal");
+        if (Walking != 0 && isGrounded == true)
         {
             GetComponent<Animator>().SetBool("Run", true);
             Debug.Log("Player running");
         }
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) { GetComponent<Animator>().SetBool("Run", false); }
+        else if (Walking == 0 & isGrounded) { GetComponent<Animator>().SetBool("Run", false); }
 
         isGrounded = Physics2D.OverlapCircle(GroundChecker.position, groundCheckRange, groundLayer);
 
+        //jump controlling
         if (isGrounded)
         {
             JumpCount = 0;
-        }
-        //jump controlling
-        if (isGrounded) {
             GetComponent<Animator>().SetBool("jump", false);
             GetComponent<Animator>().SetBool("jump2", false);
         }
@@ -169,10 +169,9 @@ public class Player_cube_control : MonoBehaviour
             JumpCount = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) )
-        {GetComponent<Animator>().SetBool("damaged", true);}
-
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyUp(KeyCode.Z))
+        { GetComponent<Animator>().SetTrigger("damaged"); }
+        if (Input.GetKeyUp(KeyCode.X))
         {GetComponent<Animator>().SetBool("alive", false);}
 
     }
@@ -269,25 +268,4 @@ public class Player_cube_control : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         CancelInvoke("SpawnTrailPart");
     }
-
-    //public void ReceiveDamage(int Damage)
-    // {
-    //    HP -= Damage;
-
-    //     if (HP <= 0)
-    //     {
-    //Destroy(this.gameObject);         // method 1
-    //animator.SetTrigger("Death");     // method 2, if I have death anim
-
-    //PlayerSprite.color = Color.red;
-    //         isAlive = false;
-    //         isLoss = true;
-    //        gameObject.SetActive(false);
-    // method 3
-    //    }
-    //      else
-    //     {
-    //         StartCoroutine("TakeDamage", 1);
-    //     }
-    //  }
 }
