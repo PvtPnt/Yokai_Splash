@@ -37,9 +37,7 @@ public class Enemy_basic : MonoBehaviour
 
     // Update is called once per frame
      void Update()
-    {
-        if (HP <= 0) { Destroy(gameObject); }
-    }
+    {if (HP <= 0) {Destroy(gameObject);}}
 
     void FixedUpdate()
     {
@@ -47,7 +45,7 @@ public class Enemy_basic : MonoBehaviour
 
         Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
         for (int i = 0; i < DamagePlayer.Length; i++)
-        { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+        {DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);}
     }
 
     public void ReceiveDamage(int Damage)
@@ -63,16 +61,10 @@ public class Enemy_basic : MonoBehaviour
         if (isGrounded)
         {
             if (IsWalkingLeft == true)
-            {
-                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);
-            }
+            {StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);}
             else if (IsWalkingLeft == false)
-            {
-                StartCoroutine("Tsuchinoko_MoveRight", 0.45f);
-            }
+            {StartCoroutine("Tsuchinoko_MoveRight", 0.45f);}
         }
-
-
     }
 
     void CheckWall()
@@ -119,13 +111,9 @@ public class Enemy_basic : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
         if (IsWalkingLeft == false)
-        { 
-            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
-        }
+        {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
 
         if (IsWalkingLeft == true)
-        { 
-            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
-        }
+        {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
     }
 }

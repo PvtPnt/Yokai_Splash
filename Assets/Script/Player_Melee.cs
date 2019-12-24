@@ -17,6 +17,7 @@ public class Player_Melee : MonoBehaviour
     public bool BurstMode = false;
 
     public int Damage;
+    public AudioClip swingingSound;
     public int NormalMelee;
     public int BurstMelee;
     public int atk_direction_x;
@@ -30,7 +31,7 @@ public class Player_Melee : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         Vector2 ATK_Direction_X = new Vector2(atk_direction_x, 0);
@@ -54,6 +55,7 @@ public class Player_Melee : MonoBehaviour
         {Burst();}
 
         if (GetComponent<Player_cube_control>().isGrounded == false)
+        
         {
             ATK_Direction_X = Vector2.zero;
             atk_direction_y = 0;
@@ -72,6 +74,8 @@ public class Player_Melee : MonoBehaviour
             GetComponent<Animator>().SetBool("Melee", false);
             if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
             {
+                GetComponent<Player_cube_control>().myAudioAttack.clip = swingingSound;
+                GetComponent<Player_cube_control>().myAudioAttack.Play();
                 GetComponent<Animator>().SetBool("Melee", true);
                 GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
                 GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
