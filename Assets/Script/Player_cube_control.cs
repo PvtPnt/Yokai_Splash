@@ -112,7 +112,7 @@ public class Player_cube_control : MonoBehaviour
             IsWalkingLeft = false;
         }
 
-        if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
+        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.JoystickButton1))
         {
             if (timeBTWdash <= 0)
             { Dash(); }
@@ -211,18 +211,18 @@ public class Player_cube_control : MonoBehaviour
         isDashing = true;
         myAudio.clip = dashingSound;
         myAudio.Play();
-        if (IsWalkingLeft == true)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
-            InvokeRepeating("SpawnTrailPart", 0f, 0.05f);
-            // Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
-        }
-        else if (IsWalkingLeft == false)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
-            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); 
-            // Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
-        };
+            if (IsWalkingLeft == true)
+            {
+                InvokeRepeating("SpawnTrailPart", 0f, 0.03f);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
+                // Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
+            }
+            else if (IsWalkingLeft == false)
+            {
+                InvokeRepeating("SpawnTrailPart", 0f, 0.03f);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
+                // Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
+            };
         timeBTWdash = Start_timeBTWdash;
     }
 
