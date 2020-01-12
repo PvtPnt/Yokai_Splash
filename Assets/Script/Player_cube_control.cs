@@ -54,6 +54,8 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (HP<=0) { GetComponent<Animator>().SetBool("alive",false); }
+
         GetComponent<Animator>().SetBool("shoot", false);
         GetComponent<Animator>().SetBool("dash", false);
         //Get Direction as of X-axis as 1 or -1
@@ -87,7 +89,7 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
-        GetComponent<Animator>().SetBool("alive", true);
+        //GetComponent<Animator>().SetBool("alive", true);
 
         if (Input.GetKeyUp(KeyCode.P))
             {
@@ -284,7 +286,7 @@ public class Player_cube_control : MonoBehaviour
         trailPartRenderer.color = color;
 
         yield return new WaitForSeconds(0.3f);
-        CancelInvoke("SpawnTrailPart");
+        if(isGrounded) { CancelInvoke("SpawnTrailPart"); }
         isDashing = false;
     }
 }
