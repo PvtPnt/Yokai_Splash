@@ -1363,7 +1363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172177667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.87, y: 2.75, z: -10}
+  m_LocalPosition: {x: 83.32, y: 0.68, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18778,6 +18778,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2134063932, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134063932, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.32
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: Start_timeBTWattack
@@ -18823,6 +18831,21 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: b514907977ae8124495cb8796450dd5f, type: 2}
     - target: {fileID: 177773576671884035, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Enabled
@@ -18943,6 +18966,21 @@ PrefabInstance:
       propertyPath: myMusic
       value:
       objectReference: {fileID: 1479496768}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: Start_timeBTWshoot
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: IsWalkingLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: HP
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884094, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Name
