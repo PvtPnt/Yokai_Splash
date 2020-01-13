@@ -15,6 +15,7 @@ public class Player_cube_control : MonoBehaviour
     public float groundCheckRange = 1f;
     public float HP;
     public float InvincibleTime = 1f;
+    public float DashFrame = 0.3f;
     public float XOffset = 3f;
     public float YOffset = 1f;
     public float BurstTime = 10f;
@@ -22,6 +23,7 @@ public class Player_cube_control : MonoBehaviour
 
     public bool isAlive;
     public bool isLoss;
+    public bool isDashing;
     public bool isGrounded;
     public bool IsWalkingLeft = false;
     public bool BurstMode = false;
@@ -52,6 +54,10 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (HP<=0) { GetComponent<Animator>().SetBool("alive",false); }
+
+        GetComponent<Animator>().SetBool("shoot", false);
+        GetComponent<Animator>().SetBool("dash", false);
         //Get Direction as of X-axis as 1 or -1
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         GetComponent<Rigidbody2D>().AddForce(Direction * WalkSpeed, ForceMode2D.Force);
@@ -83,10 +89,7 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
-
-        GetComponent<Animator>().SetBool("shoot", false);
-        GetComponent<Animator>().SetBool("damaged", false);
-        GetComponent<Animator>().SetBool("alive", true);
+        //GetComponent<Animator>().SetBool("alive", true);
 
         if (Input.GetKeyUp(KeyCode.P))
             {
@@ -111,14 +114,20 @@ public class Player_cube_control : MonoBehaviour
             IsWalkingLeft = false;
         }
 
-        if (Input.GetKey(KeyCode.L) || Input.GetKeyDown(KeyCode.JoystickButton1))
+        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.JoystickButton1))
         {
             if (timeBTWdash <= 0)
             { Dash(); }
         }
         else { timeBTWdash -= Time.deltaTime; }
-        //ATTACK--Shoot
 
+        if (isDashing == true)
+        {
+            GetComponent<Animator>().SetBool("dash", true);
+            StartCoroutine("Dashframe", DashFrame);
+        }
+
+        //ATTACK--Shoot
         if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
         {
             myAudioAttack.clip = shootingSound;
@@ -169,8 +178,6 @@ public class Player_cube_control : MonoBehaviour
             JumpCount = 2;
         }
 
-        if (Input.GetKeyUp(KeyCode.Z))
-        { GetComponent<Animator>().SetTrigger("damaged"); }
         if (Input.GetKeyUp(KeyCode.X))
         {GetComponent<Animator>().SetBool("alive", false);}
 
@@ -203,18 +210,21 @@ public class Player_cube_control : MonoBehaviour
 
     void Dash()
     {
+        isDashing = true;
         myAudio.clip = dashingSound;
         myAudio.Play();
-        if (IsWalkingLeft == true)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
-            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
-        }
-        else if (IsWalkingLeft == false)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
-            InvokeRepeating("SpawnTrailPart", 0f, 0.05f); // replace 0.2f with needed repeatRate
-        };
+            if (IsWalkingLeft == true)
+            {
+                InvokeRepeating("SpawnTrailPart", 0f, 0.03f);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
+                // Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
+            }
+            else if (IsWalkingLeft == false)
+            {
+                InvokeRepeating("SpawnTrailPart", 0f, 0.03f);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * DashSpeed_multiplier, ForceMode2D.Force);
+                // Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
+            };
         timeBTWdash = Start_timeBTWdash;
     }
 
@@ -226,15 +236,25 @@ public class Player_cube_control : MonoBehaviour
         myAudioHit.clip = hitSound;
         myAudioHit.Play();
         HP -= Damage;
+        GetComponent<Animator>().SetTrigger("damaged_trigger");
         Debug.Log("Player take damage");
-        StartCoroutine("Hit_Iframe", InvincibleTime);
+        StartCoroutine("Iframe", InvincibleTime);
     }
 
-    IEnumerator Hit_Iframe()
+    IEnumerator Iframe()
     {
         gameObject.layer = 12; //Player_Invin layer
         GetComponentInChildren<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(InvincibleTime);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        gameObject.layer = 11; //Player layer
+    }
+
+    IEnumerator Dashframe()
+    {
+        gameObject.layer = 12; //Player_Invin layer
+        GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+        yield return new WaitForSeconds(DashFrame);
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
         gameObject.layer = 11; //Player layer
     }
@@ -266,6 +286,7 @@ public class Player_cube_control : MonoBehaviour
         trailPartRenderer.color = color;
 
         yield return new WaitForSeconds(0.3f);
-        CancelInvoke("SpawnTrailPart");
+        if(isGrounded) { CancelInvoke("SpawnTrailPart"); }
+        isDashing = false;
     }
 }
