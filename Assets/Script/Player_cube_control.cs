@@ -9,6 +9,8 @@ public class Player_cube_control : MonoBehaviour
 
     private float timeBTWdash;
     public float Start_timeBTWdash;
+    private float timeBTWshoot;
+    public float Start_timeBTWshoot;
     public float WalkSpeed;
     public float DashSpeed_multiplier;
     public float JumpForce;
@@ -130,12 +132,16 @@ public class Player_cube_control : MonoBehaviour
         //ATTACK--Shoot
         if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
         {
-            myAudioAttack.clip = shootingSound;
-            myAudioAttack.Play();
-            GetComponent<Animator>().SetBool("shoot", true);
-            Shoot();
+            if (timeBTWshoot <= 0)
+            {
+                myAudioAttack.clip = shootingSound;
+                myAudioAttack.Play();
+                GetComponent<Animator>().SetBool("shoot", true);
+                Shoot();
+            }
+                
         }
-
+        else { timeBTWshoot -= Time.deltaTime; }
         //Movement and animation
         Walking = Input.GetAxis("Horizontal");
         if (Walking != 0 && isGrounded == true)
@@ -188,6 +194,7 @@ public class Player_cube_control : MonoBehaviour
         GameObject NewBullet =
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
+        timeBTWshoot = Start_timeBTWshoot;
     }
 
 
