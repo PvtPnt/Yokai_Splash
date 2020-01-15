@@ -18816,6 +18816,11 @@ PrefabInstance:
       propertyPath: swingingSound
       value: 
       objectReference: {fileID: 8300000, guid: 8b522ea8fe7374d4cafe8824e30a1f09, type: 3}
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: AttackRange
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_UseAutoMass
@@ -18979,7 +18984,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: HP
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884094, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
