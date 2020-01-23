@@ -13,6 +13,7 @@ public class WaveController : MonoBehaviour
     public GameObject Wave;
 
     public Transform Player;
+    public bool waveDirectionLeft;
     public float ZOffset;
     public float YOffset;
     public float XOffset;
@@ -35,10 +36,12 @@ public class WaveController : MonoBehaviour
         if (IsWalkingLeft == true)
         {
             transform.Translate(Vector3.left * Time.deltaTime * Speed);
+            waveDirectionLeft = true;
         }
         else if (IsWalkingLeft == false)
         {
             transform.Translate(Vector3.right * Time.deltaTime * Speed);
+            waveDirectionLeft = false;
         }
     }
 
@@ -48,20 +51,16 @@ public class WaveController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Wave && other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
+            Debug.Log("Made contact!");
             //Deal dmg to enemy
             other.SendMessage("ReceiveDamage", Damage);
+            other.SendMessage("PushedBack", waveDirectionLeft);
             Destroy(this.gameObject);
         }
 
-        if (Wave && other.tag == "Player")
-        {
-            //Deal dmg to player
-            other.SendMessage("ReceiveDamage", Damage);
-            Destroy(this.gameObject);
-        }
     }
 }

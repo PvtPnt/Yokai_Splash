@@ -14,6 +14,7 @@ public class Enemy_basic : MonoBehaviour
     public float AttackRange;
 
     public int Damage;
+    public bool waveDirectionLeft;
 
     public bool IsWalkingLeft;
     public bool isGrounded;
@@ -52,6 +53,22 @@ public class Enemy_basic : MonoBehaviour
     {
         HP -= Damage;
         Debug.Log("Damage taken");
+    }
+
+    public void PushedBack(bool WaveDirectionLeft)
+    {
+        Debug.Log("Pushback hit");
+        Vector3 pushedDir = new Vector3(1, 0, 0);
+        if (waveDirectionLeft == true)
+        {
+           
+            GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
+        }
+
+        if (waveDirectionLeft == false)
+        {
+            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 100);
+        }
     }
 
     void Walking()
