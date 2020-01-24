@@ -116,7 +116,7 @@ public class Player_cube_control : MonoBehaviour
             IsWalkingLeft = false;
         }
 
-        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.JoystickButton1))
+        if (Input.GetKey(KeyCode.L) && Direction.x != 0 || Input.GetKey(KeyCode.JoystickButton1) && Direction.x != 0)
         {
             if (timeBTWdash <= 0)
             { Dash(); }
