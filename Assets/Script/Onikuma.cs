@@ -23,6 +23,7 @@ public class Onikuma : MonoBehaviour
     public LayerMask playerLayer;
 
     public Transform EnemyHitbox;
+    public Transform groundChecker;
     public Transform Current_WallChecker;
     public Transform WallChecker_Right;
     public Transform WallChecker_Left;
@@ -40,13 +41,24 @@ public class Onikuma : MonoBehaviour
 
     void FixedUpdate()
     {
-        Collider2D DetectPlayer = Physics2D.OverlapCircle(EnemyHitbox.position, AttackRange, playerLayer);
-        Walking();
+        //Walking();
+        Vector3 PlayerPosition = GameObject.Find("Player").transform.position;
+
+        if (transform.position.x < PlayerPosition.x)
+        { StartCoroutine("Onikuma_MoveRight", 3.0f); }
+        else if (transform.position.x > PlayerPosition.x)
+        { StartCoroutine("Onikuma_MoveLeft", 3.0f); }
+        
+        isGrounded = Physics2D.OverlapCircle(groundChecker.transform.position, groundCheckRange, groundLayer);
+
+        Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
+        for (int i = 0; i < DamagePlayer.Length; i++)
+        { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
     }
     void Walking()
     {
         CheckWall();
-        isGrounded = Physics2D.OverlapCircle(transform.position, groundCheckRange, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundChecker.transform.position, groundCheckRange, groundLayer);
         if (isGrounded)
         {
             if (IsWalkingLeft == true)
@@ -82,14 +94,14 @@ public class Onikuma : MonoBehaviour
 
     IEnumerator Onikuma_MoveLeft(float WaitTime)
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
         yield return new WaitForSecondsRealtime(WaitTime);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
     }
 
     IEnumerator Onikuma_MoveRight(float WaitTime)
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
         yield return new WaitForSecondsRealtime(WaitTime);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed * Time.deltaTime, ForceMode2D.Force);
     }
 
     private void OnDrawGizmosSelected()
@@ -97,6 +109,11 @@ public class Onikuma : MonoBehaviour
         Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(groundChecker.position, groundCheckRange);
+
+        Gizmos.color = Color.blue;
         if (IsWalkingLeft == false)
         { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
 
