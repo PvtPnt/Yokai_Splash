@@ -57,17 +57,18 @@ public class Enemy_basic : MonoBehaviour
 
     public void PushedBack(bool WaveDirectionLeft)
     {
-        Debug.Log("Pushback hit");
+        
         Vector3 pushedDir = new Vector3(1, 0, 0);
-        if (waveDirectionLeft == true)
+        if (WaveDirectionLeft == true)
         {
-           
-            GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
+            Debug.Log("Pushback hit Left");
+            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 100);
         }
 
-        if (waveDirectionLeft == false)
+        else
         {
-            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 100);
+            Debug.Log("Pushback hit Right");
+            GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
         }
     }
 

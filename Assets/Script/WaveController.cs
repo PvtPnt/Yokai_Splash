@@ -9,6 +9,7 @@ public class WaveController : MonoBehaviour
     public float Damage = 10f;
     public bool isMovingLeft;
     public bool IsWalkingLeft;
+    public bool DirectionIsLeft;
     public float LifeTime = 3f;
     public GameObject Wave;
 
@@ -21,11 +22,12 @@ public class WaveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        /*Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         if (Direction.x < 0)
         { IsWalkingLeft = true; }
         else if (Direction.x > 0)
         { IsWalkingLeft = false; }
+        */
         StartCoroutine("Expire", LifeTime);
     }
 
@@ -33,12 +35,12 @@ public class WaveController : MonoBehaviour
     void Update()
     {
 
-        if (IsWalkingLeft == true)
+        if (DirectionIsLeft == false)
         {
             transform.Translate(Vector3.left * Time.deltaTime * Speed);
             waveDirectionLeft = true;
         }
-        else if (IsWalkingLeft == false)
+        else
         {
             transform.Translate(Vector3.right * Time.deltaTime * Speed);
             waveDirectionLeft = false;
@@ -58,7 +60,7 @@ public class WaveController : MonoBehaviour
             Debug.Log("Made contact!");
             //Deal dmg to enemy
             other.SendMessage("ReceiveDamage", Damage);
-            other.SendMessage("PushedBack", waveDirectionLeft);
+            other.SendMessage("PushedBack", DirectionIsLeft);
             Destroy(this.gameObject);
         }
 
