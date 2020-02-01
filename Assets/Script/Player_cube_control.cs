@@ -207,8 +207,9 @@ public class Player_cube_control : MonoBehaviour
 
     IEnumerator Water_Regen()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(1.5f);
         Water = Water + Water_regen_rate;
+        yield return new WaitForSeconds(1.5f);
     }
 
     IEnumerator Expire()
