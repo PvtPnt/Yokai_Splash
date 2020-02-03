@@ -59,7 +59,6 @@ public class WaveController : MonoBehaviour
         {
             Debug.Log("Made contact!");
             //Deal dmg to enemy
-            other.SendMessage("ReceiveDamage", Damage);
             other.SendMessage("PushedBack", DirectionIsLeft);
             Destroy(this.gameObject);
         }

@@ -26,7 +26,7 @@ public class TrapController : MonoBehaviour
         {
             ZOffset = transform.position.z - Player.position.z;
             //YOffset = 2.0f;
-            XOffset = 3.0f;
+            XOffset = 0.0f;
         }
 
     

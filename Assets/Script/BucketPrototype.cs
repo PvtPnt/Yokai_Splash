@@ -24,8 +24,11 @@ public class BucketPrototype : MonoBehaviour
         {
             Debug.Log("Made contact!");
             //Deal dmg to enemy
-            other.SendMessage("ReceiveDamage", Damage);
-            Destroy(this.gameObject);
+            if (other.GetComponent<Enemy_basic>().onPush == true)
+            {
+                other.SendMessage("ReceiveDamage", Damage);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

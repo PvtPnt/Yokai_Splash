@@ -19,6 +19,7 @@ public class Enemy_basic : MonoBehaviour
     public bool IsWalkingLeft;
     public bool isGrounded;
     public bool isWalled;
+    public bool onPush = false;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -70,6 +71,16 @@ public class Enemy_basic : MonoBehaviour
             Debug.Log("Pushback hit Right");
             GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
         }
+
+        onPush = true;
+        StartCoroutine(endPush());
+    }
+
+    IEnumerator endPush()
+    {
+        yield return new WaitForSeconds(2.0f);
+        onPush = false;
+        Debug.Log("endpush");
     }
 
     void Walking()
