@@ -46,11 +46,12 @@ public class Player_cube_control : MonoBehaviour
 
     public Transform GroundChecker;
     public SpriteRenderer PlayerSprite;
+    public Collider2D collider;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -218,6 +219,7 @@ public class Player_cube_control : MonoBehaviour
     void Dash()
     {
         isDashing = true;
+        collider.isTrigger = true;
         myAudio.clip = dashingSound;
         myAudio.Play();
             if (IsWalkingLeft == true)
@@ -294,6 +296,7 @@ public class Player_cube_control : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
         if(isGrounded) { CancelInvoke("SpawnTrailPart"); }
+        collider.isTrigger = false;
         isDashing = false;
     }
 }
