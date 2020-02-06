@@ -146,9 +146,9 @@ public class Player_cube_control : MonoBehaviour
             }               
         } else { timeBTWshoot -= Time.deltaTime; }
 
-        if (Water < MaxWater)
-        { StartCoroutine("Water_Regen"); }
-        else if (Water > MaxWater) { Water = MaxWater; }
+        //Water Regeneration
+        Water += Water_regen_rate * Time.deltaTime;
+        if (Water > MaxWater) { Water = MaxWater; };
 
         //Movement and animation
         Walking = Input.GetAxis("Horizontal");
@@ -203,12 +203,6 @@ public class Player_cube_control : MonoBehaviour
             Instantiate(Bullet, transform.position, Quaternion.identity);
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
         timeBTWshoot = Start_timeBTWshoot;
-    }
-
-    IEnumerator Water_Regen()
-    {
-        yield return new WaitForSeconds(3.5f);
-        Water = Water + Water_regen_rate;
     }
 
     IEnumerator Expire()
