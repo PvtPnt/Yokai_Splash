@@ -60,7 +60,12 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (HP<=0) { GetComponent<Animator>().SetBool("alive",false); }
+        if (HP<=0) 
+        {
+            GetComponent<Player_Melee>().enabled = false;
+            GetComponent<Player_cube_control>().enabled = false;
+            GetComponent<Animator>().SetBool("alive",false);
+        }
 
         GetComponent<Animator>().SetBool("shoot", false);
         GetComponent<Animator>().SetBool("dash", false);
@@ -155,7 +160,6 @@ public class Player_cube_control : MonoBehaviour
         if (Walking != 0 && isGrounded == true)
         {
             GetComponent<Animator>().SetBool("Run", true);
-            Debug.Log("Player running");
         }
         else if (Walking == 0 & isGrounded) { GetComponent<Animator>().SetBool("Run", false); }
 
@@ -175,7 +179,6 @@ public class Player_cube_control : MonoBehaviour
             myAudio.clip = jumpingSound;
             myAudio.Play();
             GetComponent<Animator>().SetBool("jump", true);
-            Debug.Log("Player jumped");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
             JumpCount += 1;
         }
@@ -186,14 +189,10 @@ public class Player_cube_control : MonoBehaviour
             myAudio.clip = jumpingSound;
             myAudio.Play();
             GetComponent<Animator>().SetBool("jump2", true);
-            Debug.Log("Player jumped twice");
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.1f);
             JumpCount = 2;
         }
-
-        if (Input.GetKeyUp(KeyCode.X))
-        {GetComponent<Animator>().SetBool("alive", false);}
 
     }
 
@@ -251,7 +250,6 @@ public class Player_cube_control : MonoBehaviour
         myAudioHit.Play();
         HP -= Damage;
         GetComponent<Animator>().SetTrigger("damaged_trigger");
-        Debug.Log("Player take damage");
         StartCoroutine("Iframe", InvincibleTime);
     }
 
