@@ -219,7 +219,7 @@ public class Player_cube_control : MonoBehaviour
     void Dash()
     {
         isDashing = true;
-        collider.isTrigger = true;
+        collider.isTrigger = false;
         myAudio.clip = dashingSound;
         myAudio.Play();
             if (IsWalkingLeft == true)
