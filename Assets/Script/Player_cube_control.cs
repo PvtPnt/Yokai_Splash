@@ -246,11 +246,11 @@ public class Player_cube_control : MonoBehaviour
 
     public void P_ReceiveDamage(int Damage)
     {
+        StartCoroutine("Iframe", InvincibleTime);
         myAudioHit.clip = hitSound;
         myAudioHit.Play();
         HP -= Damage;
         GetComponent<Animator>().SetTrigger("damaged_trigger");
-        StartCoroutine("Iframe", InvincibleTime);
     }
 
     IEnumerator Iframe()
@@ -267,8 +267,8 @@ public class Player_cube_control : MonoBehaviour
         gameObject.layer = 12; //Player_Invin layer
         GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
         yield return new WaitForSeconds(DashFrame);
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
         gameObject.layer = 11; //Player layer
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 
     void SpawnTrailPart()

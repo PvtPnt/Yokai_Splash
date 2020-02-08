@@ -600,6 +600,26 @@ PrefabInstance:
       propertyPath: RoomEnd_R
       value: 
       objectReference: {fileID: 117713888}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: Damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: RushSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: CooldownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: HP
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_Name
