@@ -91,11 +91,11 @@ public class Player_cube_control : MonoBehaviour
         }
 
         else if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == false
-            || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft)
+            || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft == false)
         {
             GameObject NewTrap =
                   Instantiate(Trap, transform.position + Vector3.right * XOffset + Vector3.down * YOffset, Quaternion.identity);
-            NewTrap.GetComponent<TrapController>().IsWalkingLeft = IsWalkingLeft;
+            NewTrap.GetComponent<TrapController>().IsWalkingLeft = false;
         }
     }
 

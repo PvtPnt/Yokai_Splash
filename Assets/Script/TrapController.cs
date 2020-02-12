@@ -43,7 +43,7 @@ public class TrapController : MonoBehaviour
         { IsWalkingLeft = false; }
 
 
-        if (Input.GetAxis("Fire1") > 0 || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetAxis("Fire1") > 0 || Input.GetKeyDown(KeyCode.I))
         {
             if (IsWalkingLeft == false)
             {

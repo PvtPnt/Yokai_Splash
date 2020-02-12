@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -113,7 +114,7 @@ MonoBehaviour:
   IsWalkingLeft: 0
   LifeTime: 2
   Wave: {fileID: 4563655845844144898}
-  Player: {fileID: 0}
+  Player: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
   ZOffset: 0
   YOffset: 0
   XOffset: 0
