@@ -31,6 +31,7 @@ public class Player_cube_control : MonoBehaviour
     public bool isLoss;
     public bool isDashing;
     public bool isGrounded;
+    public bool IFrameActivation = false;
     public bool IsWalkingLeft = false;
     public bool BurstMode = false;
 
@@ -128,14 +129,16 @@ public class Player_cube_control : MonoBehaviour
         if (Input.GetKey(KeyCode.L) && Direction.x != 0 || Input.GetKey(KeyCode.JoystickButton1) && Direction.x != 0)
         {
             if (timeBTWdash <= 0)
-            { Dash(); }
+            { 
+                Dash();
+                StartCoroutine("Dashframe", DashFrame);
+            }
         }
         else { timeBTWdash -= Time.deltaTime; }
 
         if (isDashing == true)
         {
             GetComponent<Animator>().SetBool("dash", true);
-            StartCoroutine("Dashframe", DashFrame);
         }
 
         //ATTACK--Shoot
@@ -246,14 +249,13 @@ public class Player_cube_control : MonoBehaviour
 
     public void P_ReceiveDamage(int Damage)
     {
-        StartCoroutine("Iframe", InvincibleTime);
-        myAudioHit.clip = hitSound;
-        myAudioHit.Play();
-        HP -= Damage;
-        GetComponent<Animator>().SetTrigger("damaged_trigger");
+            HP -= Damage;
+            StartCoroutine("Iframe", InvincibleTime);
+            myAudioHit.clip = hitSound;
+            myAudioHit.Play();
     }
 
-    IEnumerator Iframe()
+    IEnumerator Iframe(float InvincibleTime)
     {
         gameObject.layer = 12; //Player_Invin layer
         GetComponentInChildren<SpriteRenderer>().color = Color.red;
@@ -274,6 +276,7 @@ public class Player_cube_control : MonoBehaviour
     void SpawnTrailPart()
     {
         GameObject trailPart = new GameObject();
+        trailPart.layer = 12; //Make trail layer == Invincible layer
         SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
         trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
         trailPart.transform.position = transform.position;
