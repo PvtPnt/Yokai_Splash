@@ -37,6 +37,7 @@ public class ProjectileEnemy : MonoBehaviour
     public Transform spawnPoint;
     public GameObject bullet;
     public float shotDelay;
+    [SerializeField]
     private float currentShotDelay;
     bool isShoot = false;
 
@@ -57,10 +58,11 @@ public class ProjectileEnemy : MonoBehaviour
         }
         else
         {
-           if(Time.time > shotDelay)
+            currentShotDelay += Time.deltaTime;
+           if(currentShotDelay > shotDelay)
             {
-                shotDelay += Time.time;
                 EnemyShoot();
+                currentShotDelay = 0f;
             }
         }
 
@@ -154,6 +156,7 @@ public class ProjectileEnemy : MonoBehaviour
         {
             isPlayerinRange = false;
             Invoke("DelayAttacktoIdle", stateDelay);
+            currentShotDelay = 0;
         }
     }
 

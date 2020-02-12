@@ -37,8 +37,16 @@ public class BulletController : MonoBehaviour
         Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
         for (int i = 0; i < DamageEnemy.Length; i++)
         {
-            DamageEnemy[i].GetComponent<Enemy_basic>().ReceiveDamage(Damage);
-            Destroy(this.gameObject);
+            if (DamageEnemy[i].gameObject.GetComponent<Player_cube_control>() != null)
+            {
+                DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+            }
+            else
+            {
+                DamageEnemy[i].GetComponent<Enemy_basic>().ReceiveDamage(Damage);
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 

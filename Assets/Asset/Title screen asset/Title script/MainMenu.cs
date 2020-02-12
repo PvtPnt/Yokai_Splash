@@ -26,4 +26,9 @@ public class MainMenu : MonoBehaviour
         if (isQuit)
         {Application.Quit();}
     }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("proto1");
+    }
 }

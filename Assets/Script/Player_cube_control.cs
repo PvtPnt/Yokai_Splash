@@ -299,4 +299,12 @@ public class Player_cube_control : MonoBehaviour
         collider.isTrigger = false;
         isDashing = false;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy_Bullet")
+        {
+            P_ReceiveDamage(5);
+            Destroy(collision.gameObject);
+        }
+    }
 }
