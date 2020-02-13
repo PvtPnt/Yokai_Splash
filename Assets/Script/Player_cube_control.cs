@@ -31,6 +31,7 @@ public class Player_cube_control : MonoBehaviour
     public bool isLoss;
     public bool isDashing;
     public bool isGrounded;
+    public bool IFrameActivation = false;
     public bool IsWalkingLeft = false;
     public bool BurstMode = false;
 
@@ -61,7 +62,12 @@ public class Player_cube_control : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (HP<=0) { GetComponent<Animator>().SetBool("alive",false); }
+        if (HP<=0)
+        {
+            GetComponent<Player_Melee>().enabled = false;
+            GetComponent<Player_cube_control>().enabled = false;
+            GetComponent<Animator>().SetBool("alive",false);
+        }
 
         GetComponent<Animator>().SetBool("shoot", false);
         GetComponent<Animator>().SetBool("dash", false);
@@ -86,11 +92,11 @@ public class Player_cube_control : MonoBehaviour
         }
 
         else if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == false
-            || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft)
+            || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft == false)
         {
             GameObject NewTrap =
                   Instantiate(Trap, transform.position + Vector3.right * XOffset + Vector3.down * YOffset, Quaternion.identity);
-            NewTrap.GetComponent<TrapController>().IsWalkingLeft = IsWalkingLeft;
+            NewTrap.GetComponent<TrapController>().IsWalkingLeft = false;
         }
     }
 
@@ -124,14 +130,16 @@ public class Player_cube_control : MonoBehaviour
         if (Input.GetKey(KeyCode.L) && Direction.x != 0 || Input.GetKey(KeyCode.JoystickButton1) && Direction.x != 0)
         {
             if (timeBTWdash <= 0)
-            { Dash(); }
+            {
+                Dash();
+                StartCoroutine("Dashframe", DashFrame);
+            }
         }
         else { timeBTWdash -= Time.deltaTime; }
 
         if (isDashing == true)
         {
             GetComponent<Animator>().SetBool("dash", true);
-            StartCoroutine("Dashframe", DashFrame);
         }
 
         //ATTACK--Shoot
@@ -144,19 +152,18 @@ public class Player_cube_control : MonoBehaviour
                 myAudioAttack.Play();
                 GetComponent<Animator>().SetBool("shoot", true);
                 Shoot();
-            }               
+            }
         } else { timeBTWshoot -= Time.deltaTime; }
 
-        if (Water < MaxWater)
-        { StartCoroutine("Water_Regen"); }
-        else if (Water > MaxWater) { Water = MaxWater; }
+        //Water Regeneration
+        Water += Water_regen_rate * Time.deltaTime;
+        if (Water > MaxWater) { Water = MaxWater; };
 
         //Movement and animation
         Walking = Input.GetAxis("Horizontal");
         if (Walking != 0 && isGrounded == true)
         {
             GetComponent<Animator>().SetBool("Run", true);
-            Debug.Log("Player running");
         }
         else if (Walking == 0 & isGrounded) { GetComponent<Animator>().SetBool("Run", false); }
 
@@ -176,7 +183,6 @@ public class Player_cube_control : MonoBehaviour
             myAudio.clip = jumpingSound;
             myAudio.Play();
             GetComponent<Animator>().SetBool("jump", true);
-            Debug.Log("Player jumped");
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce);
             JumpCount += 1;
         }
@@ -187,14 +193,10 @@ public class Player_cube_control : MonoBehaviour
             myAudio.clip = jumpingSound;
             myAudio.Play();
             GetComponent<Animator>().SetBool("jump2", true);
-            Debug.Log("Player jumped twice");
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * JumpForce * 1.1f);
             JumpCount = 2;
         }
-
-        if (Input.GetKeyUp(KeyCode.X))
-        {GetComponent<Animator>().SetBool("alive", false);}
 
     }
 
@@ -256,15 +258,13 @@ public class Player_cube_control : MonoBehaviour
 
     public void P_ReceiveDamage(int Damage)
     {
-        myAudioHit.clip = hitSound;
-        myAudioHit.Play();
-        HP -= Damage;
-        GetComponent<Animator>().SetTrigger("damaged_trigger");
-        Debug.Log("Player take damage");
-        StartCoroutine("Iframe", InvincibleTime);
+            HP -= Damage;
+            StartCoroutine("Iframe", InvincibleTime);
+            myAudioHit.clip = hitSound;
+            myAudioHit.Play();
     }
 
-    IEnumerator Iframe()
+    IEnumerator Iframe(float InvincibleTime)
     {
         gameObject.layer = 12; //Player_Invin layer
         GetComponentInChildren<SpriteRenderer>().color = Color.red;
@@ -278,13 +278,14 @@ public class Player_cube_control : MonoBehaviour
         gameObject.layer = 12; //Player_Invin layer
         GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
         yield return new WaitForSeconds(DashFrame);
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
         gameObject.layer = 11; //Player layer
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 
     void SpawnTrailPart()
     {
         GameObject trailPart = new GameObject();
+        trailPart.layer = 12; //Make trail layer == Invincible layer
         SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
         trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
         trailPart.transform.position = transform.position;

@@ -13,8 +13,7 @@ public class WaveController : MonoBehaviour
     public float LifeTime = 3f;
     public GameObject Wave;
 
-    public Transform Player;
-    public bool waveDirectionLeft;
+    public GameObject Player;
     public float ZOffset;
     public float YOffset;
     public float XOffset;
@@ -22,10 +21,11 @@ public class WaveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        if (Direction.x < 0)
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        if (gameObject.transform.position.x < Player.transform.position.x )
         { IsWalkingLeft = true; }
-        else if (Direction.x > 0)
+        else if (gameObject.transform.position.x > Player.transform.position.x)
         { IsWalkingLeft = false; }
         */
         StartCoroutine("Expire", LifeTime);

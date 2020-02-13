@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_basic : MonoBehaviour
 {
-    public int HP;
+    //public int HP;
 
     public float WalkSpeed;
     public float Tsuchinoko_Jumpforce;
@@ -42,7 +42,7 @@ public class Enemy_basic : MonoBehaviour
 
     // Update is called once per frame
      void Update()
-    {if (HP <= 0) {Destroy(gameObject);}}
+    {/*if (HP <= 0) {Destroy(gameObject);}*/}
 
     void FixedUpdate()
     {
@@ -60,11 +60,10 @@ public class Enemy_basic : MonoBehaviour
         
     }
 
-    public void ReceiveDamage(int Damage)
-    {
-        HP -= Damage;
-        Debug.Log("Damage taken");
-    }
+    //public void ReceiveDamage(int Damage)
+    //{
+    //    HP -= Damage;
+    //}
 
     public void PushedBack(bool WaveDirectionLeft)
     {

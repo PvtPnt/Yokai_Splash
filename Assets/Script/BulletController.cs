@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
     public bool PlayerBullet;
     public float Speed = 3f;
-    public int Damage = 10;
+    public int Damage;
     public bool isMovingLeft;
     public float LifeTime = 1f;
     public GameObject Bullet;
@@ -43,10 +43,11 @@ public class BulletController : MonoBehaviour
             }
             else
             {
-                DamageEnemy[i].GetComponent<Enemy_basic>().ReceiveDamage(Damage);
+              DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
+              DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
                 Destroy(this.gameObject);
             }
-            
+
         }
     }
 
