@@ -42,7 +42,7 @@ public class Enemy_basic : MonoBehaviour
 
     // Update is called once per frame
      void Update()
-    {/*if (HP <= 0) {Destroy(gameObject);}*/}
+    { }
 
     void FixedUpdate()
     {
@@ -154,6 +154,7 @@ public class Enemy_basic : MonoBehaviour
         if (IsWalkingLeft == true)
         {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
     }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player")

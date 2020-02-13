@@ -27,7 +27,6 @@ public class WaveController : MonoBehaviour
         { IsWalkingLeft = true; }
         else if (gameObject.transform.position.x > Player.transform.position.x)
         { IsWalkingLeft = false; }
-        */
         StartCoroutine("Expire", LifeTime);
     }
 
@@ -38,12 +37,10 @@ public class WaveController : MonoBehaviour
         if (DirectionIsLeft == false)
         {
             transform.Translate(Vector3.left * Time.deltaTime * Speed);
-            waveDirectionLeft = true;
         }
         else
         {
             transform.Translate(Vector3.right * Time.deltaTime * Speed);
-            waveDirectionLeft = false;
         }
     }
 
