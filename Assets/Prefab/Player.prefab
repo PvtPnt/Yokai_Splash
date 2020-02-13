@@ -329,7 +329,7 @@ MonoBehaviour:
   DashSpeed_multiplier: 7.5
   JumpForce: 300
   groundCheckRange: 0.6
-  HP: 100
+  HP: 10
   Water_regen_rate: 7.5
   MaxWater: 100
   Water: 100
@@ -344,6 +344,7 @@ MonoBehaviour:
   isLoss: 0
   isDashing: 0
   isGrounded: 0
+  IFrameActivation: 0
   IsWalkingLeft: 0
   BurstMode: 0
   groundLayer:
@@ -362,6 +363,7 @@ MonoBehaviour:
   jumpingSound: {fileID: 8300000, guid: 1df145eed2ad59c48a5aa637491d11f8, type: 3}
   GroundChecker: {fileID: 177773576616284236}
   PlayerSprite: {fileID: 177773576671884095}
+  collider: {fileID: 0}
 --- !u!50 &177773576671884034
 Rigidbody2D:
   serializedVersion: 4
@@ -396,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Start_timeBTWattack: 0.5
-  AttackRange: 1.2
+  AttackRange: 1.6
   BurstTime: 6
   AttackPosFront: {fileID: 177773576550807219}
   AttackPosBack: {fileID: 177773576216474594}

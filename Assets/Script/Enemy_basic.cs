@@ -146,8 +146,10 @@ public class Enemy_basic : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
+
+        Gizmos.color = Color.red;
         if (IsWalkingLeft == false)
         {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
 

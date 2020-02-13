@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player_cube_control : MonoBehaviour
 {
     public int JumpCount = 0;
+    public int HealAmount;
 
     private float timeBTWdash;
     public float Start_timeBTWdash;
@@ -254,7 +255,7 @@ public class Player_cube_control : MonoBehaviour
     }
 
     public void BurstHeal()
-    {HP += 30;}
+    {HP += HealAmount;}
 
     public void P_ReceiveDamage(int Damage)
     {
