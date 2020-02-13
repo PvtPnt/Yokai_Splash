@@ -109,13 +109,13 @@ public class Player_Melee : MonoBehaviour
         {
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosFront.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
-            { DamageEnemy[i].GetComponent<Enemy_basic>().ReceiveDamage(Damage); }
+            { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
         }
         else if (IsWalkingLeft == true)
         {
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosBack.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
-            { DamageEnemy[i].GetComponent<Enemy_basic>().ReceiveDamage(Damage); }
+            { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
         }
     }
     public void BurstOnDMG()
