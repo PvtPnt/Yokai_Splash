@@ -111,8 +111,8 @@ MonoBehaviour:
   IsWalkingLeft: 0
   LifeTime: 1
   Trap: {fileID: 5177716437493456354}
-  Wave: {fileID: 4563655845844144898, guid: be5fc1fc370d32943831462b31c578fe, type: 3}
+  Wave: {fileID: 5068136069048460097, guid: 4d0de55091d8816499c96898b45eb133, type: 3}
   Player: {fileID: 915654608867603240, guid: 0fbcc08668254c240bfa8cd0850355de, type: 3}
   ZOffset: 0
   YOffset: 0
-  XOffset: 2
+  XOffset: 0

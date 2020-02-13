@@ -14,10 +14,12 @@ public class Enemy_basic : MonoBehaviour
     public float AttackRange;
 
     public int Damage;
+    public bool waveDirectionLeft;
 
     public bool IsWalkingLeft;
     public bool isGrounded;
     public bool isWalled;
+    public bool onPush = false;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -62,6 +64,33 @@ public class Enemy_basic : MonoBehaviour
     {
         HP -= Damage;
         Debug.Log("Damage taken");
+    }
+
+    public void PushedBack(bool WaveDirectionLeft)
+    {
+        
+        Vector3 pushedDir = new Vector3(1, 0, 0);
+        if (WaveDirectionLeft == true)
+        {
+            Debug.Log("Pushback hit Left");
+            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 100);
+        }
+
+        else
+        {
+            Debug.Log("Pushback hit Right");
+            GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
+        }
+
+        onPush = true;
+        StartCoroutine(endPush());
+    }
+
+    IEnumerator endPush()
+    {
+        yield return new WaitForSeconds(2.0f);
+        onPush = false;
+        Debug.Log("endpush");
     }
 
     void Walking()

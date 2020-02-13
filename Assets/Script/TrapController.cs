@@ -26,7 +26,7 @@ public class TrapController : MonoBehaviour
         {
             ZOffset = transform.position.z - Player.position.z;
             //YOffset = 2.0f;
-            XOffset = 3.0f;
+            XOffset = 0.0f;
         }
 
     
@@ -35,12 +35,12 @@ public class TrapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        /*Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
         //Direction Control
         if (Direction.x < 0)
         { IsWalkingLeft = true; }
         else if (Direction.x > 0)
-        { IsWalkingLeft = false; }
+        { IsWalkingLeft = false; }*/
 
 
         if (Input.GetAxis("Fire1") > 0 || Input.GetKeyDown(KeyCode.P))
@@ -49,11 +49,13 @@ public class TrapController : MonoBehaviour
             {
                 GameObject NewWave =
                 Instantiate(Wave, transform.position + Vector3.right * XOffset, Quaternion.identity);
+                NewWave.GetComponent<WaveController>().DirectionIsLeft = false;
             }
             else if (IsWalkingLeft == true)
             {
                 GameObject NewWave =
                 Instantiate(Wave, transform.position + Vector3.left * XOffset, Quaternion.identity);
+                NewWave.GetComponent<WaveController>().DirectionIsLeft = true;
             }
 
             Destroy(this.gameObject);
