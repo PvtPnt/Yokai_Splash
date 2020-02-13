@@ -16,6 +16,10 @@ public class Player_cube_control : MonoBehaviour
     public float JumpForce;
     public float groundCheckRange = 1f;
     public float HP;
+    public float Water_regen_rate;
+    public float MaxWater;
+    public float Water;
+    public float Water_cost;
     public float InvincibleTime = 1f;
     public float DashFrame = 0.3f;
     public float XOffset = 3f;
@@ -117,7 +121,7 @@ public class Player_cube_control : MonoBehaviour
             IsWalkingLeft = false;
         }
 
-        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.JoystickButton1))
+        if (Input.GetKey(KeyCode.L) && Direction.x != 0 || Input.GetKey(KeyCode.JoystickButton1) && Direction.x != 0)
         {
             if (timeBTWdash <= 0)
             { Dash(); }
@@ -133,16 +137,20 @@ public class Player_cube_control : MonoBehaviour
         //ATTACK--Shoot
         if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.U))
         {
-            if (timeBTWshoot <= 0)
+            if (timeBTWshoot <= 0 && Water > Water_cost)
             {
+                Water = Water - Water_cost;
                 myAudioAttack.clip = shootingSound;
                 myAudioAttack.Play();
                 GetComponent<Animator>().SetBool("shoot", true);
                 Shoot();
-            }
-                
-        }
-        else { timeBTWshoot -= Time.deltaTime; }
+            }               
+        } else { timeBTWshoot -= Time.deltaTime; }
+
+        if (Water < MaxWater)
+        { StartCoroutine("Water_Regen"); }
+        else if (Water > MaxWater) { Water = MaxWater; }
+
         //Movement and animation
         Walking = Input.GetAxis("Horizontal");
         if (Walking != 0 && isGrounded == true)
@@ -198,6 +206,12 @@ public class Player_cube_control : MonoBehaviour
         timeBTWshoot = Start_timeBTWshoot;
     }
 
+    IEnumerator Water_Regen()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Water = Water + Water_regen_rate;
+        yield return new WaitForSeconds(1.5f);
+    }
 
     IEnumerator Expire()
     {
