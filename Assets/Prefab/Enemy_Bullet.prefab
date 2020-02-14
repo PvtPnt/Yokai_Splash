@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBullet: 1
-  Speed: 25
-  Damage: 5
+  Speed: 5
+  Damage: 2
   isMovingLeft: 0
   LifeTime: 1.5
   Bullet: {fileID: 0}
