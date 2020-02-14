@@ -41,8 +41,11 @@ public class Enemy_basic : MonoBehaviour
     }
 
     // Update is called once per frame
-     void Update()
-    { }
+    void Update()
+    {
+        if (IsWalkingLeft) { EnemyHitbox = WallChecker_Left; }
+        else { EnemyHitbox = WallChecker_Right; }
+    }
 
     void FixedUpdate()
     {
@@ -99,7 +102,9 @@ public class Enemy_basic : MonoBehaviour
         if (isGrounded)
         {
             if (IsWalkingLeft == true)
-            {StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);}
+            {
+                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);            
+            }
             else if (IsWalkingLeft == false)
             {StartCoroutine("Tsuchinoko_MoveRight", 0.45f);}
         }
