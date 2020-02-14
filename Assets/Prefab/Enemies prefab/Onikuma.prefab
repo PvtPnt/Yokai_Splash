@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293c61d307d2c464bb06018cdf34757e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 0
-  RushSpeed: 0
+  WalkSpeed: 500
+  RushSpeed: 15
   CooldownTimer: 3
   groundCheckRange: 1
   wallCheckRange: 1

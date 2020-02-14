@@ -99,7 +99,9 @@ public class Enemy_basic : MonoBehaviour
         if (isGrounded)
         {
             if (IsWalkingLeft == true)
-            {StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);}
+            {
+                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);            
+            }
             else if (IsWalkingLeft == false)
             {StartCoroutine("Tsuchinoko_MoveRight", 0.45f);}
         }

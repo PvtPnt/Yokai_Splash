@@ -52,7 +52,7 @@ public class Player_cube_control : MonoBehaviour
 
     public Transform GroundChecker;
     public SpriteRenderer PlayerSprite;
-    public Collider2D collider;
+    private Collider2D collider;
 
     // Start is called before the first frame update
     void Start()

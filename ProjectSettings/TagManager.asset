@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Enemy_Bullet
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Stage object
+    uniqueID: 306164211
     locked: 0
   - name: UI
     uniqueID: 102607347
