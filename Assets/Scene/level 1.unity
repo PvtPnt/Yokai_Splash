@@ -854,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_Sprite
-      value:
+      value: 
       objectReference: {fileID: 21300000, guid: 161fcf5cf27f6fb44bdde91f98114f84,
         type: 3}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
@@ -1541,14 +1541,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto Enemy (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4231814956722245453, guid: a694943e75778ea4ba0dad1f8cb844d9,
-        type: 3}
-      propertyPath: isBigChungus
-      value: 1
     - target: {fileID: 543567553839816106, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231814956722245453, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: isBigChungus
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
@@ -2225,7 +2226,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_Sprite
-      value:
+      value: 
       objectReference: {fileID: 21300000, guid: 161fcf5cf27f6fb44bdde91f98114f84,
         type: 3}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
@@ -2978,7 +2979,7 @@ PrefabInstance:
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: bullet
-      value:
+      value: 
       objectReference: {fileID: 915654608867603253, guid: d68133d12c8dd0c4ea6519ecc88ee82c,
         type: 3}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
@@ -3009,12 +3010,12 @@ PrefabInstance:
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.98
+      value: -8.94
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.56
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
@@ -3206,7 +3207,7 @@ PrefabInstance:
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: bullet
-      value:
+      value: 
       objectReference: {fileID: 915654608867603253, guid: d68133d12c8dd0c4ea6519ecc88ee82c,
         type: 3}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
@@ -4074,7 +4075,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_Sprite
-      value:
+      value: 
       objectReference: {fileID: 21300000, guid: c4a6e784ce103c14c8d0a088d29b5933,
         type: 3}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
@@ -4365,8 +4366,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -15103123
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 68df102904e7cc547a5528f938d93cff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5174,7 +5175,7 @@ PrefabInstance:
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: bullet
-      value:
+      value: 
       objectReference: {fileID: 915654608867603253, guid: d68133d12c8dd0c4ea6519ecc88ee82c,
         type: 3}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
@@ -5379,7 +5380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842735586}
   - component: {fileID: 842735587}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5538,14 +5539,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto Enemy (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4231814956722245453, guid: a694943e75778ea4ba0dad1f8cb844d9,
-        type: 3}
-      propertyPath: isBigChungus
-      value: 1
     - target: {fileID: 543567553839816106, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231814956722245453, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: isBigChungus
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5304263028116906266, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
@@ -8092,7 +8094,7 @@ PrefabInstance:
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: bullet
-      value:
+      value: 
       objectReference: {fileID: 915654608867603253, guid: d68133d12c8dd0c4ea6519ecc88ee82c,
         type: 3}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
@@ -10118,7 +10120,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_Sprite
-      value:
+      value: 
       objectReference: {fileID: 21300000, guid: c4a6e784ce103c14c8d0a088d29b5933,
         type: 3}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
@@ -10674,7 +10676,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: c4fd968132bf75845b68e9d21683eba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12089,7 +12091,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_Sprite
-      value:
+      value: 
       objectReference: {fileID: 21300000, guid: 161fcf5cf27f6fb44bdde91f98114f84,
         type: 3}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
@@ -12896,12 +12898,12 @@ PrefabInstance:
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.96
+      value: 112.3
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.75
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -13278,7 +13280,7 @@ PrefabInstance:
     - target: {fileID: 7939766275626298419, guid: ac02324647dce5e419961625b5feb786,
         type: 3}
       propertyPath: Player
-      value:
+      value: 
       objectReference: {fileID: 1755695441}
     - target: {fileID: 7939766275626298423, guid: ac02324647dce5e419961625b5feb786,
         type: 3}
