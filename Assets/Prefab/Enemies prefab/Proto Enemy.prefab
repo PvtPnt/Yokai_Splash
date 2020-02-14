@@ -310,7 +310,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 2048
-  EnemyHitbox: {fileID: 1139296279}
+  EnemyHitbox: {fileID: 0}
   Current_WallChecker: {fileID: 0}
   WallChecker_Right: {fileID: 1268942903}
   WallChecker_Left: {fileID: 712890394}

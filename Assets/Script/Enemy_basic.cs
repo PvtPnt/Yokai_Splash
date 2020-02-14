@@ -41,8 +41,11 @@ public class Enemy_basic : MonoBehaviour
     }
 
     // Update is called once per frame
-     void Update()
-    { }
+    void Update()
+    {
+        if (IsWalkingLeft) { EnemyHitbox = WallChecker_Left; }
+        else { EnemyHitbox = WallChecker_Right; }
+    }
 
     void FixedUpdate()
     {
