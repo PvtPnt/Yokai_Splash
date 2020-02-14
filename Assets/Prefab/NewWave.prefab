@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -72,11 +73,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0fc26321d6d3e994c880a739f223716f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06fdd8cdcab98c443a3030535e413e69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -121,10 +122,10 @@ MonoBehaviour:
   Damage: 0
   isMovingLeft: 0
   IsWalkingLeft: 0
+  DirectionIsLeft: 0
   LifeTime: 3
   Wave: {fileID: 5068136069048460097}
   Player: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
-  waveDirectionLeft: 0
   ZOffset: 0
   YOffset: 0
   XOffset: 0
@@ -145,10 +146,10 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 19.303955, y: 21.37}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
