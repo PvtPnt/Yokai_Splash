@@ -15,10 +15,6 @@ public class ProjectileEnemy : MonoBehaviour
 
     public int Damage;
 
-    public bool IsWalkingLeft;
-    public bool isGrounded;
-    public bool isWalled;
-
     public LayerMask groundLayer;
     public LayerMask wallLayer;
     public LayerMask playerLayer;
