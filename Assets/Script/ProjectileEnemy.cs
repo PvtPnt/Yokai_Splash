@@ -168,6 +168,6 @@ public class ProjectileEnemy : MonoBehaviour
     {
        float angle = Vector2.Angle(Vector2.right, playerObj.transform.position - spawnPoint.position);
        Quaternion rot = Quaternion.Euler(0f, 0f, angle);
-       Instantiate(bullet, spawnPoint.position, rot);
+       GameObject bulletObj = Instantiate(bullet, spawnPoint.position, rot) as GameObject;
     }
 }

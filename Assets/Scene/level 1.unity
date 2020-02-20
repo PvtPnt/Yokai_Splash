@@ -872,7 +872,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -3
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7162260073293980163, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
@@ -3030,6 +3030,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -3257355013544963618, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: shotDelay
@@ -3258,6 +3263,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -3257355013544963618, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: shotDelay
@@ -3302,12 +3312,12 @@ PrefabInstance:
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.96
+      value: 12.87
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.32
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
@@ -5336,6 +5346,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -3257355013544963618, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: shotDelay
@@ -6284,81 +6299,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
-    - target: {fileID: -3257355013544963618, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: HP
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: shotDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: stateDelay
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 915654608867603253, guid: d68133d12c8dd0c4ea6519ecc88ee82c,
-        type: 3}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: WalkSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: IsWalkingLeft
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: isPlayerinRange
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: EnemyCheckRange
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260771, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_Name
       value: Ranged Enemy (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.09728384
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 12.256417
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.1090225
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.7229917
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
@@ -6415,23 +6359,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3911175
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5313133
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7979766
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1682248501497481388, guid: 874ea578e2a41f44488e90923d06c0cf, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874ea578e2a41f44488e90923d06c0cf, type: 3}
 --- !u!1 &968908848
 GameObject:
@@ -7153,6 +7081,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1074963726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1075286299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6439229669846260771, guid: 874ea578e2a41f44488e90923d06c0cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 841251028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1075286308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075286299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74a8ebecc4a395489495c9f68bff412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkSpeed: 0
+  Tsuchinoko_Jumpforce: 0
+  groundCheckRange: 1
+  wallCheckRange: 1
+  EnemyCheckRange: 10
+  AttackRange: 0
+  Damage: 0
+  waveDirectionLeft: 0
+  IsWalkingLeft: 0
+  isGrounded: 0
+  isWalled: 0
+  onPush: 0
+  NoGapAhead: 0
+  isBigChungus: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  EnemyHitbox: {fileID: 0}
+  Current_WallChecker: {fileID: 0}
+  WallChecker_Right: {fileID: 0}
+  WallChecker_Left: {fileID: 0}
+  RayOffset: {x: 1, y: 0, z: 0}
+  TsuchinokoSprite: {fileID: 0}
+  isPlayerinRange: 0
+  stateDelay: 0
 --- !u!1 &1081900910
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,6 +8457,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -3257355013544963618, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: shotDelay
@@ -13444,7 +13426,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -3
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7162260073293980163, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}

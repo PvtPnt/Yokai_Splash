@@ -140,3 +140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  Damage: 2
+  bulletSprite: {fileID: -3141981460028214905}
+  AttackPos: {fileID: 915654608867603240}
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  AttackRange: 0
+  isMovingLeft: 0
