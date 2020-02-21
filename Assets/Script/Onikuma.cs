@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Onikuma : MonoBehaviour
 {
-    //public int HP;
-
     public float WalkSpeed;
     public float RushSpeed;
     public float CooldownTimer;
@@ -16,6 +14,8 @@ public class Onikuma : MonoBehaviour
     public float AttackRange;
     public float Col_sizeX, Col_sizeY = 1f;
     public float Col_OffsetX, Col_OffsetY;
+    public float HighThrow_offset;
+    public float LowThrow_offset;
 
     public BoxCollider2D BCollider2D;
 
@@ -26,6 +26,7 @@ public class Onikuma : MonoBehaviour
     public bool isGrounded;
     public bool isWalled;
     public bool isPerformingAction;
+    public bool isVulnerable;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -33,14 +34,9 @@ public class Onikuma : MonoBehaviour
 
     public Transform EnemyHitbox;
     public Transform groundChecker;
-    public Transform Current_WallChecker;
-    public Transform WallChecker_Right;
-    public Transform WallChecker_Left;
-
-    public Transform RoomEnd_L;
-    public Transform RoomEnd_R;
 
     public SpriteRenderer OnikumaSprite;
+    public GameObject Throwables;
 
     public Vector2 PlayerPosition;
     // Start is called before the first frame update
@@ -52,23 +48,22 @@ public class Onikuma : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        //if (HP <= 0) { Destroy(gameObject); }
         BCollider2D.size = new Vector3(Col_sizeX, Col_sizeY, 0);
         BCollider2D.offset = new Vector3(Col_OffsetX, Col_OffsetY, 0);
+
+            if (isVulnerable == false)
+        {
+            Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
+            for (int i = 0; i < DamagePlayer.Length; i++)
+            { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+        }
     }
 
     void FixedUpdate()
     {
         PlayerPosition = GameObject.Find("Player").transform.position;
         if (isPerformingAction == false) { StartCoroutine("ActionManager"); }
-        Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
-        for (int i = 0; i < DamagePlayer.Length; i++)
-        { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
-
     }
-
-    //public void ReceiveDamage(int Damage)
-    //{HP -= Damage;}
 
     IEnumerator ActionCooldown()
     {
@@ -90,15 +85,15 @@ public class Onikuma : MonoBehaviour
     IEnumerator ActionManager()
     {
         isPerformingAction = true;
-        ActionIndex = Random.Range(1, 4); //Set ActionIndex value to random number between (a,b)} 
+        ActionIndex = Random.Range(6, 8); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
         if      (ActionIndex <= 2)  { Walking(); }
         else if (ActionIndex == 3)  { RushAttack(); }
         else if (ActionIndex == 4)  { Claw(); }
         else if (ActionIndex == 5)  { SlipRush(); }
-        else if (ActionIndex == 6)  { Throw(); }
+        else if (ActionIndex == 6)  { ThrowHigh(); }
+        else if (ActionIndex == 7)  { ThrowLow(); }
 
-        //yield return StartCoroutine("ActionCooldown");
         yield return null;
     }
 
@@ -129,6 +124,26 @@ public class Onikuma : MonoBehaviour
         }
     }
 
+    void SlipRush()
+    {
+        Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
+        Col_sizeX = 2f;
+        Col_sizeY = 0.5f;
+
+        if (transform.position.x < PlayerPosition.x) //Player is to the right
+        {
+            Debug.Log("Execute SlipRush Right");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * RushSpeed, ForceMode2D.Impulse);
+            StartCoroutine("Slip", -1);
+        }
+        else if (transform.position.x > PlayerPosition.x) //Player is to the left
+        {
+            Debug.Log("Execute SlipRush Left");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * RushSpeed, ForceMode2D.Impulse);
+            StartCoroutine("Slip", 1);
+        }
+    }
+
     void Claw()
     {
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
@@ -149,42 +164,31 @@ public class Onikuma : MonoBehaviour
         }
     }
 
-    void SlipRush()
+    void ThrowHigh()
     {
-        Debug.Log("Execute SlipRush");
+        Debug.Log("Execute High Throw");
+        GameObject Throwabless =
+        Instantiate(Throwables, transform.position + new Vector3(0, HighThrow_offset,0) , Quaternion.identity);
+
+        Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
+        
+        if (transform.position.x < PlayerPosition.x)
+        { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = false; }
+        else { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = true; }
         StartCoroutine("ActionCooldown");
     }
 
-    void Throw()
+    void ThrowLow()
     {
-        Debug.Log("Execute Throw");
+        Debug.Log("Execute Low Throw");
+        GameObject Throwabless =
+        Instantiate(Throwables, transform.position + new Vector3(0, LowThrow_offset, 0), Quaternion.identity);
+        
+        if (transform.position.x < PlayerPosition.x)
+        { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = false; }
+        else { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = true; }
         StartCoroutine("ActionCooldown");
     }
-
-
-    //void CheckWall()
-    //{
-    //    if (IsWalkingLeft == true)
-    //    {
-    //        Current_WallChecker = WallChecker_Left;
-    //        OnikumaSprite.flipX = false;
-    //    }
-    //    else if (IsWalkingLeft == false)
-    //    {
-    //        Current_WallChecker = WallChecker_Right;
-    //        OnikumaSprite.flipX = true;
-    //    }
-
-    //    isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer);
-
-    //    if (isWalled == true)
-    //    {
-    //        if (IsWalkingLeft == true)
-    //        { IsWalkingLeft = false; }
-    //        else if (IsWalkingLeft == false)
-    //        { IsWalkingLeft = true; }
-    //    }
-    //}
 
     IEnumerator Onikuma_MoveLeft(float WaitTime)
     {
@@ -220,22 +224,30 @@ public class Onikuma : MonoBehaviour
         StartCoroutine("ActionCooldown");
     }
 
+    IEnumerator Slip(int direction)
+    {
+        Debug.Log("Slipping");
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * direction * RushSpeed *0.65f, ForceMode2D.Impulse);
+        isVulnerable = true;    //Disable attack collider
+        yield return new WaitForSeconds(3.5f); //Vulnerable time
+        isVulnerable = false;
+        StartCoroutine("ActionCooldown");
+    }
 
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(Current_WallChecker.position, wallCheckRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(groundChecker.position, groundCheckRange);
 
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireSphere(groundChecker.position, groundCheckRange);
+        Gizmos.color = Color.blue;
+        if (IsWalkingLeft == false)
+        { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
 
-    //    Gizmos.color = Color.blue;
-    //    if (IsWalkingLeft == false)
-    //    { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
-
-    //    if (IsWalkingLeft == true)
-    //    {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
-    //}
+        if (IsWalkingLeft == true)
+        { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
+    }
 }
