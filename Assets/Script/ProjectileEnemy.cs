@@ -155,7 +155,7 @@ public class ProjectileEnemy : MonoBehaviour
         {
             isPlayerinRange = false;
             Invoke("DelayAttacktoIdle", stateDelay);
-            currentShotDelay = 0;
+            currentShotDelay = 0;   
         }
     }
     
