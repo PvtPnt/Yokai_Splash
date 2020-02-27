@@ -3804,7 +3804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701864186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 129.50653, y: -4.713111, z: 9.343765}
+  m_LocalPosition: {x: 129.62, y: -4.8532, z: 9.343765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1196092648}
@@ -6188,6 +6188,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -5309515902214211925, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: HP
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 543567553839816106, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_Name
@@ -10464,7 +10469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666430586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 140.15652, y: -4.713181, z: 9.343765}
+  m_LocalPosition: {x: 140.15, y: -4.8532, z: 9.343765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1196092648}
@@ -13347,6 +13352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1479496768, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.156
+      objectReference: {fileID: 0}
     - target: {fileID: 1479496769, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
       propertyPath: m_Enabled
       value: 1
