@@ -85,7 +85,7 @@ public class Onikuma : MonoBehaviour
     IEnumerator ActionManager()
     {
         isPerformingAction = true;
-        ActionIndex = Random.Range(6, 8); //Set ActionIndex value to random number between (a,b)} 
+        ActionIndex = Random.Range(1, 8); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
         if      (ActionIndex <= 2)  { Walking(); }
         else if (ActionIndex == 3)  { RushAttack(); }
@@ -109,7 +109,7 @@ public class Onikuma : MonoBehaviour
     void RushAttack()
     {
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        Col_sizeX = 2f;
+        Col_sizeX = 4f;
         Col_sizeY = 0.5f;
 
         if (transform.position.x < PlayerPosition.x) //Player is to the right
@@ -127,7 +127,7 @@ public class Onikuma : MonoBehaviour
     void SlipRush()
     {
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        Col_sizeX = 2f;
+        Col_sizeX = 4f;
         Col_sizeY = 0.5f;
 
         if (transform.position.x < PlayerPosition.x) //Player is to the right
@@ -149,7 +149,7 @@ public class Onikuma : MonoBehaviour
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
         AttackRange = 2f;
         Col_sizeX = 0.5f;
-        Col_sizeY = 2f;
+        Col_sizeY = 4f;
         Debug.Log("Execute Claw");
 
         if (transform.position.x < PlayerPosition.x) //Player is to the right
