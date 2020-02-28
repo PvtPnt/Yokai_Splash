@@ -6334,6 +6334,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6439229669846260773, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ed01dbca03778e44a2cf7718b9d0998,
+        type: 3}
     - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_IsTrigger
@@ -6367,7 +6373,7 @@ PrefabInstance:
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -66.57
+      value: -65.95
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
