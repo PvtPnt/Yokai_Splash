@@ -5397,7 +5397,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6006435}
+  m_Offset: {x: 0.11249173, y: -0.6006435}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5408,7 +5408,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.98, y: 0.19102174}
+  m_Size: {x: 4.7550163, y: 0.19102168}
   m_EdgeRadius: 0
 --- !u!61 &807465604
 BoxCollider2D:
@@ -5501,7 +5501,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02543664, y: 1.2975065}
+  m_Offset: {x: 0.046149373, y: 1.2975065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5512,7 +5512,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0812564, y: 0.24144435}
+  m_Size: {x: 3.5699284, y: 0.24144435}
   m_EdgeRadius: 0
 --- !u!212 &807465608
 SpriteRenderer:
@@ -10474,7 +10474,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6006435}
+  m_Offset: {x: 0.1095351, y: -0.6006435}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10485,7 +10485,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.98, y: 0.19102174}
+  m_Size: {x: 4.760929, y: 0.19102168}
   m_EdgeRadius: 0
 --- !u!61 &1574959142
 BoxCollider2D:
@@ -10578,7 +10578,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02543664, y: 1.2975065}
+  m_Offset: {x: 0.033062756, y: 1.2975065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10589,7 +10589,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0812564, y: 0.24144435}
+  m_Size: {x: 3.5937552, y: 0.24144435}
   m_EdgeRadius: 0
 --- !u!212 &1574959146
 SpriteRenderer:
