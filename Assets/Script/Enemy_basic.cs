@@ -42,6 +42,7 @@ public class Enemy_basic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TsuchinokoSprite = GetComponent<SpriteRenderer>();
         if (isBigChungus)
         {groundCheckRange += 2f;}
     }
