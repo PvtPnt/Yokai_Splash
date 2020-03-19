@@ -16,6 +16,7 @@ public class Enemy_basic : MonoBehaviour
     public int Damage;
     public bool waveDirectionLeft;
 
+    public bool isWalk;
     public bool IsWalkingLeft;
     public bool isGrounded;
     public bool isWalled;
@@ -44,6 +45,7 @@ public class Enemy_basic : MonoBehaviour
     {
         if (isBigChungus)
         {groundCheckRange += 2f;}
+        isWalk = false;
     }
 
     // Update is called once per frame
@@ -56,7 +58,7 @@ public class Enemy_basic : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isPlayerinRange)
+        if (!isPlayerinRange && isWalk)
         {
             Walking();
         }
