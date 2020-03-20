@@ -173,9 +173,12 @@ public class Player_cube_control : MonoBehaviour
         //jump controlling
         if (isGrounded)
         {
-            JumpCount = 0;
-            GetComponent<Animator>().SetBool("jump", false);
-            GetComponent<Animator>().SetBool("jump2", false);
+            if (GetComponent<Rigidbody2D>().velocity.y < 0)
+            { 
+                JumpCount = 0;
+                GetComponent<Animator>().SetBool("jump", false);
+                GetComponent<Animator>().SetBool("jump2", false);
+             }
         }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && isGrounded

@@ -39,9 +39,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 915654608867603240}
-  - component: {fileID: 915654608867603252}
   - component: {fileID: -3141981460028214905}
   - component: {fileID: -7260979212328280281}
+  - component: {fileID: 583533040777519857}
   m_Layer: 9
   m_Name: Enemy_Bullet
   m_TagString: Enemy_Bullet
@@ -64,30 +64,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &915654608867603252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915654608867603253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c991649ee75804481c8469d132958c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerBullet: 1
-  Speed: 5
-  Damage: 2
-  isMovingLeft: 0
-  LifeTime: 1.5
-  Bullet: {fileID: 0}
-  bulletSprite: {fileID: -3141981460028214905}
-  AttackPos: {fileID: 1095690150}
-  EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  AttackRange: 0.2
 --- !u!212 &-3141981460028214905
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -151,3 +127,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &583533040777519857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915654608867603253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8769feaedc62d448014fdee527db1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2

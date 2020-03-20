@@ -21,6 +21,8 @@ public class Enemy_basic : MonoBehaviour
     public bool isGrounded;
     public bool isWalled;
     public bool onPush = false;
+    public bool NoGapAhead;
+    public bool isBigChungus;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -31,6 +33,8 @@ public class Enemy_basic : MonoBehaviour
     public Transform WallChecker_Right;
     public Transform WallChecker_Left;
 
+    public Vector3 RayOffset = new Vector3(1f, 0f, 0f);
+
     public SpriteRenderer TsuchinokoSprite;
 
     public bool isPlayerinRange = false;
@@ -39,6 +43,8 @@ public class Enemy_basic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (isBigChungus)
+        {groundCheckRange += 2f;}
     }
 
     // Update is called once per frame
@@ -46,6 +52,7 @@ public class Enemy_basic : MonoBehaviour
     {
         if (IsWalkingLeft) { EnemyHitbox = WallChecker_Left; }
         else { EnemyHitbox = WallChecker_Right; }
+        GapCheck();
     }
 
     void FixedUpdate()
@@ -117,6 +124,18 @@ public class Enemy_basic : MonoBehaviour
         }
     }
 
+    void GapCheck()
+    {
+        if (IsWalkingLeft)  { NoGapAhead = Physics2D.OverlapCircle(-RayOffset + transform.position, groundCheckRange -0.5f, groundLayer); }
+        else                { NoGapAhead = Physics2D.OverlapCircle(RayOffset + transform.position, groundCheckRange -0.5f, groundLayer); }
+        if (NoGapAhead == false)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            if (IsWalkingLeft) { IsWalkingLeft = false; }
+            else { IsWalkingLeft = true; };
+        }
+    }
+
     void CheckWall()
     {
         if (IsWalkingLeft == true)
@@ -130,7 +149,8 @@ public class Enemy_basic : MonoBehaviour
             TsuchinokoSprite.flipX = true;
         }
 
-        isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer);
+        if (isBigChungus == false) { isWalled = Physics2D.OverlapCircle(Current_WallChecker.position, wallCheckRange, wallLayer); }
+        else { isWalled = Physics2D.OverlapCircle(Current_WallChecker.position - new Vector3(0f,1f,0f), wallCheckRange, wallLayer); }
 
         if (isWalled == true)
         {
@@ -163,10 +183,20 @@ public class Enemy_basic : MonoBehaviour
 
         Gizmos.color = Color.red;
         if (IsWalkingLeft == false)
-        {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
+        {
+            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(RayOffset + transform.position, groundCheckRange -0.5f);
+        }
+
+
 
         if (IsWalkingLeft == true)
-        {Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);}
+        {
+            Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(-RayOffset + transform.position, groundCheckRange -0.5f);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
