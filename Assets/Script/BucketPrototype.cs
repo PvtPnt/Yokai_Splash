@@ -5,6 +5,7 @@ using UnityEngine;
 public class BucketPrototype : MonoBehaviour
 {
     public float Damage = 100f;
+    public float CanTank = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,10 @@ public class BucketPrototype : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(CanTank == 0)
+        {
 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,7 +31,7 @@ public class BucketPrototype : MonoBehaviour
             if (other.GetComponent<Enemy_basic>().onPush == true)
             {
                 other.SendMessage("ReceiveDamage", Damage);
-                Destroy(this.gameObject);
+                --CanTank;
             }
         }
     }

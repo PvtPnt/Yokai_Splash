@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebccbffd2ee197d47bc2f5e47d94fe92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 20
+  HP: 1
   Defense: 0
 --- !u!50 &9215341238363158527
 Rigidbody2D:
@@ -296,6 +296,7 @@ MonoBehaviour:
   EnemyCheckRange: 10
   AttackRange: 0.75
   Damage: 1
+  PushForce: 600
   waveDirectionLeft: 0
   IsWalkingLeft: 0
   isGrounded: 1

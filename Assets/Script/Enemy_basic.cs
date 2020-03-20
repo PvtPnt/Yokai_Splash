@@ -14,6 +14,7 @@ public class Enemy_basic : MonoBehaviour
     public float AttackRange;
 
     public int Damage;
+    public float PushForce;
     public bool waveDirectionLeft;
 
     public bool IsWalkingLeft;
@@ -75,15 +76,21 @@ public class Enemy_basic : MonoBehaviour
         if (WaveDirectionLeft == true)
         {
             Debug.Log("Pushback hit Left");
-            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 100);
+            GetComponent<Rigidbody2D>().AddForce(-pushedDir * PushForce);
         }
 
         else
         {
             Debug.Log("Pushback hit Right");
-            GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
+            GetComponent<Rigidbody2D>().AddForce(pushedDir * PushForce);
         }
 
+        onPush = true;
+        StartCoroutine(endPush());
+    }
+
+    public void PushedBackWithEnemy()
+    {
         onPush = true;
         StartCoroutine(endPush());
     }
@@ -168,6 +175,12 @@ public class Enemy_basic : MonoBehaviour
         {
             isPlayerinRange = true;
         }
+        if (other.gameObject.tag == "Enemy")
+        {
+
+            other.gameObject.SendMessage("PushedBackWithEnemy");
+        }
+
     }
     void OnCollisionExit2D(Collision2D other)
     {
@@ -176,6 +189,7 @@ public class Enemy_basic : MonoBehaviour
             Invoke("DelayAttacktoIdle", stateDelay);
         }
     }
+
 
     void DelayAttacktoIdle()
     {
