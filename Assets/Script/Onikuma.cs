@@ -35,7 +35,9 @@ public class Onikuma : MonoBehaviour
     public Transform EnemyHitbox;
     public Transform groundChecker;
 
-    public SpriteRenderer OnikumaSprite;
+    SpriteRenderer OnikumaSprite;
+    public Sprite Standing;
+    public Sprite Prowling;
     public GameObject Throwables;
 
     public Vector2 PlayerPosition;
@@ -43,6 +45,7 @@ public class Onikuma : MonoBehaviour
     void Start()
     {
         BCollider2D = GetComponent<BoxCollider2D>();
+        OnikumaSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -71,21 +74,24 @@ public class Onikuma : MonoBehaviour
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
         isPerformingAction = false;
+        Col_OffsetX = -0.017f;
+        Col_OffsetY = 0.0597f;
+        Col_sizeX = 4.82f;
+        Col_sizeY = 7.58f;
     }
 
     IEnumerator ReturnCollider()
     {
         yield return new WaitForSeconds(1f);
-        AttackRange = 1f;
-        Col_sizeX = 1f;
-        Col_sizeY = 1f;
+        AttackRange = 3.5f;
         yield return null;
     }
 
     IEnumerator ActionManager()
     {
+        OnikumaSprite.sprite = Standing;
         isPerformingAction = true;
-        ActionIndex = Random.Range(1, 8); //Set ActionIndex value to random number between (a,b)} 
+        ActionIndex = Random.Range(2, 5); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
         if      (ActionIndex <= 2)  { Walking(); }
         else if (ActionIndex == 3)  { RushAttack(); }
@@ -108,9 +114,12 @@ public class Onikuma : MonoBehaviour
 
     void RushAttack()
     {
+        OnikumaSprite.sprite = Prowling;
+        Col_OffsetX = -0.016f;
+        Col_OffsetY = 0.369f;
+        Col_sizeX = 4.82f;
+        Col_sizeY = 2.46f;
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        Col_sizeX = 4f;
-        Col_sizeY = 0.5f;
 
         if (transform.position.x < PlayerPosition.x) //Player is to the right
         {
@@ -126,9 +135,12 @@ public class Onikuma : MonoBehaviour
 
     void SlipRush()
     {
+        OnikumaSprite.sprite = Prowling;
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        Col_sizeX = 4f;
-        Col_sizeY = 0.5f;
+        Col_OffsetX = -0.016f;
+        Col_OffsetY = 0.369f;
+        Col_sizeX = 4.82f;
+        Col_sizeY = 2.46f;
 
         if (transform.position.x < PlayerPosition.x) //Player is to the right
         {
@@ -147,9 +159,11 @@ public class Onikuma : MonoBehaviour
     void Claw()
     {
         Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        AttackRange = 2f;
-        Col_sizeX = 0.5f;
-        Col_sizeY = 4f;
+        AttackRange = 3f;
+        Col_OffsetX = -0.017f;
+        Col_OffsetY = 0.0597f;
+        Col_sizeX = 4.82f;
+        Col_sizeY = 7.58f;
         Debug.Log("Execute Claw");
 
         if (transform.position.x < PlayerPosition.x) //Player is to the right

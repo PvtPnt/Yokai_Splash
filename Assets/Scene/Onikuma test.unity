@@ -538,12 +538,12 @@ PrefabInstance:
     - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.93
+      value: -1.99
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.63
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
@@ -590,100 +590,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
+      propertyPath: Col_sizeX
+      value: 4.82
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
-      propertyPath: CooldownTimer
-      value: 2
+      propertyPath: Col_sizeY
+      value: 7.467844
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
-      propertyPath: Throwables
+      propertyPath: Col_OffsetX
+      value: -0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: Col_OffsetY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: AttackRange
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: EnemyHitbox
       value: 
-      objectReference: {fileID: 3587074723586067784, guid: 046f43a51b73b9142b6cf589b41eca7a,
-        type: 3}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: HighThrow_offset
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: LowThrow_offset
-      value: -1.5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 823623175}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_Name
       value: Onikuma
       objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
+    - target: {fileID: 2187563591302231084, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
-      propertyPath: m_Offset.y
-      value: -0.23878276
+      propertyPath: m_LocalPosition.x
+      value: -3.25
       objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
+    - target: {fileID: 2187563591302231084, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
+      propertyPath: m_LocalPosition.y
+      value: -1.05
       objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.9488373
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.9624999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.308237
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.25868165
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.5173633
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2187563589418179297, guid: d72480b97274cf343994b1c9f29c7656, type: 3}
-    - {fileID: 2187563589418179298, guid: d72480b97274cf343994b1c9f29c7656, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72480b97274cf343994b1c9f29c7656, type: 3}
 --- !u!1 &821385249
 GameObject:
@@ -766,6 +718,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &823623175 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
+    type: 3}
+  m_PrefabInstance: {fileID: 618034666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &856332863
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +931,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.15
+      value: -8.17
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -1187,63 +1145,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1657492213 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
-    type: 3}
-  m_PrefabInstance: {fileID: 618034666}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1657492218
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657492213}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -3296362929794034626, guid: 24b722892a98ebb42a2643209a9ecd78,
-    type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1798422096
 GameObject:
   m_ObjectHideFlags: 0
