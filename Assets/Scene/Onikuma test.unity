@@ -620,6 +620,51 @@ PrefabInstance:
       propertyPath: EnemyHitbox
       value: 
       objectReference: {fileID: 823623175}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: ActionMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: ActionMax
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: AttackStartPosition
+      value: 
+      objectReference: {fileID: 1861376616}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: AttackEndPosition
+      value: 
+      objectReference: {fileID: 845214027}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: MovementSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: WalkStepLength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: CooldownTimer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: RushStepLength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: ClawStepLength
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_Name
@@ -724,6 +769,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 618034666}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &845214026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845214027}
+  m_Layer: 0
+  m_Name: AttackEndPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &845214027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845214026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 2.2199998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856332863
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.17
+      value: -18.3
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -1321,6 +1396,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1861376615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861376616}
+  m_Layer: 0
+  m_Name: AttackStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1861376616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861376615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 2.2199998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871350987
 GameObject:
   m_ObjectHideFlags: 0

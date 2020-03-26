@@ -8,6 +8,9 @@ public class Onikuma : MonoBehaviour
     public float RushSpeed;
     public float CooldownTimer;
 
+    public float WalkStepLength;
+    public float RushStepLength;
+    public float ClawStepLength;
     public float groundCheckRange = 1f;
     public float wallCheckRange = 1f;
     public float EnemyCheckRange = 10f;
@@ -21,12 +24,14 @@ public class Onikuma : MonoBehaviour
 
     public int Damage;
     public int ActionIndex;
+    public int ActionMin;
+    public int ActionMax;
+    public int WalkStepCount;
 
     public bool IsWalkingLeft;
     public bool isGrounded;
     public bool isWalled;
     public bool isPerformingAction;
-    public bool isVulnerable;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -34,13 +39,16 @@ public class Onikuma : MonoBehaviour
 
     public Transform EnemyHitbox;
     public Transform groundChecker;
+    public Transform AttackStartPosition;
+    public Transform AttackEndPosition;
 
     SpriteRenderer OnikumaSprite;
     public Sprite Standing;
     public Sprite Prowling;
     public GameObject Throwables;
 
-    public Vector2 PlayerPosition;
+    public Vector3 PlayerPosition;
+    private float PlayerPosition_X;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,12 +62,9 @@ public class Onikuma : MonoBehaviour
         BCollider2D.size = new Vector3(Col_sizeX, Col_sizeY, 0);
         BCollider2D.offset = new Vector3(Col_OffsetX, Col_OffsetY, 0);
 
-            if (isVulnerable == false)
-        {
             Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
             for (int i = 0; i < DamagePlayer.Length; i++)
             { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
-        }
     }
 
     void FixedUpdate()
@@ -74,6 +79,7 @@ public class Onikuma : MonoBehaviour
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
         isPerformingAction = false;
+        WalkStepCount = 0;
         Col_OffsetX = -0.017f;
         Col_OffsetY = 0.0597f;
         Col_sizeX = 4.82f;
@@ -91,25 +97,40 @@ public class Onikuma : MonoBehaviour
     {
         OnikumaSprite.sprite = Standing;
         isPerformingAction = true;
-        ActionIndex = Random.Range(2, 5); //Set ActionIndex value to random number between (a,b)} 
+        ActionIndex = Random.Range(ActionMin, ActionMax); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
-        if      (ActionIndex <= 2)  { Walking(); }
-        else if (ActionIndex == 3)  { RushAttack(); }
-        else if (ActionIndex == 4)  { Claw(); }
-        else if (ActionIndex == 5)  { SlipRush(); }
-        else if (ActionIndex == 6)  { ThrowHigh(); }
-        else if (ActionIndex == 7)  { ThrowLow(); }
+        if      (ActionIndex <= 2)  { InvokeRepeating("Walking",0.5f,1f); }
+        else    { InvokeRepeating("GoToAttackStart", 0.5f, 1f); }
 
         yield return null;
     }
 
     void Walking()
     {
-        Debug.Log("Walking");
-        if (transform.position.x < PlayerPosition.x)
-        { StartCoroutine("Onikuma_MoveRight", 3.0f); }
-        else if (transform.position.x > PlayerPosition.x)
-        { StartCoroutine("Onikuma_MoveLeft", 3.0f); }
+        WalkStepCount += 1;
+        if (WalkStepCount <= 5)
+        {
+            Debug.Log("Walking");
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerPosition.x, transform.position.y, 0), WalkStepLength);
+        }
+        else
+        {
+            CancelInvoke("Walking");
+            StartCoroutine("ActionCooldown");
+        }
+    }
+
+    void GoToAttackStart()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackStartPosition.position.x, transform.position.y, 0), WalkStepLength);
+        if ( transform.position.x == AttackStartPosition.position.x)
+        {
+            CancelInvoke("GoToAttackStart");
+            if (ActionIndex == 3) { InvokeRepeating("RushAttack",0.5f,0.25f); }
+            else if (ActionIndex == 4) { InvokeRepeating("Claw", 0.5f, 0.25f); }
+            else if (ActionIndex == 5) { ThrowHigh(); }
+            else if (ActionIndex == 6) { ThrowLow(); }
+        }
     }
 
     void RushAttack()
@@ -119,46 +140,29 @@ public class Onikuma : MonoBehaviour
         Col_OffsetY = 0.369f;
         Col_sizeX = 4.82f;
         Col_sizeY = 2.46f;
-        Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
 
-        if (transform.position.x < PlayerPosition.x) //Player is to the right
-        {
-            Debug.Log("Execute RushAttack Right");
-            RoomEndAttack_Right();
-        }
-        else if (transform.position.x > PlayerPosition.x) //Player is to the left
-        {
-            Debug.Log("Execute RushAttack Left");
-            RoomEndAttack_Left();
+        if (transform.position.x != AttackEndPosition.position.x)
+        { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackEndPosition.position.x, transform.position.y, 0), RushStepLength); }
+        else
+        { 
+            CancelInvoke("RushAttack");
+            InvokeRepeating("RushBack", 1f, 0.25f);
         }
     }
 
-    void SlipRush()
+    void RushBack()
     {
-        OnikumaSprite.sprite = Prowling;
-        Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        Col_OffsetX = -0.016f;
-        Col_OffsetY = 0.369f;
-        Col_sizeX = 4.82f;
-        Col_sizeY = 2.46f;
-
-        if (transform.position.x < PlayerPosition.x) //Player is to the right
+        if (transform.position.x != AttackStartPosition.position.x)
+        { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackStartPosition.position.x, transform.position.y, 0), RushStepLength); }
+        else
         {
-            Debug.Log("Execute SlipRush Right");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * RushSpeed, ForceMode2D.Impulse);
-            StartCoroutine("Slip", -1);
-        }
-        else if (transform.position.x > PlayerPosition.x) //Player is to the left
-        {
-            Debug.Log("Execute SlipRush Left");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * RushSpeed, ForceMode2D.Impulse);
-            StartCoroutine("Slip", 1);
+            CancelInvoke("RushBack");
+            StartCoroutine("ActionCooldown");
         }
     }
 
     void Claw()
     {
-        Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
         AttackRange = 3f;
         Col_OffsetX = -0.017f;
         Col_OffsetY = 0.0597f;
@@ -166,15 +170,24 @@ public class Onikuma : MonoBehaviour
         Col_sizeY = 7.58f;
         Debug.Log("Execute Claw");
 
-        if (transform.position.x < PlayerPosition.x) //Player is to the right
+        if (transform.position.x != AttackEndPosition.position.x)
+        { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackEndPosition.position.x, transform.position.y, 0), ClawStepLength); }
+        else
         {
-            Debug.Log("Execute ClawAttack Right");
-            RoomEndAttack_Right();
+            CancelInvoke("Claw");
+            InvokeRepeating("ClawBack", 1f, 0.25f);
         }
-        else if (transform.position.x > PlayerPosition.x) //Player is to the left
+
+    }
+
+    void ClawBack()
+    {
+        if (transform.position.x != AttackStartPosition.position.x)
+        { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackStartPosition.position.x, transform.position.y, 0), RushStepLength); }
+        else
         {
-            Debug.Log("Execute ClawAttack Left");
-            RoomEndAttack_Left();
+            CancelInvoke("ClawBack");
+            StartCoroutine("ActionCooldown");
         }
     }
 
@@ -204,20 +217,6 @@ public class Onikuma : MonoBehaviour
         StartCoroutine("ActionCooldown");
     }
 
-    IEnumerator Onikuma_MoveLeft(float WaitTime)
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.left * WalkSpeed, ForceMode2D.Force);
-        yield return new WaitForSeconds(WaitTime);
-        StartCoroutine("ActionCooldown");
-    }
-
-    IEnumerator Onikuma_MoveRight(float WaitTime)
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * WalkSpeed, ForceMode2D.Force);
-        yield return new WaitForSeconds(WaitTime);
-        yield return StartCoroutine("ActionCooldown");
-    }
-
     void RoomEndAttack_Left()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.left * RushSpeed, ForceMode2D.Impulse);
@@ -235,18 +234,6 @@ public class Onikuma : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         GetComponent<Rigidbody2D>().AddForce(Vector2.right *direction * RushSpeed, ForceMode2D.Impulse);
-        StartCoroutine("ActionCooldown");
-    }
-
-    IEnumerator Slip(int direction)
-    {
-        Debug.Log("Slipping");
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * direction * RushSpeed *0.65f, ForceMode2D.Impulse);
-        isVulnerable = true;    //Disable attack collider
-        yield return new WaitForSeconds(3.5f); //Vulnerable time
-        isVulnerable = false;
         StartCoroutine("ActionCooldown");
     }
 
