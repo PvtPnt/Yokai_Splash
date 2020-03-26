@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Enemy_basic[] enemyObj;
 
     bool isEnemyVisible;
+    public GameObject invisibleWall;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +20,14 @@ public class GameManager : MonoBehaviour
         MainCamInst = MainCamera.GetComponent<Camera>();
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
         getEnemyObjComponent();
+        invisibleWall = GameObject.Find("InvisibleWall");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       // getEnemyObjComponent();
+        // getEnemyObjComponent();
         print(MainCamInst.pixelHeight);
         print(MainCamInst.pixelWidth);
         for(int i = 0; i < enemyObj.Length; i++)
@@ -47,6 +49,14 @@ public class GameManager : MonoBehaviour
                 continue;
             }
            
+        }
+        if (checkInvisibleWall(invisibleWall.transform.position))
+        {
+            MainCamInst.fieldOfView = 80;
+        }
+        else
+        {
+            MainCamInst.fieldOfView = 60;
         }
        
         /*if (checkInRange(enemy[].transform.position))
@@ -73,6 +83,21 @@ public class GameManager : MonoBehaviour
             }
     }
 
+    bool checkInvisibleWall(Vector3 objToCheck)
+    {
+        Vector3 viewPos = MainCamInst.WorldToViewportPoint(objToCheck);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            //In Range
+            print("found wall");
+            return true;
+        }
+        else
+        {
+            print("not found wall");
+            return false;
+        }
+    }
     void getEnemyObjComponent()
     {
         for(int i = 0; i < enemy.Length; i++)

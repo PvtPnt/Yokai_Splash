@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DestroyOnCondition : MonoBehaviour
 {
     public GameObject[] enemy;
+    public GameObject Dialogue;
+    public GameObject canvas;
 
     [SerializeField]
     int numOfenemy;
@@ -22,6 +25,11 @@ public class DestroyOnCondition : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(Dialogue,canvas.transform);
     }
 
     void checkRemainingEnemy()
