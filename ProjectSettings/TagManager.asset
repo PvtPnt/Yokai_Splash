@@ -44,14 +44,20 @@ TagManager:
   - name: Background
     uniqueID: 4279864173
     locked: 0
-  - name: Player
-    uniqueID: 2807673213
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Stage object
     uniqueID: 306164211
+    locked: 0
+  - name: platform
+    uniqueID: 1125766161
+    locked: 0
+  - name: Player
+    uniqueID: 2807673213
+    locked: 0
+  - name: enemy
+    uniqueID: 1721466045
     locked: 0
   - name: UI
     uniqueID: 102607347
