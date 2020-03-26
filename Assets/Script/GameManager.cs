@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     bool isEnemyVisible;
     public GameObject invisibleWall;
+    public GameObject invisbleWall_child;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
         getEnemyObjComponent();
         invisibleWall = GameObject.Find("InvisibleWall");
+        invisbleWall_child = GameObject.Find("InvisbleWall_child");
 
     }
 
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
             }
            
         }
-        if (checkInvisibleWall(invisibleWall.transform.position))
+        /*if (checkInvisibleWall(invisibleWall.transform.position))
         {
             MainCamInst.fieldOfView = 80;
         }

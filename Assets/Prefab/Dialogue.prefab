@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c6ed49841ddd64aad5a2acbd34cb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charPic: {fileID: 21300000, guid: a4bb716d63dd5514c87a777253712cd3, type: 3}
-  charName: Oshimakara
-  message: Umeiwa!!!
+  charPic: {fileID: 21300000, guid: 4c15246c281744e4088d02794729130a, type: 3}
+  charName: Maid
+  message: Test 1
   charPicObj: {fileID: 6622731083924584338}
   charNameObj: {fileID: 6622731085103532321}
   messageObj: {fileID: 6622731085276007480}

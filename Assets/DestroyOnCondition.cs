@@ -9,6 +9,8 @@ public class DestroyOnCondition : MonoBehaviour
     public GameObject Dialogue;
     public GameObject canvas;
 
+    public Camera MainCamera;
+
     [SerializeField]
     int numOfenemy;
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class DestroyOnCondition : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(Dialogue,canvas.transform);
+        MainCamera.fieldOfView = 60;
+        
     }
 
     void checkRemainingEnemy()
