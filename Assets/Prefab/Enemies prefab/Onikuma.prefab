@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187563589418179301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97.5, y: -8.5, z: 0}
+  m_LocalPosition: {x: 0, y: -8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2187563589915672659}
@@ -83,25 +83,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 500
   RushSpeed: 15
-  CooldownTimer: 2
+  CooldownTimer: 5
+  WalkStepLength: 3
+  RushStepLength: 5
+  ClawStepLength: 4
   groundCheckRange: 1
   wallCheckRange: 1
   EnemyCheckRange: 10
-  AttackRange: 1
-  Col_sizeX: 1
-  Col_sizeY: 1
-  Col_OffsetX: 0
+  AttackRange: 3.5
+  Col_sizeX: 4.82
+  Col_sizeY: 7.467844
+  Col_OffsetX: -0.017
   Col_OffsetY: 0
   HighThrow_offset: 1.5
   LowThrow_offset: -1.5
   BCollider2D: {fileID: 2187563589418179311}
   Damage: 10
   ActionIndex: 0
+  ActionMin: 1
+  ActionMax: 7
+  WalkStepCount: 0
   IsWalkingLeft: 0
   isGrounded: 0
   isWalled: 0
   isPerformingAction: 0
-  isVulnerable: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -113,11 +118,13 @@ MonoBehaviour:
     m_Bits: 2048
   EnemyHitbox: {fileID: 2187563589418179296}
   groundChecker: {fileID: 2187563589915672659}
+  AttackStartPosition: {fileID: 0}
+  AttackEndPosition: {fileID: 0}
   Standing: {fileID: 21300000, guid: daeefdf76239af246976c13cbe4a935b, type: 3}
   Prowling: {fileID: 21300000, guid: 1abbe5a46276daa4c94f8ff2edc04e02, type: 3}
   Throwables: {fileID: 3587074723586067784, guid: 046f43a51b73b9142b6cf589b41eca7a,
     type: 3}
-  PlayerPosition: {x: 0, y: 0}
+  PlayerPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &2187563589418179299
 Rigidbody2D:
   serializedVersion: 4
@@ -313,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187563591302231085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.25, y: -1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2187563589418179296}

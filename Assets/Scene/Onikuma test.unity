@@ -693,46 +693,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
-      propertyPath: Col_sizeX
-      value: 4.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: Col_sizeY
-      value: 7.467844
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: Col_OffsetX
-      value: -0.017
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: Col_OffsetY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: AttackRange
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: EnemyHitbox
-      value: 
-      objectReference: {fileID: 823623175}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: ActionMin
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: ActionMax
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
       propertyPath: AttackStartPosition
       value: 
       objectReference: {fileID: 1861376616}
@@ -741,45 +701,10 @@ PrefabInstance:
       propertyPath: AttackEndPosition
       value: 
       objectReference: {fileID: 845214027}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: MovementSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: WalkStepLength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: CooldownTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: RushStepLength
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: ClawStepLength
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_Name
       value: Onikuma
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563591302231084, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563591302231084, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72480b97274cf343994b1c9f29c7656, type: 3}
@@ -864,12 +789,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &823623175 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
-    type: 3}
-  m_PrefabInstance: {fileID: 618034666}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &845214026
 GameObject:
   m_ObjectHideFlags: 0
