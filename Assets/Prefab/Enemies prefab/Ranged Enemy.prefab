@@ -136,9 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  IsWalkingLeft: 0
-  isGrounded: 1
-  isWalled: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -250,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebccbffd2ee197d47bc2f5e47d94fe92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 5
   Defense: 0
 --- !u!114 &-1682248501497481388
 MonoBehaviour:

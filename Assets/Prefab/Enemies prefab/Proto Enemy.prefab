@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebccbffd2ee197d47bc2f5e47d94fe92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 20
+  HP: 5
   Defense: 0
 --- !u!50 &9215341238363158527
 Rigidbody2D:
@@ -301,6 +301,8 @@ MonoBehaviour:
   isGrounded: 1
   isWalled: 0
   onPush: 0
+  NoGapAhead: 0
+  isBigChungus: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -314,7 +316,9 @@ MonoBehaviour:
   Current_WallChecker: {fileID: 0}
   WallChecker_Right: {fileID: 1268942903}
   WallChecker_Left: {fileID: 712890394}
+  RayOffset: {x: 1, y: 0, z: 0}
   TsuchinokoSprite: {fileID: 5846593991540681484}
+  TsuchinokoAnimator: {fileID: 0}
   isPlayerinRange: 0
   stateDelay: 2
 --- !u!1 &6913318460610529659
