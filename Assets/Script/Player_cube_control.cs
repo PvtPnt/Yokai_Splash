@@ -291,6 +291,7 @@ public class Player_cube_control : MonoBehaviour
         GameObject trailPart = new GameObject();
         trailPart.layer = 12; //Make trail layer == Invincible layer
         SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
+        trailPartRenderer.sortingLayerName = "Player";
         trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
         trailPart.transform.position = transform.position;
         trailPart.transform.localScale = transform.localScale;
