@@ -39,12 +39,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2187563589418179296}
-  - component: {fileID: 2187563589418179297}
-  - component: {fileID: 2187563589418179298}
   - component: {fileID: 2187563589418179300}
   - component: {fileID: 2187563589418179299}
   - component: {fileID: 8777433423064964611}
   - component: {fileID: 2187563589418179311}
+  - component: {fileID: 1657492218}
   m_Layer: 9
   m_Name: Onikuma
   m_TagString: Enemy
@@ -61,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 2187563589418179301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 97.5, y: -8.5, z: 0}
-  m_LocalScale: {x: 2.5, y: 4.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2187563589915672659}
   - {fileID: 2187563591302231084}
@@ -70,53 +69,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2187563589418179297
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187563589418179301}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2187563589418179298
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187563589418179301}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &2187563589418179300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 500
   RushSpeed: 15
-  CooldownTimer: 3
+  CooldownTimer: 2
   groundCheckRange: 1
   wallCheckRange: 1
   EnemyCheckRange: 10
@@ -140,6 +92,8 @@ MonoBehaviour:
   Col_sizeY: 1
   Col_OffsetX: 0
   Col_OffsetY: 0
+  HighThrow_offset: 1.5
+  LowThrow_offset: -1.5
   BCollider2D: {fileID: 2187563589418179311}
   Damage: 10
   ActionIndex: 0
@@ -147,6 +101,7 @@ MonoBehaviour:
   isGrounded: 0
   isWalled: 0
   isPerformingAction: 0
+  isVulnerable: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -158,12 +113,10 @@ MonoBehaviour:
     m_Bits: 2048
   EnemyHitbox: {fileID: 2187563589418179296}
   groundChecker: {fileID: 2187563589915672659}
-  Current_WallChecker: {fileID: 0}
-  WallChecker_Right: {fileID: 2187563589200844898}
-  WallChecker_Left: {fileID: 2187563590799016556}
-  RoomEnd_L: {fileID: 0}
-  RoomEnd_R: {fileID: 0}
-  OnikumaSprite: {fileID: 0}
+  Standing: {fileID: 21300000, guid: daeefdf76239af246976c13cbe4a935b, type: 3}
+  Prowling: {fileID: 21300000, guid: 1abbe5a46276daa4c94f8ff2edc04e02, type: 3}
+  Throwables: {fileID: 3587074723586067784, guid: 046f43a51b73b9142b6cf589b41eca7a,
+    type: 3}
   PlayerPosition: {x: 0, y: 0}
 --- !u!50 &2187563589418179299
 Rigidbody2D:
@@ -213,19 +166,69 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01682043, y: 0.11207795}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.2431602, y: 7.8779993}
+    newSize: {x: 6.2431602, y: 7.8779993}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.82, y: 7.467844}
   m_EdgeRadius: 0
+--- !u!212 &1657492218
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187563589418179301}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: daeefdf76239af246976c13cbe4a935b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.2431602, y: 7.8779993}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2187563589915672660
 GameObject:
   m_ObjectHideFlags: 0

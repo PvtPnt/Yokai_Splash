@@ -173,7 +173,7 @@ public class Player_cube_control : MonoBehaviour
         //jump controlling
         if (isGrounded)
         {
-            if (GetComponent<Rigidbody2D>().velocity.y < 0)
+            if (GetComponent<Rigidbody2D>().velocity.y <= 0)
             { 
                 JumpCount = 0;
                 GetComponent<Animator>().SetBool("jump", false);

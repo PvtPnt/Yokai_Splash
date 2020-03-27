@@ -191,9 +191,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebccbffd2ee197d47bc2f5e47d94fe92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 1
+  m_Name:
+  m_EditorClassIdentifier:
+  HP: 5
   Defense: 0
 --- !u!50 &9215341238363158527
 Rigidbody2D:
@@ -273,7 +273,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f74a8ebecc4a395489495c9f68bff412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   WalkSpeed: 35
   Tsuchinoko_Jumpforce: 0.35
   groundCheckRange: 1.5
@@ -298,10 +298,13 @@ MonoBehaviour:
   Damage: 1
   PushForce: 600
   waveDirectionLeft: 0
+  isWalk: 0
   IsWalkingLeft: 0
   isGrounded: 1
   isWalled: 0
   onPush: 0
+  NoGapAhead: 0
+  isBigChungus: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -315,7 +318,9 @@ MonoBehaviour:
   Current_WallChecker: {fileID: 0}
   WallChecker_Right: {fileID: 1268942903}
   WallChecker_Left: {fileID: 712890394}
+  RayOffset: {x: 1, y: 0, z: 0}
   TsuchinokoSprite: {fileID: 5846593991540681484}
+  TsuchinokoAnimator: {fileID: 0}
   isPlayerinRange: 0
   stateDelay: 2
 --- !u!1 &6913318460610529659
