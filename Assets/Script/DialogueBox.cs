@@ -15,7 +15,6 @@ public class DialogueBox : MonoBehaviour
     public Text charNameObj;
     public Text messageObj;
 
-    public Camera MainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +23,6 @@ public class DialogueBox : MonoBehaviour
         charNameObj.text = charName;
         messageObj.text = message;
         Time.timeScale = 0;
-        MainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
