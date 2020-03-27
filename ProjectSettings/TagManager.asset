@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Enemy_Bullet
   - Platform
+  - Projectile_Enemy
   layers:
   - Default
   - TransparentFX
@@ -41,29 +42,20 @@ TagManager:
   - 
   - Background
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Background
     uniqueID: 4279864173
     locked: 0
-  - name: parallax
-    uniqueID: 2347895889
-    locked: 0
   - name: Stage object
     uniqueID: 306164211
-    locked: 0
-  - name: Decoration
-    uniqueID: 2083866069
-    locked: 0
-  - name: platform
-    uniqueID: 981559653
     locked: 0
   - name: Player
     uniqueID: 2807673213
     locked: 0
   - name: Enemy
-    uniqueID: 1195615711
-    locked: 0
-  - name: Default
-    uniqueID: 0
+    uniqueID: 579103465
     locked: 0
   - name: UI
     uniqueID: 102607347
