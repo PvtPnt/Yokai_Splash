@@ -231,7 +231,6 @@ GameObject:
   - component: {fileID: 482956771}
   - component: {fileID: 482956772}
   - component: {fileID: 482956773}
-  - component: {fileID: 482956774}
   - component: {fileID: 482956775}
   - component: {fileID: 482956776}
   m_Layer: 0
@@ -318,19 +317,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.010001, y: 0.74000025, z: 0.20000023}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &482956774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482956770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c809f21983e9ac4ca5911260852919f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonSprite: {fileID: 482956772}
 --- !u!114 &482956775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,8 +329,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5b52a86cc968148b67ebe135cdd429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputValue: 0
+  MenuIndex: 0
+  isHoldingLeftStick: 0
   isStart: 1
   isQuit: 0
+  ButtonSprite: {fileID: 0}
+  isSelected: 0
+  ButtonNumber: 0
 --- !u!114 &482956776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,7 +818,6 @@ GameObject:
   - component: {fileID: 1624175993}
   - component: {fileID: 1624175994}
   - component: {fileID: 1624175995}
-  - component: {fileID: 1624175996}
   - component: {fileID: 1624175997}
   - component: {fileID: 1624175998}
   m_Layer: 0
@@ -913,19 +904,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4400008, y: 0.67000026, z: 0.20000021}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1624175996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624175992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c809f21983e9ac4ca5911260852919f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonSprite: {fileID: 1624175994}
 --- !u!114 &1624175997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,8 +916,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5b52a86cc968148b67ebe135cdd429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputValue: 0
+  MenuIndex: 0
+  isHoldingLeftStick: 0
   isStart: 0
   isQuit: 1
+  ButtonSprite: {fileID: 0}
+  isSelected: 0
+  ButtonNumber: 2
 --- !u!114 &1624175998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,8 +1107,8 @@ GameObject:
   - component: {fileID: 1890539620}
   - component: {fileID: 1890539621}
   - component: {fileID: 1890539622}
-  - component: {fileID: 1890539623}
   - component: {fileID: 1890539624}
+  - component: {fileID: 1890539623}
   m_Layer: 0
   m_Name: Option
   m_TagString: Untagged
@@ -1218,10 +1202,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1890539619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c809f21983e9ac4ca5911260852919f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d5b52a86cc968148b67ebe135cdd429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonSprite: {fileID: 1890539621}
+  InputValue: 0
+  MenuIndex: 0
+  isHoldingLeftStick: 0
+  isStart: 0
+  isQuit: 0
+  ButtonSprite: {fileID: 0}
+  isSelected: 0
+  ButtonNumber: 1
 --- !u!114 &1890539624
 MonoBehaviour:
   m_ObjectHideFlags: 0
