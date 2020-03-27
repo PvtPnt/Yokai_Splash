@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
         else { ButtonSprite.color = Color.white; }
 
         if (MenuIndex > 2) { MenuIndex = 2; }
-        else if (MenuIndex < 0) { MenuIndex = 0; }
+        else if (MenuIndex < -1) { MenuIndex = -1; }
 
         InputValue = Input.GetAxisRaw("Vertical");
         if (InputValue != 0)
@@ -59,10 +59,16 @@ public class MainMenu : MonoBehaviour
     }
 
     void OnMouseEnter()
-    { isSelected = true; }
+    { 
+        isSelected = true;
+        MenuIndex = ButtonNumber;
+    }
 
     void OnMouseExit()
-    { isSelected = false; }
+    { 
+        isSelected = false;
+        MenuIndex = -1;
+    }
 
     void OnMouseUp()
     {
