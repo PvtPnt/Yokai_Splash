@@ -29,6 +29,6 @@ public class MainMenu : MonoBehaviour
 
     public void LoadLevel()
     {
-        SceneManager.LoadScene("level 1");
+        SceneManager.LoadScene("proto1");
     }
 }
