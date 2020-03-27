@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 115090383}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 218322997}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (13)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,6 +856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prop stage1-No.6.1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990621133414693654, guid: 875c477402950284fa89d5fb6e55f8d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
@@ -1055,7 +1060,7 @@ GameObject:
   - component: {fileID: 281163291}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1394,7 +1399,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 9fd21df6dd2d5f943b00e0d7adbea10e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1846,7 +1851,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c4fd968132bf75845b68e9d21683eba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2029,7 +2034,7 @@ GameObject:
   - component: {fileID: 399090104}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (11)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2178,7 +2183,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: ccdb5c44448266946b462ddbd86e45ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2382,7 +2387,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 68df102904e7cc547a5528f938d93cff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2649,7 +2654,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: d6b4e8435a8c48b41831f9b32ad7e1e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2689,7 +2694,7 @@ GameObject:
   - component: {fileID: 478004493}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3290,7 +3295,7 @@ GameObject:
   - component: {fileID: 617819520}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3518,7 +3523,7 @@ GameObject:
   - component: {fileID: 645054717}
   m_Layer: 8
   m_Name: platform test
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3731,7 +3736,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -91
   m_Sprite: {fileID: 21300000, guid: d6b4e8435a8c48b41831f9b32ad7e1e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3850,7 +3855,7 @@ GameObject:
   - component: {fileID: 701864187}
   m_Layer: 8
   m_Name: Prop stage1-No.8.3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3918,7 +3923,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0d9ce2d490b86f478039bf3b708937b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4274,7 +4279,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -9
   m_Sprite: {fileID: 21300000, guid: 1645f1fcd7175ff4e850e838cfc83674, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4341,7 +4346,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -18
   m_Sprite: {fileID: 21300000, guid: 08b7eccd50f168148beb122dbbc54abc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4472,7 +4477,7 @@ GameObject:
   - component: {fileID: 757681012}
   m_Layer: 8
   m_Name: Prop stage1-No.8.2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4514,7 +4519,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1d192584e7c00774da8417430664b1a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4675,7 +4680,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 68df102904e7cc547a5528f938d93cff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4756,7 +4761,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 9fd21df6dd2d5f943b00e0d7adbea10e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4879,6 +4884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prop stage1-No.6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990621133414693654, guid: 875c477402950284fa89d5fb6e55f8d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 7162260073293980163, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
@@ -5050,7 +5060,7 @@ GameObject:
   - component: {fileID: 807465602}
   m_Layer: 8
   m_Name: Prop stage1-No.5png (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5264,7 +5274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c3d0d32988407c0479d2883524086014, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5994,7 +6004,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 154bc4eeceeeb6845b03c8b2653a8bbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6140,7 +6150,7 @@ GameObject:
   - component: {fileID: 860814303}
   m_Layer: 8
   m_Name: Prop stage1-No.8.1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6208,7 +6218,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fc69285222863ff4984e59365ab8c1e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6289,7 +6299,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -19
   m_Sprite: {fileID: 21300000, guid: 0c7811dcf3b2f4d4180c495f0e5eedc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6766,7 +6776,7 @@ GameObject:
   - component: {fileID: 978977374}
   m_Layer: 8
   m_Name: Prop stage1-No.8.1 (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6834,7 +6844,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fc69285222863ff4984e59365ab8c1e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7022,7 +7032,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 154bc4eeceeeb6845b03c8b2653a8bbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7160,7 +7170,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c4fd968132bf75845b68e9d21683eba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7451,7 +7461,7 @@ GameObject:
   - component: {fileID: 1180170719}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (14)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7644,7 +7654,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 9fd21df6dd2d5f943b00e0d7adbea10e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7924,7 +7934,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 154bc4eeceeeb6845b03c8b2653a8bbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8195,7 +8205,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c4fd968132bf75845b68e9d21683eba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8496,7 +8506,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c4fd968132bf75845b68e9d21683eba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8536,7 +8546,7 @@ GameObject:
   - component: {fileID: 1382343361}
   m_Layer: 10
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8827,7 +8837,7 @@ GameObject:
   - component: {fileID: 1400506796}
   m_Layer: 0
   m_Name: Prop stage1-No.1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8910,7 +8920,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ef5ee09d083cbe743804b6243f47fcb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8936,7 +8946,7 @@ GameObject:
   - component: {fileID: 1404911127}
   m_Layer: 8
   m_Name: Prop stage1-No.4
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9004,7 +9014,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ce999bc9b97a7b14586f10903be0ca6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9050,7 +9060,7 @@ GameObject:
   - component: {fileID: 1417527552}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (9)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9215,7 +9225,7 @@ GameObject:
   - component: {fileID: 1451565972}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9364,7 +9374,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -90
   m_Sprite: {fileID: 21300000, guid: b62039e875972a441847a66ed648f2da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9404,7 +9414,7 @@ GameObject:
   - component: {fileID: 1504951926}
   m_Layer: 8
   m_Name: Prop stage1-No.3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9747,7 +9757,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 02dd9bde621f54f468682e3e13e7e761, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9787,7 +9797,7 @@ GameObject:
   - component: {fileID: 1550261544}
   m_Layer: 0
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10070,7 +10080,7 @@ GameObject:
   - component: {fileID: 1572147735}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10183,7 +10193,7 @@ GameObject:
   - component: {fileID: 1574959140}
   m_Layer: 8
   m_Name: Prop stage1-No.5png
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10396,7 +10406,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c3d0d32988407c0479d2883524086014, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10534,7 +10544,7 @@ GameObject:
   - component: {fileID: 1666430587}
   m_Layer: 8
   m_Name: Prop stage1-No.8.3 (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10602,7 +10612,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0d9ce2d490b86f478039bf3b708937b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10730,6 +10740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prop stage1-No.6.1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990621133414693654, guid: 875c477402950284fa89d5fb6e55f8d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
@@ -10914,7 +10929,7 @@ GameObject:
   - component: {fileID: 1708453583}
   m_Layer: 8
   m_Name: platformlv1type1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11289,7 +11304,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: c4fd968132bf75845b68e9d21683eba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11692,7 +11707,7 @@ GameObject:
   - component: {fileID: 1782586727}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (10)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11880,7 +11895,7 @@ GameObject:
   - component: {fileID: 1787418830}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12029,7 +12044,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -91
   m_Sprite: {fileID: 21300000, guid: d6b4e8435a8c48b41831f9b32ad7e1e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12075,7 +12090,7 @@ GameObject:
   - component: {fileID: 1804651545}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (12)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12951,7 +12966,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 9fd21df6dd2d5f943b00e0d7adbea10e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12991,7 +13006,7 @@ GameObject:
   - component: {fileID: 2052329584}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1 (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13140,7 +13155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: d6b4e8435a8c48b41831f9b32ad7e1e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13316,7 +13331,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -15103123
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: -80
   m_Sprite: {fileID: 21300000, guid: 9fd21df6dd2d5f943b00e0d7adbea10e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13403,7 +13418,7 @@ GameObject:
   - component: {fileID: 2097361355}
   m_Layer: 8
   m_Name: Fixedplatformstage1.1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13593,6 +13608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prop stage1-No.6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990621133414693654, guid: 875c477402950284fa89d5fb6e55f8d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}

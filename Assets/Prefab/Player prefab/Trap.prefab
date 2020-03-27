@@ -104,17 +104,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177716437493456354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e5303d84753744ca8602f4ce572196, type: 3}
+  m_Script: {fileID: 11500000, guid: d081b571f27f777479f4f6383a2ec567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTrap: 1
+  PlayerTrap: 0
   Speed: 3
   Damage: 10
   IsWalkingLeft: 0
   LifeTime: 1
   Trap: {fileID: 5177716437493456354}
   Wave: {fileID: 5068136069048460097, guid: 4d0de55091d8816499c96898b45eb133, type: 3}
-  Player: {fileID: 915654608867603240, guid: 0fbcc08668254c240bfa8cd0850355de, type: 3}
+  Player: {fileID: 0}
   ZOffset: 0
   YOffset: 0
   XOffset: 0

@@ -55,8 +55,11 @@ public class WaveController : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Debug.Log("Made contact!");
-            //Deal dmg to enemy
             other.SendMessage("PushedBack", DirectionIsLeft);
+        }
+
+        if (other.tag == "Platform")
+        {
             Destroy(this.gameObject);
         }
 
