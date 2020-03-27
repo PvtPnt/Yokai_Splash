@@ -105,11 +105,16 @@ public class Player_cube_control : MonoBehaviour
     {
         //GetComponent<Animator>().SetBool("alive", true);
 
-        if (Input.GetKeyUp(KeyCode.P))
-            {
-            SceneManager.UnloadSceneAsync("proto1");
-            SceneManager.LoadScene("Title Scene");
-            }
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+            {SceneManager.LoadScene("Title Scene");}
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        { SceneManager.LoadScene("level 1"); }
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        { SceneManager.LoadScene("level 1 Boss"); }
+        if (Input.GetKeyUp(KeyCode.Alpha4))
+        { SceneManager.LoadScene("level2blocks"); }
+        if (Input.GetKeyUp(KeyCode.Alpha5))
+        { SceneManager.LoadScene("Onikuma test"); }
 
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         //Burst Mode Trigger

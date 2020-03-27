@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/level 1 Boss.unity
     guid: bd2a61597af39134d99d844fce7cf0e9
+  - enabled: 1
+    path: Assets/Scene/level2blocks.unity
+    guid: 47691e952ef1c1b4ba6187b29ea18127
+  - enabled: 1
+    path: Assets/Scene/Onikuma test.unity
+    guid: 57152bb6acedc474cbbbaab44afbd268
   m_configObjects: {}
