@@ -79,7 +79,7 @@ public class Player_Melee : MonoBehaviour
                 GetComponent<Animator>().SetBool("Melee", true);
                 GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
                 GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
-                AttackDirection();
+                AttackDirection(Damage);
                 timeBTWattack = Start_timeBTWattack;
             }
 
@@ -103,17 +103,19 @@ public class Player_Melee : MonoBehaviour
             StartCoroutine("Expire", BurstTime);
     }
 
-    private void AttackDirection()
+    private void AttackDirection(int Damage)
     {
         if (IsWalkingLeft == false)
         {
-            Collider2D DamageEnemy = Physics2D.OverlapCircle(AttackPosFront.position, AttackRange, EnemyLayer);
-            DamageEnemy.GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+            Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosFront.position, AttackRange, EnemyLayer);
+            for (int i = 0; i < DamageEnemy.Length; i++)
+            { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
         }
         else if (IsWalkingLeft == true)
         {
-            Collider2D DamageEnemy = Physics2D.OverlapCircle(AttackPosBack.position, AttackRange, EnemyLayer);
-            DamageEnemy.GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+            Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosBack.position, AttackRange, EnemyLayer);
+            for (int i = 0; i < DamageEnemy.Length; i++)
+            { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
         }
     }
     public void BurstOnDMG()

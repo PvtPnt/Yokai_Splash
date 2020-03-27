@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy_basic : MonoBehaviour
 {
+    //public int HP;
+
     public float WalkSpeed;
     public float Tsuchinoko_Jumpforce;
     public float groundCheckRange = 1f;
