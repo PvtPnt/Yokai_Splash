@@ -8,13 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Title scene.unity
     guid: f61a6c0e201b1d345b1ea806a0d04749
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scene/proto1.unity
     guid: 772c25cbaa09e6148b1f95d828a37e11
-  - enabled: 1
-    path: Assets/Scene/level 1.unity
-    guid: a53e83110b9c7ad41be81338769f93ce
-  - enabled: 1
-    path: Assets/Scene/level 1 Boss.unity
-    guid: bd2a61597af39134d99d844fce7cf0e9
   m_configObjects: {}
