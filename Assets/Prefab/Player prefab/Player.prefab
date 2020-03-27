@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 177773576216474594}
+  - component: {fileID: 4852483235857467466}
   m_Layer: 11
   m_Name: AttackHitboxBack
   m_TagString: Untagged
@@ -157,6 +158,19 @@ Transform:
   m_Father: {fileID: 177773576671884092}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4852483235857467466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177773576216474525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &177773576550807218
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 177773576550807219}
+  - component: {fileID: 8286627176576202636}
   m_Layer: 11
   m_Name: AttackHitboxFront
   m_TagString: Untagged
@@ -187,6 +202,19 @@ Transform:
   m_Father: {fileID: 177773576671884092}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8286627176576202636
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177773576550807218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &177773576616284239
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +324,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1487294083
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 8020143640844766479, guid: 0ab46bbd7331960479d65a2d86fd7a0e,
     type: 3}
@@ -323,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpCount: 0
+  HealAmount: 0
   Start_timeBTWdash: 0.3
   Start_timeBTWshoot: 0.5
   WalkSpeed: 150
@@ -363,7 +392,6 @@ MonoBehaviour:
   jumpingSound: {fileID: 8300000, guid: 1df145eed2ad59c48a5aa637491d11f8, type: 3}
   GroundChecker: {fileID: 177773576616284236}
   PlayerSprite: {fileID: 177773576671884095}
-  collider: {fileID: 0}
 --- !u!50 &177773576671884034
 Rigidbody2D:
   serializedVersion: 4

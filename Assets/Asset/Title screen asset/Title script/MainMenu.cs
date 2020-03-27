@@ -22,13 +22,13 @@ public class MainMenu : MonoBehaviour
     void OnMouseUp()
     {
         if (isStart)
-        {SceneManager.LoadScene("proto1");}
+        {SceneManager.LoadScene("level 1");}
         if (isQuit)
         {Application.Quit();}
     }
 
     public void LoadLevel()
     {
-        SceneManager.LoadScene("proto1");
+        SceneManager.LoadScene("level 1");
     }
 }
