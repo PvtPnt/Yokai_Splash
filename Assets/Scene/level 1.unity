@@ -6283,6 +6283,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -5309515902214211925, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: Defense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5309515902214211925, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 543567553839816106, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_Name
@@ -7208,6 +7218,7 @@ MonoBehaviour:
   WallChecker_Left: {fileID: 0}
   RayOffset: {x: 1, y: 0, z: 0}
   TsuchinokoSprite: {fileID: 0}
+  TsuchinokoAnimator: {fileID: 0}
   isPlayerinRange: 0
   stateDelay: 0
 --- !u!1 &1081900910
@@ -13691,6 +13702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: NormalMelee
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
