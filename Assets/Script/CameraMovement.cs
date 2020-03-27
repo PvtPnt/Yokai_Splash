@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     public Transform Player;
     public float Height_Threshold;
