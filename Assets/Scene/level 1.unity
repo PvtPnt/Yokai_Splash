@@ -4181,6 +4181,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3911175
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5313133
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7979766
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874ea578e2a41f44488e90923d06c0cf, type: 3}
 --- !u!1 &645054716
@@ -7295,6 +7310,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -3257355013544963618, guid: 874ea578e2a41f44488e90923d06c0cf,
+        type: 3}
+      propertyPath: HP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1981632804170306464, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
       propertyPath: shotDelay
@@ -7330,11 +7350,6 @@ PrefabInstance:
         type: 3}
       propertyPath: EnemyCheckRange
       value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260769, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260771, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
@@ -7380,11 +7395,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 3.7229917
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439229669846260774, guid: 874ea578e2a41f44488e90923d06c0cf,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6439229669846260794, guid: 874ea578e2a41f44488e90923d06c0cf,
         type: 3}
@@ -15064,11 +15074,6 @@ PrefabInstance:
       propertyPath: HealAmount
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
-        type: 3}
-      propertyPath: HP
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884094, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Name
@@ -15238,10 +15243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
