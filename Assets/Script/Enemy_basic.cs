@@ -16,6 +16,7 @@ public class Enemy_basic : MonoBehaviour
     public int Damage;
     public bool waveDirectionLeft;
 
+    public bool isWalk;
     public bool IsWalkingLeft;
     public bool isGrounded;
     public bool isWalled;
@@ -35,7 +36,6 @@ public class Enemy_basic : MonoBehaviour
     public Vector3 RayOffset = new Vector3(1f, 0f, 0f);
 
     public SpriteRenderer TsuchinokoSprite;
-    public Animator TsuchinokoAnimator;
 
     public bool isPlayerinRange = false;
     public float stateDelay;
@@ -43,10 +43,9 @@ public class Enemy_basic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TsuchinokoSprite = GetComponent<SpriteRenderer>();
-        TsuchinokoAnimator = GetComponent<Animator>();
         if (isBigChungus)
         {groundCheckRange += 2f;}
+        isWalk = false;
     }
 
     // Update is called once per frame
@@ -59,30 +58,24 @@ public class Enemy_basic : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isPlayerinRange)
+        if (!isPlayerinRange && isWalk)
         {
-            TsuchinokoAnimator.SetBool("attacking", false);
             Walking();
         }
 
         else
         {
-            TsuchinokoAnimator.SetBool("moving", false);
-            StartCoroutine("Attack");
+            Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
+            for (int i = 0; i < DamagePlayer.Length; i++)
+            { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
         }
         
     }
 
-    IEnumerator Attack()
-    {
-        TsuchinokoAnimator.SetBool("attacking", true);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
-        for (int i = 0; i < DamagePlayer.Length; i++)
-        { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
-        yield return null;
-    }
-
+    //public void ReceiveDamage(int Damage)
+    //{
+    //    HP -= Damage;
+    //}
 
     public void PushedBack(bool WaveDirectionLeft)
     {
@@ -117,9 +110,10 @@ public class Enemy_basic : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(transform.position, groundCheckRange, groundLayer);
         if (isGrounded)
         {
-            TsuchinokoAnimator.SetBool("moving", true);
             if (IsWalkingLeft == true)
-            {StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);}
+            {
+                StartCoroutine("Tsuchinoko_MoveLeft", 0.45f);            
+            }
             else if (IsWalkingLeft == false)
             {StartCoroutine("Tsuchinoko_MoveRight", 0.45f);}
         }
