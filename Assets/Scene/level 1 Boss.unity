@@ -3216,21 +3216,6 @@ PrefabInstance:
       propertyPath: AttackStartPosition
       value: 
       objectReference: {fileID: 1893967384}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: ActionMax
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: Damage
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
-        type: 3}
-      propertyPath: CooldownTimer
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_Name
