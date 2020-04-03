@@ -100,13 +100,11 @@ public class Onikuma : MonoBehaviour
 
     IEnumerator ActionManager()
     {
-        //OnikumaSprite.sprite = Standing;
         isPerformingAction = true;
         ActionIndex = Random.Range(ActionMin, ActionMax); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
         if      (ActionIndex <= 2)  { InvokeRepeating("Walking",0.5f,1f); }
         else    { InvokeRepeating("GoToAttackStart", 0.5f, 1f); }
-
         yield return null;
     }
 
@@ -132,7 +130,7 @@ public class Onikuma : MonoBehaviour
         {
             CancelInvoke("GoToAttackStart");
             if (ActionIndex == 3) { RushPrep(); }
-            else if (ActionIndex == 4) { InvokeRepeating("Claw", 0.5f, 0.25f); }
+            else if (ActionIndex == 4) { SpinPrep(); }
             else if (ActionIndex == 5) { ThrowHigh(); }
             else if (ActionIndex == 6) { ThrowLow(); }
         }
@@ -178,32 +176,43 @@ public class Onikuma : MonoBehaviour
         }
     }
 
-    void Claw()
+    void SpinPrep()
     {
+        Debug.Log("Preparing Spin");
+        OnikumaAnimator.SetTrigger("PrepSpin");
+    }
+
+    void SpinAttack()
+    {
+        Debug.Log("Execute Spin");
         AttackRange = 3f;
         Col_OffsetX = -0.017f;
         Col_OffsetY = 0.0597f;
         Col_sizeX = 4.82f;
         Col_sizeY = 7.58f;
-        Debug.Log("Execute Claw");
+        OnikumaAnimator.SetBool("Spin", true);
+        InvokeRepeating("SpinControl", 0.5f, 0.25f);
+    }
 
+    void SpinControl()
+    {
         if (transform.position.x != AttackEndPosition.position.x)
         { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackEndPosition.position.x, transform.position.y, 0), ClawStepLength); }
         else
         {
-            CancelInvoke("Claw");
-            InvokeRepeating("ClawBack", 1f, 0.25f);
+            CancelInvoke("SpinControl");
+            InvokeRepeating("SpinBack", 1f, 0.25f);
         }
-
     }
 
-    void ClawBack()
+    void SpinBack()
     {
         if (transform.position.x != AttackStartPosition.position.x)
         { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackStartPosition.position.x, transform.position.y, 0), RushStepLength); }
         else
         {
-            CancelInvoke("ClawBack");
+            CancelInvoke("SpinBack");
+            OnikumaAnimator.SetBool("Spin", false);
             StartCoroutine("ActionCooldown");
         }
     }
