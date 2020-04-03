@@ -20,7 +20,7 @@ public class Onikuma : MonoBehaviour
     public float HighThrow_offset;
     public float LowThrow_offset;
 
-    public BoxCollider2D BCollider2D;
+    [HideInInspector] public BoxCollider2D BCollider2D;
 
     public int Damage;
     public int ActionIndex;
@@ -32,6 +32,7 @@ public class Onikuma : MonoBehaviour
     public bool isGrounded;
     public bool isWalled;
     public bool isPerformingAction;
+    [HideInInspector] public bool RushIsReady;
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
@@ -80,6 +81,8 @@ public class Onikuma : MonoBehaviour
         StartCoroutine("ReturnCollider");
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
+        OnikumaAnimator.SetTrigger("Idle");
+        OnikumaSprite.flipX = false;
         isPerformingAction = false;
         WalkStepCount = 0;
         Col_OffsetX = -0.017f;
@@ -97,7 +100,7 @@ public class Onikuma : MonoBehaviour
 
     IEnumerator ActionManager()
     {
-        OnikumaSprite.sprite = Standing;
+        //OnikumaSprite.sprite = Standing;
         isPerformingAction = true;
         ActionIndex = Random.Range(ActionMin, ActionMax); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
@@ -128,32 +131,44 @@ public class Onikuma : MonoBehaviour
         if ( transform.position.x == AttackStartPosition.position.x)
         {
             CancelInvoke("GoToAttackStart");
-            if (ActionIndex == 3) { InvokeRepeating("RushAttack",0.5f,0.25f); }
+            if (ActionIndex == 3) { RushPrep(); }
             else if (ActionIndex == 4) { InvokeRepeating("Claw", 0.5f, 0.25f); }
             else if (ActionIndex == 5) { ThrowHigh(); }
             else if (ActionIndex == 6) { ThrowLow(); }
         }
     }
 
+    void RushPrep()
+    {
+        Debug.Log("Preparing Rush");
+        OnikumaAnimator.SetTrigger("PrepCharge"); 
+    }
+
     void RushAttack()
     {
-        OnikumaSprite.sprite = Prowling;
-        Col_OffsetX = -0.016f;
-        Col_OffsetY = 0.369f;
-        Col_sizeX = 4.82f;
-        Col_sizeY = 2.46f;
+        Debug.Log("Rush");
+        Col_OffsetX = 0.175f;
+        Col_OffsetY = -0.65f;
+        Col_sizeX = 5.202f;
+        Col_sizeY = 2.5f;
+        OnikumaAnimator.SetTrigger("Charge");
+        InvokeRepeating("RushControl", 0.5f, 0.25f); 
+    }
 
+    void RushControl()
+    {
         if (transform.position.x != AttackEndPosition.position.x)
         { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackEndPosition.position.x, transform.position.y, 0), RushStepLength); }
         else
         { 
-            CancelInvoke("RushAttack");
+            CancelInvoke("RushControl");
             InvokeRepeating("RushBack", 1f, 0.25f);
         }
     }
 
     void RushBack()
     {
+        OnikumaSprite.flipX = true;
         if (transform.position.x != AttackStartPosition.position.x)
         { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackStartPosition.position.x, transform.position.y, 0), RushStepLength); }
         else

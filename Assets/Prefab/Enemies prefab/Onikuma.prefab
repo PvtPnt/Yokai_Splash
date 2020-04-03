@@ -108,6 +108,7 @@ MonoBehaviour:
   isGrounded: 0
   isWalled: 0
   isPerformingAction: 0
+  RushIsReady: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
