@@ -42,6 +42,7 @@ public class Onikuma : MonoBehaviour
     public Transform AttackStartPosition;
     public Transform AttackEndPosition;
 
+    public Animator OnikumaAnimator;
     SpriteRenderer OnikumaSprite;
     public Sprite Standing;
     public Sprite Prowling;
@@ -54,6 +55,7 @@ public class Onikuma : MonoBehaviour
     {
         BCollider2D = GetComponent<BoxCollider2D>();
         OnikumaSprite = GetComponent<SpriteRenderer>();
+        OnikumaAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
