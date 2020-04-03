@@ -26,6 +26,8 @@ public class Enemy_basic : MonoBehaviour
     public LayerMask wallLayer;
     public LayerMask playerLayer;
 
+    private BoxCollider2D DetectionBox;
+
     public Transform EnemyHitbox;
     public Transform Current_WallChecker;
     public Transform WallChecker_Right;
@@ -42,6 +44,7 @@ public class Enemy_basic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DetectionBox = GetComponent<BoxCollider2D>();
         TsuchinokoSprite = GetComponent<SpriteRenderer>();
         TsuchinokoAnimator = GetComponent<Animator>();
         if (isBigChungus)
@@ -51,8 +54,16 @@ public class Enemy_basic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsWalkingLeft) { EnemyHitbox = WallChecker_Left; }
-        else { EnemyHitbox = WallChecker_Right; }
+        if (IsWalkingLeft) 
+        { 
+            EnemyHitbox = WallChecker_Left;
+            DetectionBox.offset = new Vector2(-0.95f, 0.005f);
+        }
+        else 
+        { 
+            EnemyHitbox = WallChecker_Right;
+            DetectionBox.offset = new Vector2(0.95f, 0.005f);
+        }
         GapCheck();
     }
 
@@ -72,8 +83,9 @@ public class Enemy_basic : MonoBehaviour
         
     }
 
-    public void AttackCall(string Call)
+    void PlayerCheck()
     {  
+
     }
 
     IEnumerator Attack()
@@ -206,14 +218,14 @@ public class Enemy_basic : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {
             isPlayerinRange = true;
         }
     }
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
