@@ -33,9 +33,9 @@ public class ProjectileEnemy : MonoBehaviour
     void FixedUpdate()
     {
         Collider2D FindPlayer = Physics2D.OverlapCircle(transform.position, DetectionRange, playerLayer);
-        if (FindPlayer.gameObject.gameObject.GetComponent<Player_cube_control>() != null)
-        { isPlayerinRange = true; }
-        else { isPlayerinRange = false; }
+        if (FindPlayer.gameObject.gameObject.GetComponent<Player_cube_control>() == null)
+        { isPlayerinRange = false; }
+        else { isPlayerinRange = true; }
 
         if (!isPlayerinRange)
         {

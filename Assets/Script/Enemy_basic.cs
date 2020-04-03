@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Enemy_basic : MonoBehaviour
 {
-    //public int HP;
-
     public float WalkSpeed;
     public float Tsuchinoko_Jumpforce;
     public float groundCheckRange = 1f;
@@ -16,6 +14,7 @@ public class Enemy_basic : MonoBehaviour
     public int Damage;
     public bool waveDirectionLeft;
 
+    public bool isAttacking;
     public bool IsWalkingLeft;
     public bool isGrounded;
     public bool isWalled;
@@ -73,13 +72,20 @@ public class Enemy_basic : MonoBehaviour
         
     }
 
+    public void AttackCall(string Call)
+    {  
+    }
+
     IEnumerator Attack()
     {
         TsuchinokoAnimator.SetBool("attacking", true);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
-        for (int i = 0; i < DamagePlayer.Length; i++)
-        { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+        if (isAttacking == true)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
+            for (int i = 0; i < DamagePlayer.Length; i++)
+            { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+        }
         yield return null;
     }
 

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 5304263028116906266}
   - component: {fileID: 5846593991540681484}
   - component: {fileID: -5309515902214211925}
+  - component: {fileID: 8762891230457237344}
   - component: {fileID: 9215341238363158527}
   - component: {fileID: 6882988784968524473}
   - component: {fileID: 8656905454639231347}
@@ -195,6 +196,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5
   Defense: 0
+--- !u!114 &8762891230457237344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543567553839816106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfc451b9f284c542a34973156800521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &9215341238363158527
 Rigidbody2D:
   serializedVersion: 4
@@ -297,6 +310,7 @@ MonoBehaviour:
   AttackRange: 0.75
   Damage: 1
   waveDirectionLeft: 0
+  isAttacking: 0
   IsWalkingLeft: 0
   isGrounded: 1
   isWalled: 0
