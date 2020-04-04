@@ -296,7 +296,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1487294083
-  m_SortingLayer: -2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8020143640844766479, guid: 0ab46bbd7331960479d65a2d86fd7a0e,
     type: 3}
@@ -329,7 +329,9 @@ MonoBehaviour:
   DashSpeed_multiplier: 7.5
   JumpForce: 300
   groundCheckRange: 0.6
-  HP: 10
+  HP: 100
+  MaxHP: 100
+  HP_Regen_Amount: 1
   Water_regen_rate: 7.5
   MaxWater: 100
   Water: 100
@@ -338,7 +340,6 @@ MonoBehaviour:
   DashFrame: 0.3
   XOffset: 3
   YOffset: 0.5
-  BurstTime: 6
   Walking: 0
   isAlive: 0
   isLoss: 0
@@ -346,7 +347,6 @@ MonoBehaviour:
   isGrounded: 0
   IFrameActivation: 0
   IsWalkingLeft: 0
-  BurstMode: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -363,7 +363,6 @@ MonoBehaviour:
   jumpingSound: {fileID: 8300000, guid: 1df145eed2ad59c48a5aa637491d11f8, type: 3}
   GroundChecker: {fileID: 177773576616284236}
   PlayerSprite: {fileID: 177773576671884095}
-  collider: {fileID: 0}
 --- !u!50 &177773576671884034
 Rigidbody2D:
   serializedVersion: 4
@@ -399,18 +398,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Start_timeBTWattack: 0.5
   AttackRange: 1.6
-  BurstTime: 6
+  MeleeWaterCost: 15
   AttackPosFront: {fileID: 177773576550807219}
   AttackPosBack: {fileID: 177773576216474594}
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 512
   IsWalkingLeft: 0
-  BurstMode: 0
-  Damage: 0
+  Damage: 5
   swingingSound: {fileID: 8300000, guid: 8b522ea8fe7374d4cafe8824e30a1f09, type: 3}
-  NormalMelee: 5
-  BurstMelee: 10
   atk_direction_x: 0
   atk_direction_y: 0
 --- !u!61 &2134063932

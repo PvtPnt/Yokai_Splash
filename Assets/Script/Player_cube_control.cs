@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player_cube_control : MonoBehaviour
 {
     public int JumpCount = 0;
-    public int HealAmount;
 
     private float timeBTWdash;
     public float Start_timeBTWdash;
@@ -16,25 +15,28 @@ public class Player_cube_control : MonoBehaviour
     public float DashSpeed_multiplier;
     public float JumpForce;
     public float groundCheckRange = 1f;
+
     public float HP;
+    public float MaxHP;
+    public float HP_Regen_Amount;
+
     public float Water_regen_rate;
     public float MaxWater;
     public float Water;
     public float Water_cost;
+
     public float InvincibleTime = 1f;
     public float DashFrame = 0.3f;
     public float XOffset = 3f;
     public float YOffset = 1f;
-    public float BurstTime = 10f;
-    public float Walking;
+    [HideInInspector] public float Walking;
 
-    public bool isAlive;
-    public bool isLoss;
-    public bool isDashing;
-    public bool isGrounded;
+    [HideInInspector] public bool isAlive;
+    [HideInInspector] public bool isLoss;
+    [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool isGrounded;
     public bool IFrameActivation = false;
     public bool IsWalkingLeft = false;
-    public bool BurstMode = false;
 
     public LayerMask groundLayer;
 
@@ -66,8 +68,9 @@ public class Player_cube_control : MonoBehaviour
         if (HP<=0)
         {
             GetComponent<Player_Melee>().enabled = false;
+            GetComponent<Animator>().SetBool("alive", false);
             GetComponent<Player_cube_control>().enabled = false;
-            GetComponent<Animator>().SetBool("alive",false);
+            return;
         }
 
         GetComponent<Animator>().SetBool("shoot", false);
@@ -80,8 +83,6 @@ public class Player_cube_control : MonoBehaviour
         velo.x = Direction.x * WalkSpeed * Time.deltaTime;
 
         GetComponent<Rigidbody2D>().velocity = velo;
-
-
 
         //TRAP
         if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == true
@@ -103,18 +104,12 @@ public class Player_cube_control : MonoBehaviour
 
     void Update()
     {
-        //GetComponent<Animator>().SetBool("alive", true);
-
-        if (Input.GetKeyUp(KeyCode.P))
-            {
-            SceneManager.UnloadSceneAsync("proto1");
-            SceneManager.LoadScene("Title Scene");
-            }
+        //Health Regeneration
+        HP += HP_Regen_Amount * Time.deltaTime;
+        if (HP > MaxHP) { HP = MaxHP; };
 
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
-        //Burst Mode Trigger
-        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false || Input.GetKeyDown(KeyCode.JoystickButton4) && BurstMode == false)
-        { Burst(); }
+
 
         //Sprite Animation flipping
         if (Direction.x < 0)
@@ -204,6 +199,11 @@ public class Player_cube_control : MonoBehaviour
 
     }
 
+    void HealthRegeneration()
+    {
+        HP += HP_Regen_Amount;
+    }
+
     void Shoot()
     {
         GameObject NewBullet =
@@ -211,30 +211,6 @@ public class Player_cube_control : MonoBehaviour
         NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
         timeBTWshoot = Start_timeBTWshoot;
     }
-
-    IEnumerator Water_Regen()
-    {
-        yield return new WaitForSeconds(1.5f);
-        Water = Water + Water_regen_rate;
-        yield return new WaitForSeconds(1.5f);
-    }
-
-    IEnumerator Expire()
-    {
-        yield return new WaitForSeconds(BurstTime);
-        BurstMode = false;
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
-        gameObject.layer = 11; //Player layer
-    }
-
-    void Burst()
-    {
-            BurstMode = true;
-            StartCoroutine("Expire", BurstTime);
-        GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
-        gameObject.layer = 12; //Player_Invin layer
-    }
-
 
     void Dash()
     {
@@ -257,8 +233,6 @@ public class Player_cube_control : MonoBehaviour
         timeBTWdash = Start_timeBTWdash;
     }
 
-    public void BurstHeal()
-    {HP += HealAmount;}
 
     public void P_ReceiveDamage(int Damage)
     {

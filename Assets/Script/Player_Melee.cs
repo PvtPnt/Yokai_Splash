@@ -7,19 +7,17 @@ public class Player_Melee : MonoBehaviour
     private float timeBTWattack;
     public float Start_timeBTWattack;
     public float AttackRange;
-    public float BurstTime = 10f;
+    public float MeleeWaterCost;
 
     public Transform AttackPosFront;
     public Transform AttackPosBack;
     public LayerMask EnemyLayer;
+    private Player_cube_control PlayerMainScript;
 
     public bool IsWalkingLeft = false;
-    public bool BurstMode = false;
 
     public int Damage;
     public AudioClip swingingSound;
-    public int NormalMelee;
-    public int BurstMelee;
     public int atk_direction_x;
     public int atk_direction_y;
 
@@ -27,7 +25,7 @@ public class Player_Melee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerMainScript = GetComponent<Player_cube_control>();
     }
 
     // Update is called once per frame
@@ -36,7 +34,6 @@ public class Player_Melee : MonoBehaviour
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
         Vector2 ATK_Direction_X = new Vector2(atk_direction_x, 0);
         Vector2 ATK_Direction_Y = new Vector2(0, atk_direction_y);
-        if (BurstMode == false) { Damage = NormalMelee; };
 
         //Direction Control
         if (Direction.x < 0)
@@ -50,20 +47,13 @@ public class Player_Melee : MonoBehaviour
             atk_direction_x = 1;
         }
 
-        //Burst Trigger
-        if (Input.GetKeyDown(KeyCode.Q) && BurstMode == false)
-        {Burst();}
-
-        if (GetComponent<Player_cube_control>().isGrounded == false)
+        if (PlayerMainScript.isGrounded == false)
         
         {
             ATK_Direction_X = Vector2.zero;
             atk_direction_y = 0;
 
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.down * 500, ForceMode2D.Force);
-            }
+            if (Input.GetKeyDown(KeyCode.S)) GetComponent<Rigidbody2D>().AddForce(Vector2.down * 500, ForceMode2D.Force);
         }
         else { atk_direction_y = 1; }
 
@@ -71,36 +61,25 @@ public class Player_Melee : MonoBehaviour
         if (timeBTWattack <= 0)
         // you can attack
         {
-            GetComponent<Animator>().SetBool("Melee", false);
-            if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
+            if (PlayerMainScript.Water >= MeleeWaterCost)
             {
-                GetComponent<Player_cube_control>().myAudioAttack.clip = swingingSound;
-                GetComponent<Player_cube_control>().myAudioAttack.Play();
-                GetComponent<Animator>().SetBool("Melee", true);
-                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
-                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
-                AttackDirection(Damage);
-                timeBTWattack = Start_timeBTWattack;
+                GetComponent<Animator>().SetBool("Melee", false);
+                if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
+                {
+                    PlayerMainScript.Water -= MeleeWaterCost;
+                    GetComponent<Player_cube_control>().myAudioAttack.clip = swingingSound;
+                    GetComponent<Player_cube_control>().myAudioAttack.Play();
+                    GetComponent<Animator>().SetBool("Melee", true);
+                    GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
+                    GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
+                    AttackDirection(Damage);
+                    timeBTWattack = Start_timeBTWattack;
+                }
             }
+
 
         }
         else {timeBTWattack -= Time.deltaTime;}
-    }
-
-
-    IEnumerator Expire()
-    {
-        yield return new WaitForSeconds(BurstTime);
-        BurstMode = false;
-        BurstOffDMG();
-    }
-
-    void Burst()
-    {
-            BurstMode = true;
-            GetComponent<Player_cube_control>().BurstHeal();
-            BurstOnDMG();
-            StartCoroutine("Expire", BurstTime);
     }
 
     private void AttackDirection(int Damage)
@@ -118,11 +97,7 @@ public class Player_Melee : MonoBehaviour
             { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
         }
     }
-    public void BurstOnDMG()
-    {Damage = BurstMelee;}
 
-    public void BurstOffDMG()
-    {Damage = NormalMelee;}
 
     private void OnDrawGizmosSelected()
     {
