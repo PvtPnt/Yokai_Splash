@@ -538,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.9
+      value: 17.95
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
@@ -603,12 +603,27 @@ PrefabInstance:
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: ActionMin
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: ActionMax
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: CooldownTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: HighThrow_offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: LowThrow_offset
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}

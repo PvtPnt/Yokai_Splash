@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3587074723586067784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.67, y: 1.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f8a968ff601bf40b78262311cb7685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12.5
+  Speed: 25
   LifeTime: 5
-  Damage: 5
-  isMovingLeft: 0
+  Damage: 20
+  isMovingLeft: 1
   Throwables: {fileID: 0}
   ThrowableSprite: {fileID: 0}
   AttackPos: {fileID: 3587074723586067789}
