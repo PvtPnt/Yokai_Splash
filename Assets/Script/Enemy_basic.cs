@@ -14,6 +14,7 @@ public class Enemy_basic : MonoBehaviour
     public int Damage;
     public bool waveDirectionLeft;
 
+    public bool isWalk;
     public bool isAttacking;
     public bool IsWalkingLeft;
     public bool isGrounded;
@@ -36,6 +37,7 @@ public class Enemy_basic : MonoBehaviour
     public Vector3 RayOffset = new Vector3(1f, 0f, 0f);
 
     public SpriteRenderer TsuchinokoSprite;
+    Animator TsuchinokoAnimator;
 
     public bool isPlayerinRange = false;
     public float stateDelay;
