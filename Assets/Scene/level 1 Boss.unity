@@ -3558,7 +3558,7 @@ PrefabInstance:
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: ActionMin
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
