@@ -320,9 +320,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5c8a38cfbba64d43bd72f154b1d4001, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   JumpCount: 0
+  HealAmount: 0
   Start_timeBTWdash: 0.3
   Start_timeBTWshoot: 0.5
   WalkSpeed: 150
@@ -394,8 +395,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d86e4d3f5f0eba24885ca514ab07fcc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Start_timeBTWattack: 0.5
   AttackRange: 1.6
   MeleeWaterCost: 15
@@ -554,7 +555,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0

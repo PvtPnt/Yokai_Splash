@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputValue: 0
-  MenuIndex: 0
+  MenuIndex: -1
   isHoldingLeftStick: 0
   isStart: 1
   isQuit: 0
@@ -917,7 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputValue: 0
-  MenuIndex: 0
+  MenuIndex: -1
   isHoldingLeftStick: 0
   isStart: 0
   isQuit: 1
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputValue: 0
-  MenuIndex: 0
+  MenuIndex: -1
   isHoldingLeftStick: 0
   isStart: 0
   isQuit: 0

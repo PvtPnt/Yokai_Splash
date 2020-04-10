@@ -145,7 +145,7 @@ MonoBehaviour:
   stateDelay: 0.5
   spawnPoint: {fileID: 1659481479512486836}
   bullet: {fileID: 915654608867603253, guid: d68133d12c8dd0c4ea6519ecc88ee82c, type: 3}
-  shotDelay: 0.5
+  shotDelay: 2
   currentShotDelay: 0
 --- !u!50 &6439229669846260775
 Rigidbody2D:

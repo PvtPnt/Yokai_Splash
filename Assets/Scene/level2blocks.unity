@@ -1084,7 +1084,7 @@ PrefabInstance:
     - target: {fileID: 6537583164001515722, guid: 875c477402950284fa89d5fb6e55f8d0,
         type: 3}
       propertyPath: m_Sprite
-      value: 
+      value:
       objectReference: {fileID: 21300000, guid: b34f09b1c03a8704982a155157b6083d,
         type: 3}
     - target: {fileID: 7162260073293980163, guid: 875c477402950284fa89d5fb6e55f8d0,
@@ -1303,8 +1303,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5091646ff894c2b468d7caeb2691ec7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   Player: {fileID: 1755695441}
   Height_Threshold: 3.5
   Normal_Offset: {x: 0, y: 2.75, z: -10}
@@ -6896,7 +6896,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -10216,7 +10216,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -13681,7 +13681,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -13997,7 +13997,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: swingingSound
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 8b522ea8fe7374d4cafe8824e30a1f09, type: 3}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -14027,7 +14027,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 6200000, guid: b514907977ae8124495cb8796450dd5f, type: 2}
     - target: {fileID: 177773576671884035, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -14107,47 +14107,47 @@ PrefabInstance:
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: dashingSound
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: a56ec82ba0136c943bb91e97efa62a82, type: 3}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: swingingSound
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 8b522ea8fe7374d4cafe8824e30a1f09, type: 3}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: jumpingSound
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 1df145eed2ad59c48a5aa637491d11f8, type: 3}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: shootingSound
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: f4eb7a4dfcc08ef4c93b9c44040bfe0a, type: 3}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: hitSound
-      value: 
+      value:
       objectReference: {fileID: 8300000, guid: 43c44c557b40440498df8ddca0446ddd, type: 3}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: myAudio
-      value: 
+      value:
       objectReference: {fileID: 1479496768}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: myAudioHit
-      value: 
+      value:
       objectReference: {fileID: 1479496768}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: myAudioAttack
-      value: 
+      value:
       objectReference: {fileID: 1479496768}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: myMusic
-      value: 
+      value:
       objectReference: {fileID: 1479496768}
     - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -14172,7 +14172,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884095, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Sprite
-      value: 
+      value:
       objectReference: {fileID: 8020143640844766479, guid: 0ab46bbd7331960479d65a2d86fd7a0e,
         type: 3}
     m_RemovedComponents:
