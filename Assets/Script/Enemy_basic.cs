@@ -105,26 +105,28 @@ public class Enemy_basic : MonoBehaviour
 
     public void PushedBack(bool WaveDirectionLeft)
     {
+        onPush = true;
 
         Vector3 pushedDir = new Vector3(1, 0, 0);
         if (WaveDirectionLeft == true)
         {
             Debug.Log("Pushback hit Left");
-            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 100);
+            GetComponent<Rigidbody2D>().AddForce(-pushedDir * 200);
         }
 
         else
         {
             Debug.Log("Pushback hit Right");
-            GetComponent<Rigidbody2D>().AddForce(pushedDir * 100);
+            GetComponent<Rigidbody2D>().AddForce(pushedDir * 200);
         }
 
-        onPush = true;
         StartCoroutine(endPush());
     }
 
     IEnumerator endPush()
     {
+        onPush = true;
+
         yield return new WaitForSeconds(2.0f);
         onPush = false;
         Debug.Log("endpush");
@@ -225,6 +227,13 @@ public class Enemy_basic : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isPlayerinRange = true;
+        }
+
+        if(other.gameObject.tag == "Explosion")
+        {
+           int DamageToTake = other.gameObject.GetComponent<WaterSplash>().Damage;
+
+            GetComponent<Enemy_hp>().HP = GetComponent<Enemy_hp>().HP - DamageToTake;
         }
     }
     void OnTriggerExit2D(Collider2D other)
