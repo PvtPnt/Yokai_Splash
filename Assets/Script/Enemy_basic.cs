@@ -70,16 +70,16 @@ public class Enemy_basic : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isPlayerinRange && isWalk)
+        if (!isPlayerinRange)
         {
+            TsuchinokoAnimator.SetBool("attacking", false);
             Walking();
         }
 
         else
         {
-            Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
-            for (int i = 0; i < DamagePlayer.Length; i++)
-            { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+            TsuchinokoAnimator.SetBool("moving", false);
+            StartCoroutine("Attack");
         }
 
     }
