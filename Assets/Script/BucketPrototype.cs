@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BucketPrototype : MonoBehaviour
 {
-    public int Damage = 100;
-    public float CanTank = 1;
-    public GameObject ExplosionGameObject;
-    public bool isBossType;
+    public float Damage = 100f;
+    public float CanTank = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +18,7 @@ public class BucketPrototype : MonoBehaviour
     {
         if(CanTank == 0)
         {
-            Destroy(this.gameObject);
+
         }
     }
 
@@ -28,36 +26,13 @@ public class BucketPrototype : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("Made contact2!");
+            Debug.Log("Made contact!");
+            //Deal dmg to enemy
             if (other.GetComponent<Enemy_basic>().onPush == true)
             {
+                other.SendMessage("ReceiveDamage", Damage);
                 --CanTank;
-                GameObject NewExplosion =
-                Instantiate(ExplosionGameObject, transform.position, Quaternion.identity);
-
-                NewExplosion.gameObject.SetActive(true);
             }
-            else
-            {
-                Debug.Log("Not on push");
-            }
-        }
-
-        if (other.tag == "Wave" && isBossType == true)
-        {
-
-            --CanTank;
-            GameObject NewExplosion =
-            Instantiate(ExplosionGameObject, transform.position, Quaternion.identity);
-
-            NewExplosion.gameObject.SetActive(true);
-        }
-
-        else
-        {
-            Debug.Log("Not on push");
-        }
         }
     }
-
-
+}

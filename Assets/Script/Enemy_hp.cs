@@ -19,12 +19,7 @@ public class Enemy_hp : MonoBehaviour
     }
 
     public void ReceiveDamage(int Damage)
-    { HP -= (Damage - Defense);
-
-        Debug.Log("Took" + Damage + "damage");
-        Debug.Log("Damage result" + (HP -= (Damage - Defense)));
-
-    }
+    { HP -= (Damage - Defense); }
 
     public void DefDown(int DefDownValue)
     {   if (Defense > DefDownValue) { Defense -= DefDownValue; }

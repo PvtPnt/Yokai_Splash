@@ -22,12 +22,12 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        //Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        //if (gameObject.transform.position.x < Player.transform.position.x )
-        //{ IsWalkingLeft = true; }
-        //else if (gameObject.transform.position.x > Player.transform.position.x)
-        //{ IsWalkingLeft = false; }
-        //StartCoroutine("Expire", LifeTime);
+        Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        if (gameObject.transform.position.x < Player.transform.position.x )
+        { IsWalkingLeft = true; }
+        else if (gameObject.transform.position.x > Player.transform.position.x)
+        { IsWalkingLeft = false; }
+        StartCoroutine("Expire", LifeTime);
     }
 
     // Update is called once per frame
@@ -36,11 +36,11 @@ public class WaveController : MonoBehaviour
 
         if (DirectionIsLeft == false)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * -Speed);
+            transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
         else
         {
-            transform.Translate(Vector3.left * Time.deltaTime * -Speed);
+            transform.Translate(Vector3.right * Time.deltaTime * Speed);
         }
     }
 

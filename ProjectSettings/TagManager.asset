@@ -8,8 +8,6 @@ TagManager:
   - Enemy_Bullet
   - Platform
   - Projectile_Enemy
-  - Explosion
-  - Wave
   layers:
   - Default
   - TransparentFX
