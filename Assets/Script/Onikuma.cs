@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Onikuma : MonoBehaviour
 {
-    public float WalkSpeed;
     public float RushSpeed;
     public float CooldownTimer;
 
@@ -28,9 +27,13 @@ public class Onikuma : MonoBehaviour
     public int ActionMax;
     public int WalkStepCount;
 
-    public bool IsWalkingLeft;
-    public bool isGrounded;
-    public bool isWalled;
+    [HideInInspector] public bool isAttacking;
+    [HideInInspector] public bool isThrowing;
+    [HideInInspector] public bool isThrowHigh;
+    [HideInInspector] public bool isThrowLow;
+    [HideInInspector] public bool IsWalkingLeft;
+    [HideInInspector] public bool isGrounded;
+    [HideInInspector] public bool isWalled;
     public bool isPerformingAction;
     [HideInInspector] public bool RushIsReady;
 
@@ -61,14 +64,45 @@ public class Onikuma : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         BCollider2D.size = new Vector3(Col_sizeX, Col_sizeY, 0);
         BCollider2D.offset = new Vector3(Col_OffsetX, Col_OffsetY, 0);
 
+        if (isAttacking == true)
+        {
             Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(EnemyHitbox.position, AttackRange, playerLayer);
             for (int i = 0; i < DamagePlayer.Length; i++)
             { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
+        }
+
+        if (isThrowing && isThrowHigh)
+        {
+            GameObject Throwabless = Instantiate(Throwables, transform.position + new Vector3(-1f, HighThrow_offset, 0), Quaternion.identity);
+            Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
+
+            if (transform.position.x < PlayerPosition.x)
+            { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = false; }
+            else { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = true; }
+            isThrowHigh = false;
+        }
+
+        if (isThrowing && isThrowLow)
+        {
+            GameObject Throwabless = Instantiate(Throwables, transform.position + new Vector3(-0.5f, LowThrow_offset, 0), Quaternion.identity);
+            Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
+
+            if (transform.position.x < PlayerPosition.x)
+            { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = false; }
+            else { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = true; }
+            isThrowLow = false;
+        }
     }
+
+    public void AttackOn()
+    {isAttacking = true;}
+
+    public void AttackOff()
+    {isAttacking = false;}
 
     void FixedUpdate()
     {
@@ -78,17 +112,17 @@ public class Onikuma : MonoBehaviour
 
     IEnumerator ActionCooldown()
     {
-        StartCoroutine("ReturnCollider");
-        Debug.Log("Action in cooldown");
-        yield return new WaitForSeconds(CooldownTimer);
         OnikumaAnimator.SetTrigger("Idle");
         OnikumaSprite.flipX = false;
-        isPerformingAction = false;
         WalkStepCount = 0;
         Col_OffsetX = -0.017f;
         Col_OffsetY = 0.0597f;
         Col_sizeX = 4.82f;
         Col_sizeY = 7.58f;
+        StartCoroutine("ReturnCollider");
+        Debug.Log("Action in cooldown");
+        yield return new WaitForSeconds(CooldownTimer);
+        isPerformingAction = false;
     }
 
     IEnumerator ReturnCollider()
@@ -103,24 +137,8 @@ public class Onikuma : MonoBehaviour
         isPerformingAction = true;
         ActionIndex = Random.Range(ActionMin, ActionMax); //Set ActionIndex value to random number between (a,b)} 
         Debug.Log("Action index is " + ActionIndex);
-        if      (ActionIndex <= 2)  { InvokeRepeating("Walking",0.5f,1f); }
-        else    { InvokeRepeating("GoToAttackStart", 0.5f, 1f); }
+        InvokeRepeating("GoToAttackStart", 0.5f, 1f);
         yield return null;
-    }
-
-    void Walking()
-    {
-        WalkStepCount += 1;
-        if (WalkStepCount <= 5)
-        {
-            Debug.Log("Walking");
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerPosition.x, transform.position.y, 0), WalkStepLength);
-        }
-        else
-        {
-            CancelInvoke("Walking");
-            StartCoroutine("ActionCooldown");
-        }
     }
 
     void GoToAttackStart()
@@ -129,10 +147,10 @@ public class Onikuma : MonoBehaviour
         if ( transform.position.x == AttackStartPosition.position.x)
         {
             CancelInvoke("GoToAttackStart");
-            if (ActionIndex == 3) { RushPrep(); }
-            else if (ActionIndex == 4) { SpinPrep(); }
-            else if (ActionIndex == 5) { ThrowHigh(); }
-            else if (ActionIndex == 6) { ThrowLow(); }
+            if (ActionIndex == 1) { RushPrep(); }
+            else if (ActionIndex == 2) { SpinPrep(); }
+            else if (ActionIndex == 3) { ThrowHigh(); }
+            else if (ActionIndex == 4) { ThrowLow(); }
         }
     }
 
@@ -149,7 +167,7 @@ public class Onikuma : MonoBehaviour
         Col_OffsetY = -0.65f;
         Col_sizeX = 5.202f;
         Col_sizeY = 2.5f;
-        OnikumaAnimator.SetTrigger("Charge");
+        OnikumaAnimator.SetBool("Charge",true);
         InvokeRepeating("RushControl", 0.5f, 0.25f); 
     }
 
@@ -172,6 +190,7 @@ public class Onikuma : MonoBehaviour
         else
         {
             CancelInvoke("RushBack");
+            OnikumaAnimator.SetBool("Charge", false);
             StartCoroutine("ActionCooldown");
         }
     }
@@ -217,49 +236,25 @@ public class Onikuma : MonoBehaviour
         }
     }
 
+    void ThrowOn()
+    { isThrowing = true; }
+
+    void ThrowOff()
+    { isThrowing = false; }
+
     void ThrowHigh()
     {
+        OnikumaAnimator.SetTrigger("Throw");
+        isThrowHigh = true;
         Debug.Log("Execute High Throw");
-        GameObject Throwabless =
-        Instantiate(Throwables, transform.position + new Vector3(0, HighThrow_offset,0) , Quaternion.identity);
-
-        Vector2 PlayerPosition = GameObject.Find("Player").transform.position;
-        
-        if (transform.position.x < PlayerPosition.x)
-        { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = false; }
-        else { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = true; }
         StartCoroutine("ActionCooldown");
     }
 
     void ThrowLow()
     {
+        OnikumaAnimator.SetTrigger("Throw");
+        isThrowLow = true;
         Debug.Log("Execute Low Throw");
-        GameObject Throwabless =
-        Instantiate(Throwables, transform.position + new Vector3(0, LowThrow_offset, 0), Quaternion.identity);
-        
-        if (transform.position.x < PlayerPosition.x)
-        { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = false; }
-        else { Throwables.GetComponent<OnikumaThrowables>().isMovingLeft = true; }
-        StartCoroutine("ActionCooldown");
-    }
-
-    void RoomEndAttack_Left()
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.left * RushSpeed, ForceMode2D.Impulse);
-        StartCoroutine("RushBack", 1);
-    }
-
-    void RoomEndAttack_Right()
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * RushSpeed, ForceMode2D.Impulse);
-        StartCoroutine("RushBack", -1);
-    }
-
-    IEnumerator RushBack(int direction)
-    {
-        yield return new WaitForSeconds(1.5f);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right *direction * RushSpeed, ForceMode2D.Impulse);
         StartCoroutine("ActionCooldown");
     }
 

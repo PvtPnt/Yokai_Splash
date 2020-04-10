@@ -34,3 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Spritesheets/player/idle.meta
+Assets/Asset/Spritesheets/player/idle/Materials.meta

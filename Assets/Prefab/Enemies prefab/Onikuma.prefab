@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 500
   RushSpeed: 15
-  CooldownTimer: 5
+  CooldownTimer: 2.5
   WalkStepLength: 3
   RushStepLength: 5
   ClawStepLength: 4
@@ -96,14 +96,18 @@ MonoBehaviour:
   Col_sizeY: 7.467844
   Col_OffsetX: -0.017
   Col_OffsetY: 0
-  HighThrow_offset: 1.5
-  LowThrow_offset: -1.5
+  HighThrow_offset: 0
+  LowThrow_offset: -1.75
   BCollider2D: {fileID: 2187563589418179311}
-  Damage: 10
+  Damage: 30
   ActionIndex: 0
   ActionMin: 1
-  ActionMax: 7
+  ActionMax: 5
   WalkStepCount: 0
+  isAttacking: 0
+  isThrowing: 0
+  isThrowHigh: 0
+  isThrowLow: 0
   IsWalkingLeft: 0
   isGrounded: 0
   isWalled: 0
