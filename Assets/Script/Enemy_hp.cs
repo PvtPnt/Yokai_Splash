@@ -6,6 +6,9 @@ public class Enemy_hp : MonoBehaviour
 {
     public int HP;
     public int Defense;
+
+    public bool isObject = false;
+    public GameObject bucketToSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,12 @@ public class Enemy_hp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if (HP <= 0) { Destroy(gameObject); }   
+     if (HP <= 0) {
+            if (isObject == true)
+            {
+                bucketToSpawn.gameObject.SetActive(true);
+            }
+            Destroy(gameObject); }   
     }
 
     public void ReceiveDamage(int Damage)
