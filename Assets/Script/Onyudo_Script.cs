@@ -94,7 +94,7 @@ public class Onyudo_Script : MonoBehaviour
         GameObject FlamingPalm = Instantiate(Palm, new Vector3(RockDropPos_X, RockDropPos_Y, transform.position.z), Quaternion.identity);
     }
 
-        void Clap()
+    void Clap()
     {
         ClapCount += 1;
         if (ClapCount >= ClapCountMax)
