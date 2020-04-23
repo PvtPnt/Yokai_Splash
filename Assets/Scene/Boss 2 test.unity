@@ -733,7 +733,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue
       value: 
-      objectReference: {fileID: 9013314876304898029, guid: fcf07ff3e46428f4395cded8efc8ac07,
+      objectReference: {fileID: 856209133754403535, guid: 6de8acf826e0bb346ba734eeafae6503,
         type: 3}
     - target: {fileID: 3391107036112408751, guid: 44632b5a6d038df40a4f100faf005e32,
         type: 3}
