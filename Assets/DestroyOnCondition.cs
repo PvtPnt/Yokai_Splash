@@ -31,8 +31,12 @@ public class DestroyOnCondition : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(Dialogue,canvas.transform);
-        MainCamera.fieldOfView = 60;
+        if (Dialogue != null)
+        {
+            Instantiate(Dialogue, canvas.transform);
+            MainCamera.fieldOfView = 60;
+        }
+        
         
     }
 

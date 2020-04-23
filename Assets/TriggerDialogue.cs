@@ -19,7 +19,12 @@ public class TriggerDialogue : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Instantiate(dialogue, canvas.transform);
+
+        if (dialogue != null)
+        {
+            Instantiate(dialogue, canvas.transform);
+        }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

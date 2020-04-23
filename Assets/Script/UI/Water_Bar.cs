@@ -12,6 +12,7 @@ public class Water_Bar : MonoBehaviour
     void Start()
     {
         MaxWater = GameObject.Find("Player").GetComponent<Player_cube_control>().MaxWater;
+        Water = GameObject.Find("Player").GetComponent<Player_cube_control>().Water;
     }
 
     // Update is called once per frame

@@ -30,10 +30,14 @@ public class Onyudo_Script : MonoBehaviour
     int ActionIndex;
     Animator OnAnim;
 
+    public GameObject bossDialogue;
+
     // Start is called before the first frame update
     void Start()
     {
         OnAnim = GetComponent<Animator>();
+
+        bossDialogue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -148,5 +152,11 @@ public class Onyudo_Script : MonoBehaviour
 
         Gizmos.color = Color.blue;
         { Gizmos.DrawWireSphere(transform.position, AttackRange); }
+    }
+    private void OnDestroy()
+    {
+        print("Something");
+        print("Something");
+        bossDialogue.SetActive(true);
     }
 }

@@ -54,12 +54,16 @@ public class Onikuma : MonoBehaviour
 
     public Vector3 PlayerPosition;
     private float PlayerPosition_X;
+
+    public GameObject bossDialogue;
     // Start is called before the first frame update
     void Start()
     {
         BCollider2D = GetComponent<BoxCollider2D>();
         OnikumaSprite = GetComponent<SpriteRenderer>();
         OnikumaAnimator = GetComponent<Animator>();
+
+        bossDialogue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -271,5 +275,12 @@ public class Onikuma : MonoBehaviour
 
         if (IsWalkingLeft == true)
         { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
+    }
+
+    private void OnDestroy()
+    {
+      print("Something");
+       print("Something");
+        bossDialogue.SetActive(true);
     }
 }
