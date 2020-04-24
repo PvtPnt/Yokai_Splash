@@ -2874,7 +2874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &839552389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4351,6 +4351,11 @@ PrefabInstance:
       propertyPath: bossDialogue
       value: 
       objectReference: {fileID: 1835194692}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: ActionMax
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_Name
@@ -6506,6 +6511,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 790535643, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347176696, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
+      propertyPath: isBossBGM
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.x

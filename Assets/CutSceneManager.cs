@@ -19,7 +19,8 @@ public class CutSceneManager : MonoBehaviour
         Time.timeScale = 0;
         player = GameObject.FindObjectOfType<Player_cube_control>();
         player.JumpForce = 0;
-        player.gameObject.SetActive(false);
+        player.gameObject.GetComponentInChildren<AudioSource>().enabled = false;
+        //player.gameObject.SetActive(false);
 
     }
 
@@ -40,6 +41,7 @@ public class CutSceneManager : MonoBehaviour
             }
             else
             {
+                player.gameObject.GetComponentInChildren<AudioSource>().enabled = true;
                 player.isGrounded = true;
                 Time.timeScale = 1;
                 player.gameObject.SetActive(true);
