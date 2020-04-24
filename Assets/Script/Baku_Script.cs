@@ -44,6 +44,11 @@ public class Baku_Script : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (isPerformingAction == false) { StartCoroutine("ActionManager"); }
+    }
+
     public void AttackOn()
     { isAttacking = true; }
 
@@ -93,17 +98,28 @@ public class Baku_Script : MonoBehaviour
 
     void Suck()
     {
+        float Timer = 5f;
+        Timer -= Time.deltaTime;
 
-        if (Player.transform.position.x < transform.position.x)
-        {
-            Player.GetComponent<Rigidbody2D>().AddForce
-            (Vector3.right * Player.GetComponent<Player_cube_control>().WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        if (Timer <= 0)
+        { 
+            StartCoroutine("ActionCooldown");
+            return;
         }
 
-        else if (Player.transform.position.x > transform.position.x) 
-        { 
-            Player.GetComponent<Rigidbody2D>().AddForce
-            (Vector3.left * Player.GetComponent<Player_cube_control>().WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+        else
+        {
+            if (Player.transform.position.x < transform.position.x)
+            {
+                Player.GetComponent<Rigidbody2D>().AddForce
+                (Vector3.right * Player.GetComponent<Player_cube_control>().WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+            }
+
+            else if (Player.transform.position.x > transform.position.x)
+            {
+                Player.GetComponent<Rigidbody2D>().AddForce
+                (Vector3.left * Player.GetComponent<Player_cube_control>().WalkSpeed * Time.deltaTime, ForceMode2D.Force);
+            }
         }
     }
 
@@ -139,6 +155,7 @@ public class Baku_Script : MonoBehaviour
         {
             CancelInvoke("RushBack");
             //BakuAnim.SetBool("Charge", false);
+            StartCoroutine("ActionCooldown");
         }
     }
     
