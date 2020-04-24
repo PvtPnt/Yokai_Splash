@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790535642}
   - component: {fileID: 790535643}
+  - component: {fileID: 1347176696}
   m_Layer: 11
   m_Name: BGMPlayer
   m_TagString: Untagged
@@ -41,11 +42,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0ad8b45faadeac74d8bccd98a38daa5e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.35
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -127,6 +128,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1347176696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790535641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8dc92ac98220e4c95d192b3b812fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBossBGM: 0
+  isPrinceBGM: 0
+  Boss_Intro: {fileID: 8300000, guid: ef634c32cc1369648a563f3a276ae18e, type: 3}
+  Boss_Main: {fileID: 8300000, guid: dc8084f84124005469acc76735432167, type: 3}
+  Prince_Intro: {fileID: 8300000, guid: 695a5bcde4ea8c54285a03942068a2b1, type: 3}
+  Prince_Main: {fileID: 8300000, guid: 8a3b76942739469408a6229f3e80f6f6, type: 3}
 --- !u!1 &177773576216474525
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,10 +339,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5c8a38cfbba64d43bd72f154b1d4001, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   JumpCount: 0
-  HealAmount: 0
   Start_timeBTWdash: 0.3
   Start_timeBTWshoot: 0.5
   WalkSpeed: 150
@@ -395,8 +413,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d86e4d3f5f0eba24885ca514ab07fcc3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Start_timeBTWattack: 0.5
   AttackRange: 1.6
   MeleeWaterCost: 15
@@ -446,7 +464,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0ad8b45faadeac74d8bccd98a38daa5e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.25
   m_Pitch: 1
@@ -555,7 +573,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
