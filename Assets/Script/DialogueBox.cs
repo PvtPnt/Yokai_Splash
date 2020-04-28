@@ -29,7 +29,7 @@ public class DialogueBox : MonoBehaviour
 
         player = GameObject.FindObjectOfType<Player_cube_control>();
         player.JumpForce = 0;
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public class DialogueBox : MonoBehaviour
             else
             {
                 Time.timeScale = 1;
-                player.gameObject.SetActive(true);
+                //player.gameObject.SetActive(true);
                 player.JumpForce = 300;
                 Destroy(this.gameObject);
             }

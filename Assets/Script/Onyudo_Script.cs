@@ -102,12 +102,13 @@ public class Onyudo_Script : MonoBehaviour
     {
         ClapCount += 1;
         if (ClapCount >= ClapCountMax)
-        { StartCoroutine("ActionCooldown"); }
+        {
+            CancelInvoke("Clap");
+            OnAnim.SetTrigger("Cooldown");
+            StartCoroutine("ActionCooldown"); }
 
         else
-        { 
-            //OnAnim.SetTrigger("Clap");
-        }
+        {OnAnim.SetTrigger("ClapPrep");}
     }
 
     void Falling_Rubble()
@@ -126,13 +127,8 @@ public class Onyudo_Script : MonoBehaviour
 
     IEnumerator ActionCooldown()
     {
-        //OnAnim.SetTrigger("Idle");
-        //OnikumaSprite.flipX = false;
-        //WalkStepCount = 0;
-        //Col_OffsetX = -0.017f;
-        //Col_OffsetY = 0.0597f;
-        //Col_sizeX = 4.82f;
-        //Col_sizeY = 7.58f;
+        ClapCount = 0;
+        OnAnim.SetTrigger("idle");
         //StartCoroutine("ReturnCollider");
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
