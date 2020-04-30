@@ -10,10 +10,15 @@ public class Enemy_hp : MonoBehaviour
     public bool isObject = false;
     public GameObject bucketToSpawn;
     public float knockbackForce;
+    int damagedsound;
+    public AudioClip impact;
+    public AudioClip impact2;
+    AudioSource audioSource;
+    public bool isboss =false;
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +42,18 @@ public class Enemy_hp : MonoBehaviour
         SpriteRenderer enemySprite = gameObject.GetComponent<SpriteRenderer>();
         enemySprite.color = Color.red;
         Invoke("changeOriginalColor", 0.5f);
+        if (isboss)
+        {
+            damagedsound = Random.Range(0, 1);
+            if (damagedsound == 0)
+            {
+                audioSource.PlayOneShot(impact, 0.7F);
+            }
+            if (damagedsound == 1)
+            {
+                audioSource.PlayOneShot(impact2, 0.7F);
+            }
+        }
         //ApplyKnockBackForce();
     }
 

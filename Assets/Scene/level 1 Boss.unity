@@ -857,6 +857,10 @@ MonoBehaviour:
   Defense: 0
   isObject: 1
   bucketToSpawn: {fileID: 220374303}
+  knockbackForce: 0
+  impact: {fileID: 0}
+  impact2: {fileID: 0}
+  isboss: 0
 --- !u!1 &301282699
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +923,10 @@ MonoBehaviour:
   Defense: 0
   isObject: 1
   bucketToSpawn: {fileID: 1907239741}
+  knockbackForce: 0
+  impact: {fileID: 0}
+  impact2: {fileID: 0}
+  isboss: 0
 --- !u!61 &301282702
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2917,6 +2925,10 @@ MonoBehaviour:
   Defense: 0
   isObject: 1
   bucketToSpawn: {fileID: 1541744024}
+  knockbackForce: 0
+  impact: {fileID: 0}
+  impact2: {fileID: 0}
+  isboss: 0
 --- !u!61 &839552391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4276,6 +4288,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 976266147267989045, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179296, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4355,6 +4372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ActionMax
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: Damage
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179301, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
