@@ -1,5 +1,100 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1779376120394541422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7839147171846501767}
+  - component: {fileID: 2533238472782112107}
+  - component: {fileID: 1731189563959751222}
+  m_Layer: 9
+  m_Name: TongueShot_Hitbox
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7839147171846501767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779376120394541422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5339538760966097787}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &2533238472782112107
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779376120394541422}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.7478666, y: 2.12625}
+      - {x: 0.6370096, y: 1.2220314}
+      - {x: 0, y: 0.909014}
+      - {x: -0.73223686, y: 0.4796772}
+      - {x: -1.4456606, y: 0.082421064}
+      - {x: -2.6570892, y: -0.65701723}
+      - {x: -3.496274, y: -1.3127999}
+      - {x: -4.8582287, y: -2.8160596}
+      - {x: -6.0443974, y: -3.3210092}
+      - {x: -5.6812086, y: -3.4326448}
+      - {x: -5.2918243, y: -3.4531434}
+      - {x: -4.7103004, y: -3.1929986}
+      - {x: -4.2597704, y: -2.8186197}
+      - {x: -3.0980854, y: -1.2540396}
+      - {x: -2.7916403, y: -1.0257919}
+      - {x: -1.6492958, y: -0.29579568}
+      - {x: -0.9606457, y: 0.07193518}
+      - {x: 0.22092628, y: 0.6585243}
+      - {x: 1.2396822, y: 1.4213023}
+      - {x: 2.0322447, y: 2.0166032}
+      - {x: 2.4264212, y: 2.548477}
+      - {x: 2.4427595, y: 2.83477}
+--- !u!114 &1731189563959751222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779376120394541422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9782fe58e1f938a4f909ce84865a5a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRock: 0
+  isImpaler: 0
+  Damage: 15
+  Impaler_speed: 0
 --- !u!1 &5339538760966097788
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +127,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.84, y: 1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7839147171846501767}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,8 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b90b93406989c946891679200d190fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionMin: 3
-  ActionMax: 4
+  ActionMin: 1
+  ActionMax: 5
   ClapCount: 0
   ClapCountMax: 3
   ClapInterval: 1.5
@@ -176,9 +272,13 @@ MonoBehaviour:
   AttackRange: 5
   WalkStepLength: 3
   CooldownTimer: 2
+  Impaler_Pos: {x: 0, y: -5, z: 0}
   Rubble: {fileID: 5188330623248159965, guid: 49d78f9405f6e124eb29e0137de6634f, type: 3}
   Rock: {fileID: 1137035638684580654, guid: fcf610c585d508e4bbc70d6f1879121d, type: 3}
-  Palm: {fileID: 0}
+  Fireball: {fileID: 1061178806113721191, guid: 4b9908d268ba6ad45b4266542625f291,
+    type: 3}
+  Impaler: {fileID: 2995150158243070024, guid: e581b92e6f9810340910c8ec4e21a35b, type: 3}
+  TongueShot_HitBox: {fileID: 1779376120394541422}
   AttackStartPosition: {fileID: 0}
   AttackEndPosition: {fileID: 0}
   playerLayer:

@@ -19,9 +19,12 @@ public class Onyudo_Script : MonoBehaviour
     public float WalkStepLength;
     public float CooldownTimer;
 
+    public Vector3 Impaler_Pos;
     public GameObject Rubble;
     public GameObject Rock;
-    public GameObject Palm;
+    public GameObject Fireball;
+    public GameObject Impaler;
+    public GameObject TongueShot_HitBox;
     public Transform AttackStartPosition;
     public Transform AttackEndPosition;
     public LayerMask playerLayer;
@@ -78,24 +81,22 @@ public class Onyudo_Script : MonoBehaviour
         if (transform.position.x == AttackStartPosition.position.x)
         {
             CancelInvoke("GoToAttackStart");
-            if (ActionIndex == 1)       { TongueAura(); }
-            else if (ActionIndex == 2)  { FirePalm(); }
-            else if (ActionIndex == 3)  { InvokeRepeating("Clap", 0.5f, ClapInterval); }
-            else if (ActionIndex == 4)  { TongueWhip(); }
+            if (ActionIndex == 1)       { OnAnim.SetTrigger("TongueZonePrep"); }
+            else if (ActionIndex == 2)  { OnAnim.SetTrigger("Fireball"); }
+            else if (ActionIndex == 3)  { OnAnim.SetTrigger("ClapPrep"); }
+            else if (ActionIndex == 4)  { OnAnim.SetTrigger("TonguePrep"); }
         }
     }
 
-    void TongueAura()
-    { }
+    void SummonImpaler()
+    {GameObject NewImpaler = Instantiate(Impaler, Impaler_Pos, Quaternion.identity);}
 
-    void FirePalm()
-    { 
-        //OnAnim.SetTrigger("FirePalm");
-    }
+    void Cooldown()
+    { StartCoroutine("ActionCooldown"); }
 
-    public void SpawnFirePalm()
+    void SpawnFireball()
     {
-        GameObject FlamingPalm = Instantiate(Palm, new Vector3(RockDropPos_X, RockDropPos_Y, transform.position.z), Quaternion.identity);
+        GameObject FlamingPalm = Instantiate(Fireball, transform.position + new Vector3(-3f,1.5f,0f), Quaternion.identity);
     }
 
     void Clap()
@@ -103,9 +104,10 @@ public class Onyudo_Script : MonoBehaviour
         ClapCount += 1;
         if (ClapCount >= ClapCountMax)
         {
-            CancelInvoke("Clap");
+            //CancelInvoke("Clap");
             OnAnim.SetTrigger("Cooldown");
-            StartCoroutine("ActionCooldown"); }
+            StartCoroutine("ActionCooldown");
+        }
 
         else
         {OnAnim.SetTrigger("ClapPrep");}
@@ -119,28 +121,29 @@ public class Onyudo_Script : MonoBehaviour
 
     void Falling_Rock()
     {
-        GameObject RockFall = Instantiate(Rock, new Vector3(RockDropPos_X, RockDropPos_Y, transform.position.z), Quaternion.identity);
+        GameObject RockFall = Instantiate(Rock, new Vector3(RockDropPos_X, RockDropPos_Y * 1.5f, transform.position.z), Quaternion.identity);
     }
 
-    void TongueWhip()
-    { }
+    void TongueShot_CollisionOn()
+    { TongueShot_HitBox.SetActive(true);}
+
+    void TongueShot_CollisionOff()
+    { 
+        TongueShot_HitBox.SetActive(false);
+        StartCoroutine("ActionCooldown");
+    }
 
     IEnumerator ActionCooldown()
     {
-        ClapCount = 0;
+        CancelInvoke();
         OnAnim.SetTrigger("idle");
         //StartCoroutine("ReturnCollider");
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
+        ClapCount = 0;
         isPerformingAction = false;
     }
 
-    IEnumerator ReturnCollider()
-    {
-        yield return new WaitForSeconds(1f);
-        //AttackRange = 5f;
-        yield return null;
-    }
 
     private void OnDrawGizmosSelected()
     {

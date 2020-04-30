@@ -23,15 +23,18 @@ public class ProjectileEnemy : MonoBehaviour
     [SerializeField]
     private float currentShotDelay;
     bool isShoot = false;
+    Animator FireballAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         playerObj = GameObject.FindGameObjectWithTag("Player");
+        FireballAnimator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
+        
         Collider2D FindPlayer = Physics2D.OverlapCircle(transform.position, DetectionRange, playerLayer);
         if (FindPlayer.gameObject.gameObject.GetComponent<Player_cube_control>() == null)
         { isPlayerinRange = false; }
@@ -39,16 +42,20 @@ public class ProjectileEnemy : MonoBehaviour
 
         if (!isPlayerinRange)
         {
+            FireballAnimator.SetBool("Attacked", false);
             CancelInvoke();
             return;
         }
         else
         {
+           
             //InvokeRepeating("EnemyShoot", DetectToShootTime, ShootRate);
             currentShotDelay += Time.deltaTime;
             if (currentShotDelay > shotDelay)
             {
+                FireballAnimator.SetBool("Attacked", true);
                 EnemyShoot();
+
             }
         }
 
@@ -58,10 +65,12 @@ public class ProjectileEnemy : MonoBehaviour
 
     void EnemyShoot()
     {
+      
         float angle = Vector2.Angle(Vector2.right, playerObj.transform.position - spawnPoint.position);
         Quaternion rot = Quaternion.Euler(0f, 0f, angle);
         GameObject bulletObj = Instantiate(bullet, spawnPoint.position, rot) as GameObject;
         currentShotDelay = 0;
+
     }
 
     private void OnDrawGizmosSelected()

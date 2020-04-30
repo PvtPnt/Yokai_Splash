@@ -10,6 +10,7 @@ TagManager:
   - Projectile_Enemy
   - Explosion
   - Wave
+  - Ground
   layers:
   - Default
   - TransparentFX

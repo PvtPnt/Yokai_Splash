@@ -38,6 +38,7 @@ public class EnemyBulletController : MonoBehaviour
             if (DamageEnemy[i].gameObject.GetComponent<Player_cube_control>() != null)
             {
                 DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+                Destroy(this.gameObject);
             }
         }
     }
