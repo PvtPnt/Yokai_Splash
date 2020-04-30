@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 1340974756}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1840,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.3
+      value: -13.04
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -2287,6 +2287,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Onyudo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339538760966097788, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339538760966097788, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339538760966097788, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b340f8dfa1fbcc54e90980ebd526add7, type: 3}

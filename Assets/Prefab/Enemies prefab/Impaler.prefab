@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1137035638684580654
+--- !u!1 &1040632227533883326
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,60 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1137035638684580645}
-  - component: {fileID: 1137035638684580640}
-  - component: {fileID: 3110449456331103263}
-  - component: {fileID: 3702837106902394701}
-  - component: {fileID: 808852649929750976}
+  - component: {fileID: 1040632227533883323}
+  - component: {fileID: 1040632227533883324}
+  - component: {fileID: 1040632227533883325}
+  - component: {fileID: 2995150158584088390}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: Impaler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1137035638684580645
+--- !u!4 &1040632227533883323
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137035638684580654}
+  m_GameObject: {fileID: 1040632227533883326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.1, y: 10.77, z: 0}
-  m_LocalScale: {x: 1, y: -2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1137035638684580640
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137035638684580654}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 2.5
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!212 &3110449456331103263
+--- !u!212 &1040632227533883324
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137035638684580654}
+  m_GameObject: {fileID: 1040632227533883326}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -93,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 579103465
   m_SortingLayer: 4
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 34f059c93bc1aec439369db438b57188, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,20 +83,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3702837106902394701
+--- !u!114 &1040632227533883325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040632227533883326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9782fe58e1f938a4f909ce84865a5a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRock: 0
+  isImpaler: 1
+  Damage: 7
+  Impaler_speed: 10
+--- !u!60 &2995150158584088390
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137035638684580654}
+  m_GameObject: {fileID: 1040632227533883326}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.91}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,11 +137,11 @@ PolygonCollider2D:
       - {x: 0.32, y: 0.88}
       - {x: 0.19, y: 1.3199999}
       - {x: 0.14, y: 1.4499999}
-      - {x: 0.10000038, y: 1.4413493}
-      - {x: 0.10003853, y: 1.4530437}
-      - {x: 0.014863014, y: 1.4540548}
-      - {x: -0.04327011, y: 1.4645023}
-      - {x: -0.1437006, y: 1.4613492}
+      - {x: 0.099999994, y: 1.54}
+      - {x: 0.03, y: 1.64}
+      - {x: 0.01, y: 1.65}
+      - {x: -0.089999996, y: 1.65}
+      - {x: -0.17, y: 1.56}
       - {x: -0.21, y: 1.4399999}
       - {x: -0.26999998, y: 1.27}
       - {x: -0.35, y: 1}
@@ -168,17 +162,3 @@ PolygonCollider2D:
       - {x: 0.96999997, y: -1.62}
       - {x: 0.94, y: -1.51}
       - {x: 0.88, y: -1.27}
---- !u!114 &808852649929750976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137035638684580654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9782fe58e1f938a4f909ce84865a5a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRock: 1
-  Damage: 10

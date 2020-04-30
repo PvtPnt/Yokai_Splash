@@ -9,7 +9,6 @@ public class BulletController : MonoBehaviour
     public int Damage;
     public bool isMovingLeft;
     public float LifeTime = 1f;
-    public GameObject Bullet;
     public SpriteRenderer bulletSprite;
 
     public Transform AttackPos;
@@ -34,20 +33,22 @@ public class BulletController : MonoBehaviour
         else
         {transform.Translate(Vector3.right * Time.deltaTime * Speed);}
 
-        Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
-        for (int i = 0; i < DamageEnemy.Length; i++)
+        if (PlayerBullet)
         {
-            if (DamageEnemy[i].gameObject.GetComponent<Player_cube_control>() != null)
+            Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
+            for (int i = 0; i < DamageEnemy.Length; i++)
             {
-                DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+                if (DamageEnemy[i].gameObject.GetComponent<Player_cube_control>() != null)
+                {
+                    DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+                }
+                else
+                {
+                    DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
+                    DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+                    Destroy(this.gameObject);
+                }
             }
-            else
-            {
-              DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
-              DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
-                Destroy(this.gameObject);
-            }
-
         }
     }
 
@@ -57,22 +58,14 @@ public class BulletController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (PlayerBullet && other.tag == "Enemy")
-    //    {
-    //        //Deal dmg to enemy
-    //        other.SendMessage("ReceiveDamage", Damage);
-    //        Destroy(this.gameObject);
-    //    }
-
-    //    if (!PlayerBullet && other.tag == "Player")
-    //    {
-    //        //Deal dmg to player
-    //        other.SendMessage("ReceiveDamage", Damage);
-    //        Destroy(this.gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (PlayerBullet == false && other.tag == "Player")
+        {
+            other.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+            Destroy(this.gameObject);
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Vector3 Direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
