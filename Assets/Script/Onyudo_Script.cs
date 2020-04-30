@@ -83,7 +83,7 @@ public class Onyudo_Script : MonoBehaviour
             CancelInvoke("GoToAttackStart");
             if (ActionIndex == 1)       { OnAnim.SetTrigger("TongueZonePrep"); }
             else if (ActionIndex == 2)  { OnAnim.SetTrigger("Fireball"); }
-            else if (ActionIndex == 3)  { InvokeRepeating("Clap", 0.5f, ClapInterval); }
+            else if (ActionIndex == 3)  { OnAnim.SetTrigger("ClapPrep"); }
             else if (ActionIndex == 4)  { OnAnim.SetTrigger("TonguePrep"); }
         }
     }
@@ -104,7 +104,7 @@ public class Onyudo_Script : MonoBehaviour
         ClapCount += 1;
         if (ClapCount >= ClapCountMax)
         {
-            CancelInvoke("Clap");
+            //CancelInvoke("Clap");
             OnAnim.SetTrigger("Cooldown");
             StartCoroutine("ActionCooldown");
         }
@@ -135,11 +135,12 @@ public class Onyudo_Script : MonoBehaviour
 
     IEnumerator ActionCooldown()
     {
-        ClapCount = 0;
+        CancelInvoke();
         OnAnim.SetTrigger("idle");
         //StartCoroutine("ReturnCollider");
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
+        ClapCount = 0;
         isPerformingAction = false;
     }
 

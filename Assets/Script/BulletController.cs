@@ -34,7 +34,7 @@ public class BulletController : MonoBehaviour
         else
         {transform.Translate(Vector3.right * Time.deltaTime * Speed);}
 
-        if (PlayerBullet)
+        if (!PlayerBullet)
         {
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
@@ -42,27 +42,30 @@ public class BulletController : MonoBehaviour
 
                 DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
             }
-            else
+        }
+        else
+        {
+            Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
+            for (int i = 0; i < DamageEnemy.Length; i++)
             {
                 print("collide");
                 if (isMovingLeft)
                 {
-                    Rigidbody2D enemy =
-                    DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
+                    Rigidbody2D enemy = DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
                     enemy.AddForce(new Vector2(-KnockBackForce, 0f));
                 }
                 else
                 {
-                    Rigidbody2D enemy =
-                    DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
+                    Rigidbody2D enemy =DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
                     enemy.AddForce(new Vector2(KnockBackForce, 0f));
                 }
-                DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
-              DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
-                Destroy(this.gameObject);
-            }
 
+                DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
+                DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+            }
+            Destroy(this.gameObject);
         }
+
     }
 
     IEnumerator Expire(float timer)
