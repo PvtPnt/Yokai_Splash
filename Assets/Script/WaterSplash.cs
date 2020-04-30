@@ -6,6 +6,7 @@ public class WaterSplash : MonoBehaviour
 {
     public int Damage = 25;
     public float secondsToWait = 2.0f;
+    public GameObject flash;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,12 @@ public class WaterSplash : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            GameObject NewFlash =
+              Instantiate(flash, transform.position, Quaternion.identity);
 
+            NewFlash.gameObject.SetActive(true);
 
-                other.SendMessage("ReceiveDamage", Damage);
+            other.SendMessage("ReceiveDamage", Damage);
             Debug.Log("Dealt" + Damage + "damage");
             }
 
