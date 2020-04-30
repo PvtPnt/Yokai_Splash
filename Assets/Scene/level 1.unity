@@ -3478,7 +3478,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Dialogue
       value: 
-      objectReference: {fileID: 6622731084790784148, guid: 3488de7acbb2c5b4e816d0e6addebaa0,
+      objectReference: {fileID: 3002191436690478398, guid: a2d81862736734b42abfca4b70c6658c,
         type: 3}
     - target: {fileID: 7066739164119696062, guid: 04953dbff6ed50948bedcd83ece44703,
         type: 3}
@@ -6952,6 +6952,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097045013}
     m_Modifications:
+    - target: {fileID: -5309515902214211925, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: knockbackForce
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 543567553839816106, guid: a694943e75778ea4ba0dad1f8cb844d9,
         type: 3}
       propertyPath: m_Name
@@ -7011,6 +7016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846593991540681484, guid: a694943e75778ea4ba0dad1f8cb844d9,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a694943e75778ea4ba0dad1f8cb844d9, type: 3}
@@ -15031,6 +15041,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: Damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: KnockBackForce
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_LocalPosition.x

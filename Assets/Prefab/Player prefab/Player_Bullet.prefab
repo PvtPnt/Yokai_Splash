@@ -87,11 +87,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01c991649ee75804481c8469d132958c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   PlayerBullet: 1
   Speed: 25
-  Damage: 5
+  Damage: 1
   isMovingLeft: 0
   LifeTime: 1.5
   Bullet: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   AttackRange: 0.2
+  KnockBackForce: 150
 --- !u!212 &-3141981460028214905
 SpriteRenderer:
   m_ObjectHideFlags: 0

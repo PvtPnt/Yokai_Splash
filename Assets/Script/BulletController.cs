@@ -15,6 +15,7 @@ public class BulletController : MonoBehaviour
     public LayerMask EnemyLayer;
 
     public float AttackRange;
+    public float KnockBackForce;
 
     // Start is called before the first frame update
     void Start()
@@ -38,17 +39,29 @@ public class BulletController : MonoBehaviour
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
             {
-                if (DamageEnemy[i].gameObject.GetComponent<Player_cube_control>() != null)
+
+                DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+            }
+            else
+            {
+                print("collide");
+                if (isMovingLeft)
                 {
-                    DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
+                    Rigidbody2D enemy =
+                    DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
+                    enemy.AddForce(new Vector2(-KnockBackForce, 0f));
                 }
                 else
                 {
-                    DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
-                    DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
-                    Destroy(this.gameObject);
+                    Rigidbody2D enemy =
+                    DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
+                    enemy.AddForce(new Vector2(KnockBackForce, 0f));
                 }
+                DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
+              DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+                Destroy(this.gameObject);
             }
+
         }
     }
 
