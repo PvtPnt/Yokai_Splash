@@ -21,6 +21,8 @@ public class Player_Melee : MonoBehaviour
     public int atk_direction_x;
     public int atk_direction_y;
 
+    public float KnockBackForce;
+
 
     // Start is called before the first frame update
     void Start()
@@ -88,13 +90,22 @@ public class Player_Melee : MonoBehaviour
         {
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosFront.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
-            { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
+            {
+                Rigidbody2D enemy =
+                DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
+                enemy.AddForce(new Vector2(KnockBackForce, 0f));
+                DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
         }
         else if (IsWalkingLeft == true)
         {
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosBack.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
-            { DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage); }
+            { 
+                Rigidbody2D enemy =
+                DamageEnemy[i].gameObject.GetComponent<Rigidbody2D>();
+                enemy.AddForce(new Vector2(-KnockBackForce, 0f));
+                DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+            }
         }
     }
 
@@ -108,5 +119,6 @@ public class Player_Melee : MonoBehaviour
 
         if(IsWalkingLeft == true)
         { Gizmos.DrawWireSphere(AttackPosBack.position, AttackRange); }
+
     }
 }
