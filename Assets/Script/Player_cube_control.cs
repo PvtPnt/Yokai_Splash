@@ -217,9 +217,8 @@ public class Player_cube_control : MonoBehaviour
 
     void Shoot()
     {
-        GameObject NewBullet =
-            Instantiate(Bullet, transform.position, Quaternion.identity);
-        NewBullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
+        GameObject Player_Bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+        Player_Bullet.GetComponent<BulletController>().isMovingLeft = IsWalkingLeft;
         timeBTWshoot = Start_timeBTWshoot;
     }
 

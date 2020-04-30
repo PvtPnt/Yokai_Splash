@@ -39,7 +39,6 @@ public class BulletController : MonoBehaviour
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, EnemyLayer);
             for (int i = 0; i < DamageEnemy.Length; i++)
             {
-
                 DamageEnemy[i].gameObject.GetComponent<Player_cube_control>().P_ReceiveDamage(Damage);
             }
         }
@@ -62,8 +61,9 @@ public class BulletController : MonoBehaviour
 
                 DamageEnemy[i].GetComponent<Enemy_hp>().DefDown(5);
                 DamageEnemy[i].GetComponent<Enemy_hp>().ReceiveDamage(Damage);
+                Destroy(this.gameObject);
             }
-            Destroy(this.gameObject);
+            
         }
 
     }
