@@ -120,6 +120,8 @@ public class Player_cube_control : MonoBehaviour
         { SceneManager.LoadScene("level2blocks"); }
         if (Input.GetKeyUp(KeyCode.Alpha5))
         { SceneManager.LoadScene("level 2 Boss"); }
+        if (Input.GetKeyUp(KeyCode.Alpha6))
+        { SceneManager.LoadScene("level3blocks"); }
 
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
 
