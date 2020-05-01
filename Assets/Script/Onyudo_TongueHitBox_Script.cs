@@ -20,13 +20,25 @@ public class Onyudo_TongueHitBox_Script : MonoBehaviour
     {
         if (isImpaler)
         {
-            float step = Impaler_speed * Time.deltaTime; // calculate distance to move
-            transform.position = Vector3.MoveTowards(transform.position, StartingPos + new Vector3(0f,6.5f,0f), step);
+            StartCoroutine("WaitBeforeImpale");
+        }
+    }
 
-            if(transform.position == StartingPos + new Vector3(0f, 6.5f, 0f))
-            {
-                StartCoroutine("DestroyImpaler");
-            }
+    IEnumerator WaitBeforeImpale()
+    { 
+        yield return new WaitForSeconds(1f);
+        Impaler();
+    }
+
+
+    void Impaler()
+    {
+        float step = Impaler_speed * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards(transform.position, StartingPos + new Vector3(0f, 6.5f, 0f), step);
+
+        if (transform.position == StartingPos + new Vector3(0f, 6.5f, 0f))
+        {
+            StartCoroutine("DestroyImpaler");
         }
     }
 

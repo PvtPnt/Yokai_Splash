@@ -34,11 +34,13 @@ public class Onyudo_Script : MonoBehaviour
     Animator OnAnim;
 
     public GameObject bossDialogue;
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
         OnAnim = GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
 
         bossDialogue.SetActive(false);
     }
@@ -115,7 +117,7 @@ public class Onyudo_Script : MonoBehaviour
 
     void Falling_Rubble()
     {
-        RockDropPos_X = Random.Range(AttackStartPosition.position.x, AttackEndPosition.position.x);
+        RockDropPos_X = Player.transform.position.x;
         GameObject RubbleFall  = Instantiate(Rubble, new Vector3 (RockDropPos_X, RockDropPos_Y, transform.position.z), Quaternion.identity);
     }
 

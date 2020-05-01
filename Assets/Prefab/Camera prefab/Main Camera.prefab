@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7939766275626298418}
   - component: {fileID: 7939766275626298417}
   - component: {fileID: 7939766275626298419}
+  - component: {fileID: 4546525642177336830}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -94,7 +95,20 @@ MonoBehaviour:
   Normal_Offset: {x: 0, y: 2.75, z: -10}
   Current_Offset: {x: 0, y: 2.75, z: -10}
   High_Offset: {x: 0, y: -2, z: -12}
+  isAtBoss: 0
+  BossNumber: 0
+  LV1BossCam: {x: 0, y: 0, z: 0}
+  LV2BossCam: {x: 0, y: 0, z: 0}
+  LV3BossCam: {x: 0, y: 0, z: 0}
   SmoothDamp: 0.075
+--- !u!81 &4546525642177336830
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939766275626298423}
+  m_Enabled: 1
 --- !u!1001 &7939766274749553363
 PrefabInstance:
   m_ObjectHideFlags: 0
