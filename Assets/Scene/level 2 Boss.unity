@@ -868,7 +868,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bossDialogue
       value: 
-      objectReference: {fileID: 974990986}
+      objectReference: {fileID: 1289690708}
     - target: {fileID: 5339538760966097787, guid: b340f8dfa1fbcc54e90980ebd526add7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1568,12 +1568,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &974990986 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4105760415529972156, guid: 624c2fdc6b9d3054fb1cdacd68e95fbe,
-    type: 3}
-  m_PrefabInstance: {fileID: 1628076055}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &974990988 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4105760415529972159, guid: 624c2fdc6b9d3054fb1cdacd68e95fbe,
@@ -2340,6 +2334,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1289690708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 245866553262480326, guid: 4d3f3e774d756274889f06786546d68e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408429020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1307250405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,6 +2533,80 @@ PrefabInstance:
       objectReference: {fileID: 315134997}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44632b5a6d038df40a4f100faf005e32, type: 3}
+--- !u!1001 &1408429020
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 397.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -541.48047
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480325, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480326, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: m_Name
+      value: TriggerDialogueBoss2
+      objectReference: {fileID: 0}
+    - target: {fileID: 245866553262480327, guid: 4d3f3e774d756274889f06786546d68e,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 315134997}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d3f3e774d756274889f06786546d68e, type: 3}
 --- !u!1 &1426100475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +5033,11 @@ PrefabInstance:
       propertyPath: swingingSound
       value: 
       objectReference: {fileID: 8300000, guid: 8b522ea8fe7374d4cafe8824e30a1f09, type: 3}
+    - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: Damage
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_UseAutoMass

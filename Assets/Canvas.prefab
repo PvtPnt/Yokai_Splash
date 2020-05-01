@@ -49,12 +49,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c6ed49841ddd64aad5a2acbd34cb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charPic: {fileID: 21300000, guid: a4bb716d63dd5514c87a777253712cd3, type: 3}
-  charName: Oshimakara
-  message: Umeiwa!!!
+  BoxIndex: 0
+  charPic: []
+  charName:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  message:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   charPicObj: {fileID: 4700647296633450807}
   charNameObj: {fileID: 4700647297618743172}
   messageObj: {fileID: 4700647297983171229}
+  player: {fileID: 0}
 --- !u!1 &4700647296633450805
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,10 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
