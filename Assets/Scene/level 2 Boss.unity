@@ -682,6 +682,16 @@ PrefabInstance:
       propertyPath: Defense
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2936099633878970002, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: impact
+      value: 
+      objectReference: {fileID: 8300000, guid: 69d4caf7a79dc3543a486506ec00b037, type: 3}
+    - target: {fileID: 2936099633878970002, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: impact2
+      value: 
+      objectReference: {fileID: 8300000, guid: 880f3bbfeb8771c498fa6ec4e4b339fa, type: 3}
     - target: {fileID: 5339538760966097786, guid: b340f8dfa1fbcc54e90980ebd526add7,
         type: 3}
       propertyPath: AttackStartPosition
