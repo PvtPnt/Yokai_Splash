@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxIndex: 0
   charPic:
-  - {fileID: 21300000, guid: 8b794b5210ab17c4b9fc517e3dac2014, type: 3}
+  - {fileID: 21300000, guid: 4bda62762d37e7045b96469e0217becf, type: 3}
   charName:
   - Maid
   message:
