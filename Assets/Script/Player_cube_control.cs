@@ -108,8 +108,10 @@ public class Player_cube_control : MonoBehaviour
         HP += HP_Regen_Amount * Time.deltaTime;
         if (HP > MaxHP) { HP = MaxHP; };
 
+        if (Input.GetKeyUp(KeyCode.R))
+        { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
         if (Input.GetKeyUp(KeyCode.Alpha1))
-            {SceneManager.LoadScene("Title Scene");}
+        {SceneManager.LoadScene("Title Scene");}
         if (Input.GetKeyUp(KeyCode.Alpha2))
         { SceneManager.LoadScene("level 1"); }
         if (Input.GetKeyUp(KeyCode.Alpha3))
@@ -117,7 +119,7 @@ public class Player_cube_control : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha4))
         { SceneManager.LoadScene("level2blocks"); }
         if (Input.GetKeyUp(KeyCode.Alpha5))
-        { SceneManager.LoadScene("Onikuma test"); }
+        { SceneManager.LoadScene("level 2 Boss"); }
 
         Vector2 Direction = new Vector2(Input.GetAxis("Horizontal"), 0);
 
