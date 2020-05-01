@@ -777,6 +777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onyudo
       objectReference: {fileID: 0}
+    - target: {fileID: 5339538760966097791, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b340f8dfa1fbcc54e90980ebd526add7, type: 3}
 --- !u!1 &526719267
@@ -1113,8 +1118,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859709604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 93.2, y: -2.22, z: 0}
-  m_LocalScale: {x: 10907.2, y: 1, z: 1}
+  m_LocalPosition: {x: 392.4, y: -2.22, z: 0}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3228,7 +3233,8 @@ GameObject:
   - component: {fileID: 2118698657}
   - component: {fileID: 2118698656}
   - component: {fileID: 2118698659}
-  m_Layer: 0
+  - component: {fileID: 2118698660}
+  m_Layer: 13
   m_Name: Invisible wall_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3322,6 +3328,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.671234, y: 9.992184}
   m_EdgeRadius: 0
+--- !u!61 &2118698660
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118698655}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.02, y: 0.86}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 8.85}
+  m_EdgeRadius: 0
 --- !u!1001 &177773577058842658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3378,7 +3410,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: Damage
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884034, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
@@ -3544,6 +3576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: HP
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: HP_Regen_Amount
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884094, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}

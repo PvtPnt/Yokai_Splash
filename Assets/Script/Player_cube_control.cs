@@ -69,7 +69,11 @@ public class Player_cube_control : MonoBehaviour
         {
             GetComponent<Player_Melee>().enabled = false;
             GetComponent<Animator>().SetBool("alive", false);
-            GetComponent<Player_cube_control>().enabled = false;
+            if (Input.GetKeyUp(KeyCode.R))
+            { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+            JumpForce = 0;
+            myMusic.enabled = false;
+            //GetComponent<Player_cube_control>().enabled = false;
             return;
         }
 
@@ -107,6 +111,9 @@ public class Player_cube_control : MonoBehaviour
         //Health Regeneration
         HP += HP_Regen_Amount * Time.deltaTime;
         if (HP > MaxHP) { HP = MaxHP; };
+
+        if (Input.GetKeyUp(KeyCode.B))
+        { HP = MaxHP; }
 
         if (Input.GetKeyUp(KeyCode.R))
         { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
