@@ -88,6 +88,11 @@ public class Player_cube_control : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = velo;
 
+       
+    }
+
+    void Update()
+    {
         //TRAP
         if (Input.GetKeyDown(KeyCode.JoystickButton3) && IsWalkingLeft == true
             || Input.GetKeyDown(KeyCode.O) && IsWalkingLeft == true)
@@ -104,10 +109,8 @@ public class Player_cube_control : MonoBehaviour
                   Instantiate(Trap, transform.position, Quaternion.identity);
             NewTrap.GetComponent<WaveController>().DirectionIsLeft = true;
         }
-    }
 
-    void Update()
-    {
+
         //Health Regeneration
         HP += HP_Regen_Amount * Time.deltaTime;
         if (HP > MaxHP) { HP = MaxHP; };
