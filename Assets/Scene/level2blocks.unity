@@ -22234,12 +22234,12 @@ PrefabInstance:
     - target: {fileID: 4613344261183170846, guid: 15f86ecc4caf948428c5fe24f8c226fa,
         type: 3}
       propertyPath: m_Offset.x
-      value: -2.0762367
+      value: -3.4370995
       objectReference: {fileID: 0}
     - target: {fileID: 4613344261183170846, guid: 15f86ecc4caf948428c5fe24f8c226fa,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.8906326
+      value: 5.612358
       objectReference: {fileID: 0}
     - target: {fileID: 4613344261183170846, guid: 15f86ecc4caf948428c5fe24f8c226fa,
         type: 3}
@@ -22305,6 +22305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357939345907057863, guid: 15f86ecc4caf948428c5fe24f8c226fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7467861370668235476, guid: 15f86ecc4caf948428c5fe24f8c226fa,
         type: 3}
