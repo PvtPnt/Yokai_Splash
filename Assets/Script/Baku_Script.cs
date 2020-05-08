@@ -15,20 +15,27 @@ public class Baku_Script : MonoBehaviour
     public float WalkStepLength;
     public float CooldownTimer;
     public float ChargeStepLength;
+    public float SuckTimer;
+    public float SuckTime;
 
     public Transform AttackStartPosition;
     public Transform AttackEndPosition;
+    public Transform Beam_Position;
+    public CircleCollider2D StompHitbox;
     public LayerMask playerLayer;
+    public GameObject DreamBeam;
 
+    bool isSucking;
     bool isPerformingAction;
     int ActionIndex;
+    SpriteRenderer BakuSprite;
     Animator BakuAnim;
     GameObject Player;
-    GameObject DreamBeam;
 
     // Start is called before the first frame update
     void Start()
     {
+        BakuSprite = GetComponent<SpriteRenderer>();
         BakuAnim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -42,6 +49,23 @@ public class Baku_Script : MonoBehaviour
             for (int i = 0; i < DamagePlayer.Length; i++)
             { DamagePlayer[i].GetComponent<Player_cube_control>().P_ReceiveDamage(Damage); }
         }
+
+        if (isSucking)
+        {
+            SuckTimer += Time.deltaTime;
+
+            if (SuckTimer >= SuckTime)
+            {
+                BakuAnim.SetBool("Sucking", false);
+                StartCoroutine("ActionCooldown");
+            }
+
+            else
+            {
+                Player.GetComponent<Rigidbody2D>().AddForce
+                (Vector3.right * Player.GetComponent<Player_cube_control>().WalkSpeed * 0.65f, ForceMode2D.Force);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -49,10 +73,10 @@ public class Baku_Script : MonoBehaviour
         if (isPerformingAction == false) { StartCoroutine("ActionManager"); }
     }
 
-    public void AttackOn()
+    public void ChargeHitbox_On()
     { isAttacking = true; }
 
-    public void AttackOff()
+    public void ChargeHitbox_Off()
     { isAttacking = false; }
 
     IEnumerator ActionManager()
@@ -66,20 +90,13 @@ public class Baku_Script : MonoBehaviour
 
     IEnumerator ActionCooldown()
     {
-        //BakuAnim.SetTrigger("Idle");
-        //BakuSprite.flipX = false;
-        //WalkStepCount = 0;
-        //StartCoroutine("ReturnCollider");
+        isSucking = false;
+        SuckTimer = 0;
+        BakuAnim.SetTrigger("Idle");
+        BakuSprite.flipX = false;
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
         isPerformingAction = false;
-    }
-
-    IEnumerator ReturnCollider()
-    {
-        yield return new WaitForSeconds(1f);
-        //AttackRange = 5f;
-        yield return null;
     }
 
     void GoToAttackStart()
@@ -88,52 +105,20 @@ public class Baku_Script : MonoBehaviour
         if (transform.position.x == AttackStartPosition.position.x)
         {
             CancelInvoke("GoToAttackStart");
-            if (ActionIndex == 1)      { Suck();  }
-            else if (ActionIndex == 2) {  }
-            else if (ActionIndex == 3) {  }
-            else if (ActionIndex == 4) { BeamPrep("Normal");  }
-            else if (ActionIndex == 5) { BeamPrep("Delayed"); }
+            if (ActionIndex == 1)      { BakuAnim.SetTrigger("Suck_prep"); BakuAnim.SetBool("Sucking", true); }
+            else if (ActionIndex == 2) { BakuAnim.SetTrigger("Charge_prep"); BakuAnim.SetBool("Charging", true); }
+            else if (ActionIndex == 3) { BakuAnim.SetTrigger("Stomp"); }
+            else if (ActionIndex == 4) { BakuAnim.SetTrigger("Beam_Prep");  }
+            else if (ActionIndex == 5) { BakuAnim.SetTrigger("Delayed_Beam_Prep"); }
         }
     }
 
-    void Suck()
-    {
-        float Timer = 5f;
-        Timer -= Time.deltaTime;
+    public void Suck()
+    { isSucking = true; }
 
-        if (Timer <= 0)
-        { 
-            StartCoroutine("ActionCooldown");
-            return;
-        }
-
-        else
-        {
-            if (Player.transform.position.x < transform.position.x)
-            {
-                Player.GetComponent<Rigidbody2D>().AddForce
-                (Vector3.right * Player.GetComponent<Player_cube_control>().WalkSpeed * Time.deltaTime, ForceMode2D.Force);
-            }
-
-            else if (Player.transform.position.x > transform.position.x)
-            {
-                Player.GetComponent<Rigidbody2D>().AddForce
-                (Vector3.left * Player.GetComponent<Player_cube_control>().WalkSpeed * Time.deltaTime, ForceMode2D.Force);
-            }
-        }
-    }
-
-    void ChargePrep()
-    {
-        Debug.Log("Preparing Rush");
-        //BakuAnim.SetTrigger("PrepCharge");
-    }
 
     void Charge()
-    {
-        //BakuAnim.SetBool("Charge", true);
-        InvokeRepeating("ChargeControl", 0.5f, 0.25f);
-    }
+    {InvokeRepeating("ChargeControl", 0.5f, 0.25f);}
 
     void ChargeControl()
     {
@@ -148,42 +133,34 @@ public class Baku_Script : MonoBehaviour
 
     void ChargeBack()
     {
-        //OnikumaSprite.flipX = true;
+        BakuSprite.flipX = true;
         if (transform.position.x != AttackStartPosition.position.x)
         { transform.position = Vector3.MoveTowards(transform.position, new Vector3(AttackStartPosition.position.x, transform.position.y, 0), ChargeStepLength); }
         else
         {
-            CancelInvoke("RushBack");
-            //BakuAnim.SetBool("Charge", false);
+            CancelInvoke("ChargeBack");
+            BakuAnim.SetBool("Charging", false);
             StartCoroutine("ActionCooldown");
         }
     }
     
-    void Stomp()
-    {
-        //BakuAnim.SetTrigger("Stomp");
+    public void Stomp_Hitbox_On()
+    {StompHitbox.enabled = true;}
+
+    public void Stomp_Hitbox_Off()
+    {StompHitbox.enabled = false;
+     StartCoroutine("ActionCooldown");
     }
 
-    void BeamPrep(string variation)
+    public void Beam()
     {
-        if (variation == "Normal")
-        {
-            //BakuAnim.SetTrigger("BeamPrepNormal"); 
-        }
-
-        else if (variation == "Delayed")
-        {
-            //BakuAnim.SetTrigger("BeamPrepDelayed");
-        }
+        GameObject NewBeam = Instantiate(DreamBeam, Beam_Position.position, Quaternion.identity);
     }
 
-    void Beam()
-    {
-        GameObject NewBeam = Instantiate(DreamBeam, transform.position, Quaternion.identity);
-    }
 
-    void Beam_Delayed()
+    private void OnDrawGizmosSelected()
     {
-        GameObject NewBeam = Instantiate(DreamBeam, transform.position, Quaternion.identity);
+        Gizmos.color = Color.red;
+       Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Delayed beam anticipation
+  m_Name: Idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,17 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 49b68a1c98d06184f8bc221077f003cf, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: a90683491b3d2574c874bf93578522be, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: e56f642b499559643ab9c741845042eb, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: 85419060200f5cf4faf0cd7230edf4bb, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: 59c763d3cc08ac34c89ae6f56c8617c0, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 78479a4a078058d408f3013b8dca1525, type: 3}
+      value: {fileID: 21300000, guid: 6421107f40224124e8d56446c552e130, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,18 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 49b68a1c98d06184f8bc221077f003cf, type: 3}
-    - {fileID: 21300000, guid: a90683491b3d2574c874bf93578522be, type: 3}
-    - {fileID: 21300000, guid: e56f642b499559643ab9c741845042eb, type: 3}
-    - {fileID: 21300000, guid: 85419060200f5cf4faf0cd7230edf4bb, type: 3}
-    - {fileID: 21300000, guid: 59c763d3cc08ac34c89ae6f56c8617c0, type: 3}
-    - {fileID: 21300000, guid: 78479a4a078058d408f3013b8dca1525, type: 3}
+    - {fileID: 21300000, guid: 6421107f40224124e8d56446c552e130, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 0.083333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -81,8 +66,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.75
-    functionName: Beam
+  - time: 0
+    functionName: ChargeHitbox_Off
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
