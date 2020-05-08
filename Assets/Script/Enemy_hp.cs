@@ -44,7 +44,7 @@ public class Enemy_hp : MonoBehaviour
         Invoke("changeOriginalColor", 0.5f);
         if (isboss)
         {
-            damagedsound = Random.Range(0, 1);
+            damagedsound = Random.Range(0, 2);
             if (damagedsound == 0)
             {
                 audioSource.PlayOneShot(impact, 0.7F);
@@ -58,7 +58,7 @@ public class Enemy_hp : MonoBehaviour
     }
 
     public void DefDown(int DefDownValue)
-    {   if (Defense > DefDownValue) { Defense -= DefDownValue; }
+    {   if (Defense >= DefDownValue) { Defense = Defense - DefDownValue; }
         else { Defense = 0; }
     }
 

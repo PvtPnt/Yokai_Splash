@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStomp: 0
-  StompDamage: 20
+  StompDamage: 15
   isBeam: 1
-  BeamDamage: 15
-  BeamDOT: 0
+  BeamDamage: 10
+  BeamDOT: 3
