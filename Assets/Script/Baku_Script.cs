@@ -24,6 +24,7 @@ public class Baku_Script : MonoBehaviour
     public CircleCollider2D StompHitbox;
     public LayerMask playerLayer;
     public GameObject DreamBeam;
+    public GameObject bossDialogue;
 
     bool isSucking;
     bool isPerformingAction;
@@ -38,6 +39,7 @@ public class Baku_Script : MonoBehaviour
         BakuSprite = GetComponent<SpriteRenderer>();
         BakuAnim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        bossDialogue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -162,5 +164,11 @@ public class Baku_Script : MonoBehaviour
     {
         Gizmos.color = Color.red;
        Gizmos.DrawWireSphere(transform.position, AttackRange);
+    }
+    private void OnDestroy()
+    {
+        print("Something");
+        print("Something");
+        bossDialogue.SetActive(true);
     }
 }
