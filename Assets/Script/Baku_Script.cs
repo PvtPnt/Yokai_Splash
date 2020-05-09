@@ -63,7 +63,7 @@ public class Baku_Script : MonoBehaviour
             else
             {
                 Player.GetComponent<Rigidbody2D>().AddForce
-                (Vector3.right * Player.GetComponent<Player_cube_control>().WalkSpeed * 0.65f, ForceMode2D.Force);
+                (Vector3.right * Player.GetComponent<Player_cube_control>().WalkSpeed * 0.4f, ForceMode2D.Force);
             }
         }
     }
