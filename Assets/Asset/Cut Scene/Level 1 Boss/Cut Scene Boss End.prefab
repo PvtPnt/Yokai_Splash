@@ -87,14 +87,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutSceneArr:
-  - {fileID: 21300000, guid: 573e75a2a6d8bf34ca889598019e2ef9, type: 3}
-  - {fileID: 21300000, guid: 62dffca6e81a2df4d80ea8cf89c441e2, type: 3}
-  - {fileID: 21300000, guid: 8532cef70cc28cc4097ba2af326159fa, type: 3}
-  - {fileID: 21300000, guid: 73716678e4cd3e74aa4361cf0e89f8ec, type: 3}
-  - {fileID: 21300000, guid: d453e26566857924dbd673950d772247, type: 3}
-  - {fileID: 21300000, guid: e308b9a6384960a48b5a3d8327530541, type: 3}
-  - {fileID: 21300000, guid: 32d51f0e10882d64c9b98ca8e9e7e92d, type: 3}
-  - {fileID: 21300000, guid: 27d8d9f293a34fe41a8237de9f416015, type: 3}
+  - {fileID: 21300000, guid: 0ca84480c5330d34f80d493030ee6bba, type: 3}
+  - {fileID: 21300000, guid: 6ae2e954e2b184f498929f7a66c77cb0, type: 3}
+  - {fileID: 21300000, guid: 94135fe8c91c6a249b2864be76473275, type: 3}
+  - {fileID: 21300000, guid: fa400c7f86906314e8477998d8476ea9, type: 3}
+  - {fileID: 21300000, guid: e92018f17ac548440b4c834007343aff, type: 3}
+  - {fileID: 21300000, guid: acf0e36049e107843b3f05f5aaa8d609, type: 3}
   currentImgIndex: 0
   currentImg: {fileID: 0}
   player: {fileID: 0}
