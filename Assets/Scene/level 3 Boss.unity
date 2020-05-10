@@ -3843,6 +3843,11 @@ PrefabInstance:
       propertyPath: Defense
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8685539032640301691, guid: feb0d64c5aaee1a44a906ecd6e48e4b7,
+        type: 3}
+      propertyPath: HP
+      value: 140
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feb0d64c5aaee1a44a906ecd6e48e4b7, type: 3}
 --- !u!4 &243518531 stripped
@@ -28228,7 +28233,7 @@ PrefabInstance:
     - target: {fileID: 177773576671884032, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: Damage
-      value: 150
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 177773576671884092, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}

@@ -34,7 +34,7 @@ public class Enemy_hp : MonoBehaviour
 
     public void ReceiveDamage(int Damage)
     { 
-        if (Damage < Defense) { Defense = Damage; }
+        if (Damage < Defense) { Damage = Defense; }
         HP -= (Damage - Defense);
 
         Debug.Log("Took" + Damage + "damage");
