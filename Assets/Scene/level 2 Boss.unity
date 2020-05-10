@@ -748,6 +748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onyudo
       objectReference: {fileID: 0}
+    - target: {fileID: 8278951143097034013, guid: b340f8dfa1fbcc54e90980ebd526add7,
+        type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 1274626569}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b340f8dfa1fbcc54e90980ebd526add7, type: 3}
 --- !u!1 &526719267
