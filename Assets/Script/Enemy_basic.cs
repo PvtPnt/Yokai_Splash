@@ -153,10 +153,21 @@ public class Enemy_basic : MonoBehaviour
         else                { NoGapAhead = Physics2D.OverlapCircle(RayOffset + transform.position, groundCheckRange -0.5f, groundLayer); }
         if (NoGapAhead == false)
         {
-            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            if (IsWalkingLeft) { IsWalkingLeft = false; }
-            else { IsWalkingLeft = true; };
+            if (isGrounded == false)
+            { this.enabled = false; }
+            else
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                if (IsWalkingLeft) { IsWalkingLeft = false; }
+                else { IsWalkingLeft = true; };
+            }
         }
+    }
+
+    private void OnDisable()
+    {
+        TsuchinokoSprite.color = Color.red;
+        Destroy(this.gameObject, 0.5f);
     }
 
     void CheckWall()
