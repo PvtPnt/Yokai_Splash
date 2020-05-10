@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 177773576671884032}
   - component: {fileID: 2134063932}
   - component: {fileID: 1479496768}
-  - component: {fileID: 1479496769}
   - component: {fileID: 1479496762}
   m_Layer: 11
   m_Name: Player
@@ -428,6 +427,7 @@ MonoBehaviour:
   swingingSound: {fileID: 8300000, guid: 8b522ea8fe7374d4cafe8824e30a1f09, type: 3}
   atk_direction_x: 0
   atk_direction_y: 0
+  KnockBackForce: 0
 --- !u!61 &2134063932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -464,9 +464,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0ad8b45faadeac74d8bccd98a38daa5e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -550,14 +550,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &1479496769
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177773576671884094}
-  m_Enabled: 1
 --- !u!95 &1479496762
 Animator:
   serializedVersion: 3
