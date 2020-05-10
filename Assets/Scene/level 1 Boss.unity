@@ -4565,7 +4565,7 @@ PrefabInstance:
     - target: {fileID: 2187563589418179299, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2187563589418179300, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
@@ -6997,6 +6997,11 @@ PrefabInstance:
       propertyPath: HP_Regen_Amount
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 177773576671884093, guid: 4a63982f1f14dca40947fa5967be0189,
+        type: 3}
+      propertyPath: DeadPrompt
+      value: 
+      objectReference: {fileID: 1654705135}
     - target: {fileID: 177773576671884094, guid: 4a63982f1f14dca40947fa5967be0189,
         type: 3}
       propertyPath: m_Name

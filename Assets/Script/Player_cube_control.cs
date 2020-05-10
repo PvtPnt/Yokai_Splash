@@ -43,6 +43,7 @@ public class Player_cube_control : MonoBehaviour
     public AudioSource myAudio;
     public AudioSource myAudioHit;
     public AudioSource myAudioAttack;
+    public GameObject DeadPrompt;
     public GameObject Bullet;
     public GameObject Trap;
     public GameObject Wave;
@@ -69,11 +70,14 @@ public class Player_cube_control : MonoBehaviour
         {
             GetComponent<Player_Melee>().enabled = false;
             GetComponent<Animator>().SetBool("alive", false);
-            if (Input.GetKeyUp(KeyCode.R))
-            { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+            GetComponent<Animator>().SetBool("dash", false);
+            GetComponent<Animator>().SetBool("Run", false);
             JumpForce = 0;
+            WalkSpeed = 0;
             myMusic.enabled = false;
-            //GetComponent<Player_cube_control>().enabled = false;
+            DeadPrompt.SetActive(true);
+            GetComponent<Player_OnDead>().enabled = true;
+            GetComponent<Player_cube_control>().enabled = false;
             return;
         }
 
@@ -89,6 +93,11 @@ public class Player_cube_control : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = velo;
 
        
+    }
+
+    private void OnDisable()
+    {
+        
     }
 
     void Update()

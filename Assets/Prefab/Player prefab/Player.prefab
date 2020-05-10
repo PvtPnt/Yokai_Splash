@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 2134063932}
   - component: {fileID: 1479496768}
   - component: {fileID: 1479496762}
+  - component: {fileID: 2701717092396924889}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -371,6 +372,7 @@ MonoBehaviour:
   myAudio: {fileID: 1479496768}
   myAudioHit: {fileID: 1479496768}
   myAudioAttack: {fileID: 1479496768}
+  DeadPrompt: {fileID: 0}
   Bullet: {fileID: 915654608867603253, guid: 0fbcc08668254c240bfa8cd0850355de, type: 3}
   Trap: {fileID: 5068136069048460097, guid: 4d0de55091d8816499c96898b45eb133, type: 3}
   Wave: {fileID: 4563655845844144898, guid: be5fc1fc370d32943831462b31c578fe, type: 3}
@@ -569,3 +571,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2701717092396924889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177773576671884094}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80620ee864e909a49a74d53bf5bbb0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
