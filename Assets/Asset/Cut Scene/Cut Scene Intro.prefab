@@ -100,21 +100,21 @@ MonoBehaviour:
   CutSceneEnd: 0
   BoxIndex: 0
   charPic:
-  - {fileID: 21300000, guid: fd0994ab05525aa4a84a77209e5445b7, type: 3}
-  - {fileID: 21300000, guid: e88df8c60430bac4eb539424de861346, type: 3}
-  - {fileID: 21300000, guid: fd0994ab05525aa4a84a77209e5445b7, type: 3}
-  - {fileID: 21300000, guid: fd0994ab05525aa4a84a77209e5445b7, type: 3}
-  - {fileID: 21300000, guid: e88df8c60430bac4eb539424de861346, type: 3}
-  - {fileID: 21300000, guid: fd0994ab05525aa4a84a77209e5445b7, type: 3}
-  - {fileID: 21300000, guid: e88df8c60430bac4eb539424de861346, type: 3}
+  - {fileID: 21300000, guid: ace44341b427c024b9e40dc2d943aa1d, type: 3}
+  - {fileID: 21300000, guid: 7548d5d2f0569e24f9ada2581687f4a3, type: 3}
+  - {fileID: 21300000, guid: ace44341b427c024b9e40dc2d943aa1d, type: 3}
+  - {fileID: 21300000, guid: ace44341b427c024b9e40dc2d943aa1d, type: 3}
+  - {fileID: 21300000, guid: 7548d5d2f0569e24f9ada2581687f4a3, type: 3}
+  - {fileID: 21300000, guid: ace44341b427c024b9e40dc2d943aa1d, type: 3}
+  - {fileID: 21300000, guid: 7548d5d2f0569e24f9ada2581687f4a3, type: 3}
   - {fileID: 21300000, guid: 2822ff4072317f04ca340fb4fcce8b91, type: 3}
   - {fileID: 21300000, guid: e37021cb656832347a091c5a4c2b3c91, type: 3}
   - {fileID: 21300000, guid: 3a4892fdf5859a44fb52603fbac1b1a5, type: 3}
   - {fileID: 21300000, guid: 9ae3b5fcc6aa68b45ab97dcac28b9e26, type: 3}
   - {fileID: 21300000, guid: 9ae3b5fcc6aa68b45ab97dcac28b9e26, type: 3}
-  - {fileID: 21300000, guid: 0fc934b501d23fc4cb42859c23ab65c8, type: 3}
-  - {fileID: 21300000, guid: 0fc934b501d23fc4cb42859c23ab65c8, type: 3}
-  - {fileID: 21300000, guid: 4b339c57e3fe5f346829534efe72e31f, type: 3}
+  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
+  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
+  - {fileID: 21300000, guid: 0c4e223ddc5204b41bb2ad1fb48b154d, type: 3}
   charName:
   - Solider
   - Elder
@@ -132,12 +132,12 @@ MonoBehaviour:
   - 
   - Prince
   message:
-  - Sir! We're overwhelmed! There's only one thing that seems to work!
+  - Ma'am! We're overwhelmed! There's only one thing that seems to work!
   - And that would be...?
   - W-Water. They seem to cure their condition
   - But we can't possibly fight them with buckets!
   - But we have someone that CAN....
-  - Sir?
+  - Ma'am?
   - Call the maid.
   - W-What?
   - Y..... You want me to go out and fight youkai?
@@ -307,6 +307,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966816738440111735, guid: 7554a8a4ab5e15047a73ce6518ec189c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -523
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966816738536006480, guid: 7554a8a4ab5e15047a73ce6518ec189c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -29.899994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7554a8a4ab5e15047a73ce6518ec189c, type: 3}
