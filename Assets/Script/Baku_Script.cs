@@ -155,9 +155,7 @@ public class Baku_Script : MonoBehaviour
     }
 
     public void Beam()
-    {
-        GameObject NewBeam = Instantiate(DreamBeam, Beam_Position.position, Quaternion.identity);
-    }
+    {GameObject NewBeam = Instantiate(DreamBeam, Beam_Position.position, Quaternion.identity);}
 
 
     private void OnDrawGizmosSelected()

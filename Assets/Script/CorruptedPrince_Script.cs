@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CorruptedPrince_Script : MonoBehaviour
 {
+    public int AttackCount;
     public int ActionIndex;
     public int ActionMin;
     public int ActionMax;
@@ -15,21 +17,23 @@ public class CorruptedPrince_Script : MonoBehaviour
 
     public bool isWeakened;
     public bool isAttacking;
+    bool isRoaring;
 
 
     public Vector3 Tsuchinoko_SpawnPosition_L;
     public Vector3 Tsuchinoko_SpawnPosition_R;
     public Vector3 Spike_Position;
     public Transform AttackStartPosition;
+    public Transform LaserPosition;
     public LayerMask playerLayer;
-    public Enemy_hp HP_Script;
 
     int Tsuchinoko_SummonCount;
-    int AttackCount;
     bool isPerformingAction;
     SpriteRenderer PrinceRenderer;
     Animator PrinceAnim;
     GameObject Player;
+    Enemy_hp HP_Script;
+    public GameObject Barrier;
     public GameObject Laser;
     public GameObject Tsuchinoko;
     public GameObject Spike_PatternA;
@@ -54,6 +58,8 @@ public class CorruptedPrince_Script : MonoBehaviour
 
         if (isWeakened) { HP_Script.Defense = 0; }
         else { HP_Script.Defense = 100; }
+
+        if (isRoaring) { Player.GetComponent<Rigidbody2D>().AddForce(Vector3.left * ShockWave_PushStrength, ForceMode2D.Force); }
     }
 
     void FixedUpdate()
@@ -67,10 +73,10 @@ public class CorruptedPrince_Script : MonoBehaviour
 
     IEnumerator Become_Weakened()
     {
-        //isPerformingAction = true;
+        Barrier.SetActive(false);
         isWeakened = true;
         yield return new WaitForSeconds(Weakened_Time);
-        //isPerformingAction = false;
+        Barrier.SetActive(true);
         isWeakened = false;
         AttackCount = 0;
     }
@@ -90,90 +96,71 @@ public class CorruptedPrince_Script : MonoBehaviour
         if (transform.position.x == AttackStartPosition.position.x)
         {
             CancelInvoke("GoToAttackStart");
-            if (ActionIndex == 1)       { PrinceAnim.SetTrigger("SummonTsuchinoko");  }
+            if (ActionIndex == 1)       { PrinceAnim.SetTrigger("SummonTsuchinoko"); PrinceAnim.SetBool("Snapping", true);  }
             else if (ActionIndex == 2)  { PrinceAnim.SetTrigger("SummonSpike"); }
-            else if (ActionIndex == 3)  { ShootLaser(); }
-            else if (ActionIndex == 4)  { PrinceAnim.SetTrigger("Shockwave"); }
+            else if (ActionIndex == 3)  { PrinceAnim.SetTrigger("ShootLaser");}
+            else if (ActionIndex == 4)  { PrinceAnim.SetTrigger("Roar"); }
         }
     }
 
     IEnumerator ActionCooldown()
     {
-        //PrinceuAnim.SetTrigger("Idle");
-        //PrinceSprite.flipX = false;
-        //WalkStepCount = 0;
-        //StartCoroutine("ReturnCollider");
         Tsuchinoko_SummonCount = 0;
         Debug.Log("Action in cooldown");
         yield return new WaitForSeconds(CooldownTimer);
         isPerformingAction = false;
     }
 
-    void Summon()
-    { InvokeRepeating("SummonTsuchinoko", 0.5f, 1.5f); }
-
-    void SummonTsuchinoko()
+    public void SummonTsuchinoko()
     {
         Tsuchinoko_SummonCount += 1;
-        if (Tsuchinoko_SummonCount <= 8)
+        if (Tsuchinoko_SummonCount <= 4)
         {
-            if ( Tsuchinoko_SummonCount % 2 == 0) { Instantiate(Spike_PatternC, Tsuchinoko_SpawnPosition_L, Quaternion.identity); }
-            else { Instantiate(Spike_PatternC, Tsuchinoko_SpawnPosition_R, Quaternion.identity); }
+            if ( Tsuchinoko_SummonCount % 2 == 0) 
+            { 
+                GameObject Summoned = Instantiate(Tsuchinoko, Tsuchinoko_SpawnPosition_L, Quaternion.identity);
+                Summoned.GetComponent<SummonedTsuchinoko>().GoRight = true;
+            }
+            else
+            {
+                GameObject Summoned = Instantiate(Tsuchinoko, Tsuchinoko_SpawnPosition_R, Quaternion.identity);
+                Summoned.GetComponent<SummonedTsuchinoko>().GoLeft = true;
+            }
         }
 
         else 
-        { 
-            CancelInvoke("SummonTsuchinoko");
+        {
+            PrinceAnim.SetBool("Snapping", false);
+            AttackCount += 1;
             StartCoroutine("ActionCooldown");
         }
     }
 
     public void SummonSpike()
     {
-        int SpikePattern = Random.Range(0, 4);
+        int SpikePattern = Random.Range(1, 4);
         if (SpikePattern == 1) { Instantiate(Spike_PatternA, Spike_Position, Quaternion.identity); }
         else if (SpikePattern == 2) { Instantiate(Spike_PatternB, Spike_Position, Quaternion.identity); }
         else if (SpikePattern == 3) { Instantiate(Spike_PatternC, Spike_Position, Quaternion.identity); }
+        AttackCount += 1;
         StartCoroutine("ActionCooldown");
     }
 
-    void ShootLaser()
-    { 
-        if (Player.transform.position.x < transform.position.x)
-        {
-            //Shoot laser left
-            //PrinceRenderer.flipX = true;
-            //PrinceAnim.SetTrigger("ShootLaser");
-        }
-
-        else if (Player.transform.position.x > transform.position.x)
-        {
-            //Shoot Laser right
-            //PrinceRenderer.flipX = false;
-            //PrinceAnim.SetTrigger("ShootLaser");
-        }
-
+    public void ReadyToShootLaser()
+    { PrinceAnim.SetBool("ShootingLaser", true); }
+    public void ShootLaser()
+    {
+        GameObject NewBeam = Instantiate(Laser, LaserPosition.position, Quaternion.identity);
     }
 
-    public void LaserBeam()
+
+    public void RoarShockWave()
+    {isRoaring = true;}
+
+    public void StopRoar()
     {
-
-    }
-
-    public void ShockWave()
-    {
-        if (Player.transform.position.x < transform.position.x)
-        {
-            Player.GetComponent<Rigidbody2D>().AddForce
-            (Vector3.right * ShockWave_PushStrength, ForceMode2D.Impulse);
-        }
-
-        else if (Player.transform.position.x > transform.position.x)
-        {
-            Player.GetComponent<Rigidbody2D>().AddForce
-            (Vector3.left * ShockWave_PushStrength, ForceMode2D.Impulse);
-        }
-
-        StartCoroutine("ActionCooldown");
+        isRoaring = false;
+        AttackCount += 1;
+        StartCoroutine("ActionCooldown"); 
     }
 }
