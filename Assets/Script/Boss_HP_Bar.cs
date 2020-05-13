@@ -19,6 +19,7 @@ public class Boss_HP_Bar : MonoBehaviour
     void Update()
     {
         HP = Boss.GetComponent<Enemy_hp>().HP;
+        if (HP <= 0) { HP = 0; }
         HP_Percentage = HP / MaxHP;
 
         Bar.localScale = new Vector3(HP_Percentage, 1f);

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 915654608867603255}
   - component: {fileID: 915654608867603252}
   - component: {fileID: -3141981460028214905}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,6 @@ MonoBehaviour:
   Damage: 1
   isMovingLeft: 0
   LifeTime: 1.5
-  Bullet: {fileID: 0}
   bulletSprite: {fileID: -3141981460028214905}
   AttackPos: {fileID: 1095690150}
   EnemyLayer:

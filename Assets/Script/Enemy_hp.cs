@@ -36,13 +36,22 @@ public class Enemy_hp : MonoBehaviour
                 if (isPrince == false)
                 {
                     if (GameObject.Find("Baku") != null)
-                    { GameObject.Find("Baku").GetComponent<Baku_Script>().isDead = true; }
+                    { 
+                        GameObject.Find("Baku").GetComponent<Baku_Script>().isDead = true;
+                        GameObject.Find("Baku").layer = 11;
+                    }
 
                     if (GameObject.Find("Onikuma") != null)
-                    { GameObject.Find("Onikuma").GetComponent<Onikuma>().isDead = true; }
+                    { 
+                        GameObject.Find("Onikuma").GetComponent<Onikuma>().isDead = true;
+                        GameObject.Find("Onikuma").layer = 11;
+                    }
 
                     if (GameObject.Find("Onyudo") != null)
-                    { GameObject.Find("Onyudo").GetComponent<Onyudo_Script>().isDead = true; }
+                    { 
+                        GameObject.Find("Onyudo").GetComponent<Onyudo_Script>().isDead = true;
+                        GameObject.Find("Onyudo").layer = 11;
+                    }
 
                 }
                 else

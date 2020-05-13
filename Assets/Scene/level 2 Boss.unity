@@ -663,6 +663,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1043453273, guid: b340f8dfa1fbcc54e90980ebd526add7, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.9257225
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043453273, guid: b340f8dfa1fbcc54e90980ebd526add7, type: 3}
+      propertyPath: m_Size.y
+      value: 3.8785713
+      objectReference: {fileID: 0}
     - target: {fileID: 2936099633878970002, guid: b340f8dfa1fbcc54e90980ebd526add7,
         type: 3}
       propertyPath: HP

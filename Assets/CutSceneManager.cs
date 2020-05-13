@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CutSceneManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CutSceneManager : MonoBehaviour
     public int currentImgIndex;
     public Image currentImg;
     public Player_cube_control player;
+    public bool LastCutscene;
     void Start()
     {
         currentImg = GetComponent<Image>();
@@ -46,6 +48,7 @@ public class CutSceneManager : MonoBehaviour
                 Time.timeScale = 1;
                 //player.gameObject.SetActive(true);
                 Destroy(this.gameObject);
+                if (LastCutscene) { SceneManager.LoadScene("Title scene"); }
                 player.JumpForce = 300;
             }
 
