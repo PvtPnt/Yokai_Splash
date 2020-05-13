@@ -41,8 +41,8 @@ public class Enemy_hp : MonoBehaviour
                 if (GameObject.Find("Onyudo") != null) 
                 {GameObject.Find("Onyudo").GetComponent<Onyudo_Script>().isDead = true;}
 
-                //if (GameObject.Find("Prince") != null) 
-                //{ GameObject.Find("Prince").GetComponent<CorruptedPrince_Script>().bossDialogue.SetActive(true); }
+                if (GameObject.Find("Prince") != null)
+                { GameObject.Find("Prince").GetComponent<CorruptedPrince_Script>().isDead = true; }
             }
             else
             { Destroy(gameObject); }

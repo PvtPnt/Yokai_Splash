@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CorruptedPrince_Script : MonoBehaviour
 {
+    [HideInInspector] public bool isDead;
     public int AttackCount;
     public int ActionIndex;
     public int ActionMin;
@@ -39,6 +40,7 @@ public class CorruptedPrince_Script : MonoBehaviour
     public GameObject Spike_PatternA;
     public GameObject Spike_PatternB;
     public GameObject Spike_PatternC;
+    public GameObject bossDialogue;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,12 @@ public class CorruptedPrince_Script : MonoBehaviour
         {   if(AttackCount == 1) { StartCoroutine("Become_Weakened");}  }
         else if (HP_Script.HP < 30)
         { if (AttackCount == 2) { StartCoroutine("Become_Weakened"); } }
+
+        if (isDead)
+        {
+            StopAllCoroutines();
+            bossDialogue.SetActive(true);
+        }
 
         if (isWeakened) { HP_Script.Defense = 0; }
         else { HP_Script.Defense = 100; }
