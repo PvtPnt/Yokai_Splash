@@ -3634,6 +3634,12 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 315134997}
+    - target: {fileID: 5931384477555577292, guid: 3008dc04838bf6c45b9183572f5f06a1,
+        type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 856209133754403535, guid: 6de8acf826e0bb346ba734eeafae6503,
+        type: 3}
     - target: {fileID: 5931384477555577293, guid: 3008dc04838bf6c45b9183572f5f06a1,
         type: 3}
       propertyPath: m_Name

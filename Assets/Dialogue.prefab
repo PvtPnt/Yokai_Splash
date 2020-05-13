@@ -52,24 +52,24 @@ MonoBehaviour:
   BoxIndex: 0
   charPic:
   - {fileID: 21300000, guid: 6db1ba2860766a248b171c09a1de8deb, type: 3}
-  - {fileID: 21300000, guid: 185cbc9491022574eb71ecd2078e842f, type: 3}
+  - {fileID: 21300000, guid: a887879fa5aab704f94f8bd4ae0999d3, type: 3}
   - {fileID: 21300000, guid: e37021cb656832347a091c5a4c2b3c91, type: 3}
   - {fileID: 21300000, guid: 4bda62762d37e7045b96469e0217becf, type: 3}
-  - {fileID: 21300000, guid: 185cbc9491022574eb71ecd2078e842f, type: 3}
+  - {fileID: 21300000, guid: a887879fa5aab704f94f8bd4ae0999d3, type: 3}
   - {fileID: 21300000, guid: e37021cb656832347a091c5a4c2b3c91, type: 3}
-  - {fileID: 21300000, guid: 185cbc9491022574eb71ecd2078e842f, type: 3}
-  - {fileID: 21300000, guid: 185cbc9491022574eb71ecd2078e842f, type: 3}
+  - {fileID: 21300000, guid: a887879fa5aab704f94f8bd4ae0999d3, type: 3}
+  - {fileID: 21300000, guid: a887879fa5aab704f94f8bd4ae0999d3, type: 3}
   - {fileID: 21300000, guid: 6db1ba2860766a248b171c09a1de8deb, type: 3}
   - {fileID: 21300000, guid: 6db1ba2860766a248b171c09a1de8deb, type: 3}
   charName:
   - Maid
-  - Monk
+  - Onyudo
   - Maid
   - Maid
-  - Monk
+  - Onyudo
   - Maid
-  - Monk
-  - Monk
+  - Onyudo
+  - Onyudo
   - Maid
   - Maid
   message:

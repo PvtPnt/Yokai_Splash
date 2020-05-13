@@ -27,6 +27,7 @@ public class Baku_Script : MonoBehaviour
     public LayerMask playerLayer;
     public GameObject DreamBeam;
     public GameObject bossDialogue;
+    public GameObject bossDialogue2;
 
     float DeathTimer = 3f;
     bool isSucking;
@@ -43,6 +44,7 @@ public class Baku_Script : MonoBehaviour
         BakuAnim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
         bossDialogue.SetActive(false);
+        bossDialogue2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class Baku_Script : MonoBehaviour
             Prince.SetActive(true);
             if (DeathTimer <= 0) { Destroy(this.gameObject); }
             bossDialogue.SetActive(true);
+            bossDialogue2.SetActive(true);
             //return;
         }
 
