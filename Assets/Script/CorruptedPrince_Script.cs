@@ -62,6 +62,11 @@ public class CorruptedPrince_Script : MonoBehaviour
         if (isDead)
         {
             StopAllCoroutines();
+            PrinceAnim.SetBool("Death", true);
+            GetComponent<BoxCollider2D>().offset = new Vector2(0.04788971f, 0.05418015f);
+            GetComponent<BoxCollider2D>().size = new Vector2(1.890121f, 0.4097061f);
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            Barrier.SetActive(false);
             bossDialogue.SetActive(true);
         }
 
