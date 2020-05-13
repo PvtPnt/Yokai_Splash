@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a45523e64ef8db4694edd5a78f88bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPrinceLaser: 0
   isStomp: 0
   StompDamage: 15
   isBeam: 1
