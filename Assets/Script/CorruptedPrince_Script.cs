@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CorruptedPrince_Script : MonoBehaviour
 {
-    [HideInInspector] public bool isDead;
+    public bool isDead;
     public int AttackCount;
     public int ActionIndex;
     public int ActionMin;
@@ -44,6 +44,7 @@ public class CorruptedPrince_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         HP_Script = GetComponent<Enemy_hp>();
         Player = GameObject.FindGameObjectWithTag("Player");
         PrinceAnim = GetComponent<Animator>();

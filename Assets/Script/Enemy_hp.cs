@@ -7,6 +7,7 @@ public class Enemy_hp : MonoBehaviour
     public int HP;
     public int Defense;
 
+    public bool isPrince;
     public bool isObject = false;
     public GameObject bucketToSpawn;
     public float knockbackForce;
@@ -32,17 +33,22 @@ public class Enemy_hp : MonoBehaviour
             if (isboss)
             {
                 GetComponent<Animator>().SetBool("isDead", true); 
-                if (GameObject.Find("Baku") != null) 
-                {GameObject.Find("Baku").GetComponent<Baku_Script>().isDead = true;}
+                if (isPrince == false)
+                {
+                    if (GameObject.Find("Baku") != null)
+                    { GameObject.Find("Baku").GetComponent<Baku_Script>().isDead = true; }
 
-                if (GameObject.Find("Onikuma") != null) 
-                {GameObject.Find("Onikuma").GetComponent<Onikuma>().isDead = true;}
+                    if (GameObject.Find("Onikuma") != null)
+                    { GameObject.Find("Onikuma").GetComponent<Onikuma>().isDead = true; }
 
-                if (GameObject.Find("Onyudo") != null) 
-                {GameObject.Find("Onyudo").GetComponent<Onyudo_Script>().isDead = true;}
+                    if (GameObject.Find("Onyudo") != null)
+                    { GameObject.Find("Onyudo").GetComponent<Onyudo_Script>().isDead = true; }
 
-                if (GameObject.Find("Prince") != null)
-                { GameObject.Find("Prince").GetComponent<CorruptedPrince_Script>().isDead = true; }
+                }
+                else
+                {
+                    GameObject.Find("Prince").GetComponent<CorruptedPrince_Script>().isDead = true;
+                }
             }
             else
             { Destroy(gameObject); }

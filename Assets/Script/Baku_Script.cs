@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Baku_Script : MonoBehaviour
 {
-    public GameObject Prince;
     public int ActionMin;
     public int ActionMax;
 
@@ -60,10 +59,8 @@ public class Baku_Script : MonoBehaviour
             GetComponent<BoxCollider2D>().size = new Vector2(6.80365f, 2.760612f);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             gameObject.layer = 11;
-            Prince.SetActive(true);
-            if (DeathTimer <= 0) { Destroy(this.gameObject); }
             bossDialogue.SetActive(true);
-            bossDialogue2.SetActive(true);
+            //bossDialogue2.SetActive(true);
             //return;
         }
 

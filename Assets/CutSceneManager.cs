@@ -44,7 +44,7 @@ public class CutSceneManager : MonoBehaviour
                 player.gameObject.GetComponentInChildren<AudioSource>().enabled = true;
                 player.isGrounded = true;
                 Time.timeScale = 1;
-                player.gameObject.SetActive(true);
+                //player.gameObject.SetActive(true);
                 Destroy(this.gameObject);
                 player.JumpForce = 300;
             }
