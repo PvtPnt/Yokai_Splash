@@ -5,6 +5,7 @@ using UnityEngine;
 public class Baku_Attack_Hitbox : MonoBehaviour
 {
     int Damage;
+    public bool isPrinceLaser;
     public bool isStomp;
     public int StompDamage;
 
@@ -18,6 +19,8 @@ public class Baku_Attack_Hitbox : MonoBehaviour
     float Col_Size_x;
     float Col_Size_y;
 
+    CorruptedPrince_Script Prince_Controller;
+    Animator Prince_Animator;
     Animator Baku_Animator;
     Baku_Script Baku_Controller;
     BoxCollider2D boxCollider;
@@ -28,8 +31,17 @@ public class Baku_Attack_Hitbox : MonoBehaviour
         if (isStomp) { Damage = StompDamage; }
         else if (isBeam) { Damage = BeamDamage; }
 
-        Baku_Animator = GameObject.Find("Baku").GetComponent<Animator>();
-        Baku_Controller = GameObject.Find("Baku").GetComponent<Baku_Script>();
+        if(isPrinceLaser)
+        {
+            Prince_Animator = GameObject.Find("Prince").GetComponent<Animator>();
+            Prince_Controller = GameObject.Find("Prince").GetComponent<CorruptedPrince_Script>();
+        }
+
+        else
+        {
+            Baku_Animator = GameObject.Find("Baku").GetComponent<Animator>();
+            Baku_Controller = GameObject.Find("Baku").GetComponent<Baku_Script>();
+        }
         boxCollider = GetComponent<BoxCollider2D>();
         circleCollider = GetComponent<CircleCollider2D>();
     }
@@ -69,6 +81,14 @@ public class Baku_Attack_Hitbox : MonoBehaviour
     {
         Baku_Animator.SetBool("Shooting_Beam", false);
         Baku_Controller.StartCoroutine("ActionCooldown");
+        Destroy(this.gameObject);
+    }
+
+    public void Prince_Laser_out()
+    {
+        Prince_Animator.SetBool("ShootingLaser", false);
+        Prince_Controller.AttackCount += 1;
+        Prince_Controller.StartCoroutine("ActionCooldown");
         Destroy(this.gameObject);
     }
 

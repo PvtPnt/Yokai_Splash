@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: roar
+  m_Name: Laser_object
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,25 +20,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 1b7de897dfd5f274c93e08dbb5b7443d, type: 3}
+      value: {fileID: 21300000, guid: 90b20883610bb7041ab1d56638c08982, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 7274ffd65ed14f742a2abe7797840af6, type: 3}
+      value: {fileID: 21300000, guid: df55d8917242e574ba9b4eecd38d261a, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: b6eb0e15a5c89cc4b9cfb2631fa7dc7b, type: 3}
+      value: {fileID: 21300000, guid: bcc2f887a45150e4abe780b0623ae112, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: c9a8e2674bfdcc54ba1d3e0ce059e678, type: 3}
+      value: {fileID: 21300000, guid: bcc2f887a45150e4abe780b0623ae112, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: acbc121d20e5ae4489d98b8e55b66724, type: 3}
+      value: {fileID: 21300000, guid: bcc2f887a45150e4abe780b0623ae112, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: d61769306c37103409e9b86e7894d52d, type: 3}
+      value: {fileID: 21300000, guid: df55d8917242e574ba9b4eecd38d261a, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: acbc121d20e5ae4489d98b8e55b66724, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: c9a8e2674bfdcc54ba1d3e0ce059e678, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: b6eb0e15a5c89cc4b9cfb2631fa7dc7b, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 1b7de897dfd5f274c93e08dbb5b7443d, type: 3}
+      value: {fileID: 21300000, guid: 90b20883610bb7041ab1d56638c08982, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -58,22 +52,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 1b7de897dfd5f274c93e08dbb5b7443d, type: 3}
-    - {fileID: 21300000, guid: 7274ffd65ed14f742a2abe7797840af6, type: 3}
-    - {fileID: 21300000, guid: b6eb0e15a5c89cc4b9cfb2631fa7dc7b, type: 3}
-    - {fileID: 21300000, guid: c9a8e2674bfdcc54ba1d3e0ce059e678, type: 3}
-    - {fileID: 21300000, guid: acbc121d20e5ae4489d98b8e55b66724, type: 3}
-    - {fileID: 21300000, guid: d61769306c37103409e9b86e7894d52d, type: 3}
-    - {fileID: 21300000, guid: acbc121d20e5ae4489d98b8e55b66724, type: 3}
-    - {fileID: 21300000, guid: c9a8e2674bfdcc54ba1d3e0ce059e678, type: 3}
-    - {fileID: 21300000, guid: b6eb0e15a5c89cc4b9cfb2631fa7dc7b, type: 3}
-    - {fileID: 21300000, guid: 1b7de897dfd5f274c93e08dbb5b7443d, type: 3}
+    - {fileID: 21300000, guid: 90b20883610bb7041ab1d56638c08982, type: 3}
+    - {fileID: 21300000, guid: df55d8917242e574ba9b4eecd38d261a, type: 3}
+    - {fileID: 21300000, guid: bcc2f887a45150e4abe780b0623ae112, type: 3}
+    - {fileID: 21300000, guid: bcc2f887a45150e4abe780b0623ae112, type: 3}
+    - {fileID: 21300000, guid: bcc2f887a45150e4abe780b0623ae112, type: 3}
+    - {fileID: 21300000, guid: df55d8917242e574ba9b4eecd38d261a, type: 3}
+    - {fileID: 21300000, guid: 90b20883610bb7041ab1d56638c08982, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 0.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -93,15 +84,36 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.25
-    functionName: RoarShockWave
+  - time: 0
+    functionName: Beam_1
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
-    functionName: StopRoar
+  - time: 0.083333336
+    functionName: Beam_2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: Beam_3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: Beam_2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: Prince_Laser_out
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
