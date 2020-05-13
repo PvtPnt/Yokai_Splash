@@ -351,11 +351,11 @@ MonoBehaviour:
   groundCheckRange: 0.6
   HP: 100
   MaxHP: 100
-  HP_Regen_Amount: 1
-  Water_regen_rate: 7.5
+  HP_Regen_Amount: 0.5
+  Water_regen_rate: 10
   MaxWater: 100
   Water: 100
-  Water_cost: 10
+  Water_cost: 5
   InvincibleTime: 1
   DashFrame: 0.3
   XOffset: 3
@@ -417,9 +417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86e4d3f5f0eba24885ca514ab07fcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Start_timeBTWattack: 0.5
+  timeBTWattack: 0
+  Start_timeBTWattack: 0.35
   AttackRange: 1.6
-  MeleeWaterCost: 15
+  MeleeWaterCost: 10
   AttackPosFront: {fileID: 177773576550807219}
   AttackPosBack: {fileID: 177773576216474594}
   EnemyLayer:

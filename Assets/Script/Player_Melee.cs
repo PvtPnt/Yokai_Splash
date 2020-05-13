@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Melee : MonoBehaviour
 {
-    private float timeBTWattack;
+    [SerializeField] private float timeBTWattack;
     public float Start_timeBTWattack;
     public float AttackRange;
     public float MeleeWaterCost;
@@ -59,33 +59,26 @@ public class Player_Melee : MonoBehaviour
         }
         else { atk_direction_y = 1; }
 
-
-        if (timeBTWattack <= 0)
-        // you can attack
+        timeBTWattack -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
         {
-            if (PlayerMainScript.Water >= MeleeWaterCost)
+            if (timeBTWattack <= 0 && PlayerMainScript.Water >= MeleeWaterCost)
             {
-                GetComponent<Animator>().SetBool("Melee", false);
-                if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.J))
-                {
-                    PlayerMainScript.Water -= MeleeWaterCost;
-                    GetComponent<Player_cube_control>().myAudioAttack.clip = swingingSound;
-                    GetComponent<Player_cube_control>().myAudioAttack.Play();
-                    GetComponent<Animator>().SetBool("Melee", true);
-                    GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
-                    GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
-                    AttackDirection(Damage);
-                    timeBTWattack = Start_timeBTWattack;
-                }
+                PlayerMainScript.Water -= MeleeWaterCost;
+                GetComponent<Player_cube_control>().myAudioAttack.clip = swingingSound;
+                GetComponent<Player_cube_control>().myAudioAttack.Play();
+                GetComponent<Animator>().SetTrigger("Melee_ATK");
+                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_X * GetComponent<Player_cube_control>().WalkSpeed * 3.0f, ForceMode2D.Force);
+                GetComponent<Rigidbody2D>().AddForce(ATK_Direction_Y * 120, ForceMode2D.Force);
+                AttackDirection(Damage);
+                //timeBTWattack = Start_timeBTWattack;
             }
-
-
         }
-        else {timeBTWattack -= Time.deltaTime;}
     }
 
     private void AttackDirection(int Damage)
     {
+        timeBTWattack = Start_timeBTWattack;
         if (IsWalkingLeft == false)
         {
             Collider2D[] DamageEnemy = Physics2D.OverlapCircleAll(AttackPosFront.position, AttackRange, EnemyLayer);
