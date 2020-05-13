@@ -87,16 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutSceneArr:
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
-  - {fileID: 21300000, guid: 88d8a1ec8f506e44e89dc3c0901366b3, type: 3}
   - {fileID: 21300000, guid: 6b0ab422b9b543c4aaa320614865853b, type: 3}
   - {fileID: 21300000, guid: 1dabf2f1eb9ebdd46a9efa0dd70c84ee, type: 3}
   - {fileID: 21300000, guid: 147a9b6fec7e76342b8cdc9c1d1a704f, type: 3}
