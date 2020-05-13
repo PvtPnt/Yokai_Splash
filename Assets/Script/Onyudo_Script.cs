@@ -14,6 +14,7 @@ public class Onyudo_Script : MonoBehaviour
     public int Damage;
 
     public bool isAttacking;
+    public bool isDead;
 
     public float AttackRange;
     public float WalkStepLength;
@@ -48,6 +49,16 @@ public class Onyudo_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            StopAllCoroutines();
+            GetComponent<BoxCollider2D>().offset = new Vector2(0.2296753f, 0.285043f);
+            GetComponent<BoxCollider2D>().size = new Vector2(8.233887f, 2.416478f);
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            bossDialogue.SetActive(true);
+            return;
+        }
+
         if (isAttacking == true)
         {
             Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(transform.position, AttackRange, playerLayer);
@@ -154,10 +165,10 @@ public class Onyudo_Script : MonoBehaviour
         Gizmos.color = Color.blue;
         { Gizmos.DrawWireSphere(transform.position, AttackRange); }
     }
-    private void OnDestroy()
-    {
-        print("Something");
-        print("Something");
-        bossDialogue.SetActive(true);
-    }
+    //private void OnDestroy()
+    //{
+    //    print("Something");
+    //    print("Something");
+    //    bossDialogue.SetActive(true);
+    //}
 }

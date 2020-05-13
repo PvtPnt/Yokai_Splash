@@ -4602,6 +4602,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onikuma
       objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6.2431602
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187563589418179311, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 7.8779993
+      objectReference: {fileID: 0}
     - target: {fileID: 8777433423064964611, guid: d72480b97274cf343994b1c9f29c7656,
         type: 3}
       propertyPath: HP

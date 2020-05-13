@@ -54,6 +54,7 @@ public class Onikuma : MonoBehaviour
 
     public Vector3 PlayerPosition;
     private float PlayerPosition_X;
+    public bool isDead;
 
     public GameObject bossDialogue;
     // Start is called before the first frame update
@@ -71,6 +72,19 @@ public class Onikuma : MonoBehaviour
     {
         BCollider2D.size = new Vector3(Col_sizeX, Col_sizeY, 0);
         BCollider2D.offset = new Vector3(Col_OffsetX, Col_OffsetY, 0);
+
+        if (isDead)
+        { 
+            StopAllCoroutines();
+            WalkStepLength = 0;
+            RushStepLength = 0;
+            Col_OffsetX = -0.1569824f;
+            Col_OffsetY = 0.5503812f;
+            Col_sizeX = 7.527222f;
+            Col_sizeY = 3.73073f;
+            bossDialogue.SetActive(true);
+            return;
+        }
 
         if (isAttacking == true)
         {
@@ -277,10 +291,10 @@ public class Onikuma : MonoBehaviour
         { Gizmos.DrawWireSphere(EnemyHitbox.position, AttackRange); }
     }
 
-    private void OnDestroy()
-    {
-      print("Something");
-       print("Something");
-        bossDialogue.SetActive(true);
-    }
+    //private void OnDestroy()
+    //{
+    //  print("Something");
+    //   print("Something");
+    //    bossDialogue.SetActive(true);
+    //}
 }

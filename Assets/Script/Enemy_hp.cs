@@ -24,12 +24,29 @@ public class Enemy_hp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if (HP <= 0) {
+     if (HP <= 0) 
+        {
             if (isObject == true)
+            {bucketToSpawn.gameObject.SetActive(true);}
+
+            if (isboss)
             {
-                bucketToSpawn.gameObject.SetActive(true);
+                GetComponent<Animator>().SetBool("isDead", true); 
+                if (GameObject.Find("Baku") != null) 
+                {GameObject.Find("Baku").GetComponent<Baku_Script>().isDead = true;}
+
+                if (GameObject.Find("Onikuma") != null) 
+                {GameObject.Find("Onikuma").GetComponent<Onikuma>().isDead = true;}
+
+                if (GameObject.Find("Onyudo") != null) 
+                {GameObject.Find("Onyudo").GetComponent<Onyudo_Script>().isDead = true;}
+
+                //if (GameObject.Find("Prince") != null) 
+                //{ GameObject.Find("Prince").GetComponent<CorruptedPrince_Script>().bossDialogue.SetActive(true); }
             }
-            Destroy(gameObject); }   
+            else
+            { Destroy(gameObject); }
+        }   
     }
 
     public void ReceiveDamage(int Damage)

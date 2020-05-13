@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Baku_Script : MonoBehaviour
 {
+    public GameObject Prince;
     public int ActionMin;
     public int ActionMax;
 
     public int Damage;
 
     public bool isAttacking;
+    public bool isDead;
 
     public float AttackRange;
     public float WalkStepLength;
@@ -26,6 +28,7 @@ public class Baku_Script : MonoBehaviour
     public GameObject DreamBeam;
     public GameObject bossDialogue;
 
+    float DeathTimer = 3f;
     bool isSucking;
     bool isPerformingAction;
     int ActionIndex;
@@ -45,6 +48,22 @@ public class Baku_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            DeathTimer -= Time.deltaTime;
+            StopAllCoroutines();
+            WalkStepLength = 0;
+            ChargeStepLength = 0;
+            GetComponent<BoxCollider2D>().offset = new Vector2(-0.2328949f, 0.3661842f);
+            GetComponent<BoxCollider2D>().size = new Vector2(6.80365f, 2.760612f);
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            gameObject.layer = 11;
+            Prince.SetActive(true);
+            if (DeathTimer <= 0) { Destroy(this.gameObject); }
+            bossDialogue.SetActive(true);
+            //return;
+        }
+
         if (isAttacking == true)
         {
             Collider2D[] DamagePlayer = Physics2D.OverlapCircleAll(transform.position, AttackRange, playerLayer);
@@ -163,10 +182,8 @@ public class Baku_Script : MonoBehaviour
         Gizmos.color = Color.red;
        Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
-    private void OnDestroy()
-    {
-        print("Something");
-        print("Something");
-        bossDialogue.SetActive(true);
-    }
+    //public void DeathDialogue()
+    //{
+    //    bossDialogue.SetActive(true);
+    //}
 }
