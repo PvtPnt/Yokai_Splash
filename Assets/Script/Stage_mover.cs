@@ -10,18 +10,22 @@ public class Stage_mover : MonoBehaviour
     bool Stage_moving;
     public GameObject Boss;
     public GameObject To_move;
+    public GameObject Target;
     public Vector3 Destination;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Target.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
      if (Stage_moving)
-        { To_move.transform.position = Vector3.MoveTowards(To_move.transform.position, Destination, 1.5f); }
+        {
+            Target.SetActive(true);
+            //To_move.transform.position = Vector3.MoveTowards(To_move.transform.position, Destination, 1.5f); 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
