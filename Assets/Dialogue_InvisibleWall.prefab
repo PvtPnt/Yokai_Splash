@@ -55,7 +55,7 @@ MonoBehaviour:
   charName:
   - Maid
   message:
-  - So.... they're weak to water.... that gives me a great idea
+  - I can use my "spill" attack to knock enemies into buckets!
   charPicObj: {fileID: 3002191436897616440}
   charNameObj: {fileID: 3002191438219525259}
   messageObj: {fileID: 3002191438249458066}
