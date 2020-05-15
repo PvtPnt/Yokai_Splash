@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 25
   LifeTime: 5
-  Damage: 20
+  Damage: 10
   isMovingLeft: 1
   Throwables: {fileID: 0}
   ThrowableSprite: {fileID: 0}
