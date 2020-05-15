@@ -82,6 +82,7 @@ public class MainMenu : MonoBehaviour
         if (isStart)
         {SceneManager.LoadScene("level 1");}
 
+        if (isBack) { SceneManager.LoadScene("Title scene"); }
         if (isCredit) { SceneManager.LoadScene("Credits"); }
         if (isHowToPlay) { SceneManager.LoadScene("How2Play"); }
 
