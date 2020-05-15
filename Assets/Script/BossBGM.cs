@@ -35,9 +35,9 @@ public class BossBGM : MonoBehaviour
             AudioPlayer.loop = true;
         }
 
-        if (isBossBGM && AudioPlayer.isPlaying == false)
+        if (isPrinceBGM && AudioPlayer.isPlaying == false)
         { 
-            AudioPlayer.clip = Boss_Main;
+            AudioPlayer.clip = Prince_Main;
             AudioPlayer.Play();
             AudioPlayer.loop = true;
         }
