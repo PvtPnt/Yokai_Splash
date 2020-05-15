@@ -61,7 +61,7 @@ MonoBehaviour:
   message:
   - Hey, wait up... Oh no!
   - He must be the mastermind...
-  - Looks like he's left a lot of youkai for me to clean
+  - Looks like he's left a lot of yokai for me to clean
   charPicObj: {fileID: 3067176055117074596}
   charNameObj: {fileID: 3067176056010960407}
   messageObj: {fileID: 3067176055912868622}
