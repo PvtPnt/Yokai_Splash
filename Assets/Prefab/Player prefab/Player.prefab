@@ -352,7 +352,7 @@ MonoBehaviour:
   HP: 100
   MaxHP: 100
   HP_Regen_Amount: 0.5
-  Water_regen_rate: 10
+  Water_regen_rate: 6.5
   MaxWater: 100
   Water: 100
   Water_cost: 5

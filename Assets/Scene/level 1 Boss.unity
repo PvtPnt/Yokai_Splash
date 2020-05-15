@@ -4325,6 +4325,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2059564037}
     m_Modifications:
+    - target: {fileID: 5696053083894336382, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 2059564029}
     - target: {fileID: 5696053083971811498, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
         type: 3}
       propertyPath: m_Name
@@ -4693,6 +4698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: HP
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222862114764580330, guid: d72480b97274cf343994b1c9f29c7656,
+        type: 3}
+      propertyPath: Defense
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72480b97274cf343994b1c9f29c7656, type: 3}

@@ -6,7 +6,9 @@ public class Enemy_hp : MonoBehaviour
 {
     public int HP;
     public int Defense;
+    int MaxDefense;
 
+    float DefUp_Interval = 4f;
     public bool isPrince;
     public bool isObject = false;
     public GameObject bucketToSpawn;
@@ -20,11 +22,23 @@ public class Enemy_hp : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        MaxDefense = Defense;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isboss)
+        {
+            DefUp_Interval -= Time.deltaTime;
+            if (DefUp_Interval <= 0) 
+            {
+                Defense += 3;
+                if (Defense > MaxDefense) { Defense = MaxDefense; }
+                DefUp_Interval = 4f;
+            }
+        }
+
      if (HP <= 0) 
         {
             if (isObject == true)
