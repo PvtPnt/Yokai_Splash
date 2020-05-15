@@ -189,9 +189,15 @@ public class Enemy_basic : MonoBehaviour
         if (isWalled == true)
         {
             if (IsWalkingLeft == true)
-            { IsWalkingLeft = false; }
+            { 
+                IsWalkingLeft = false;
+                GetComponent<Rigidbody2D>().velocity =  new Vector2(0, 0);
+            }
             else if (IsWalkingLeft == false)
-            { IsWalkingLeft = true; }
+            { 
+                IsWalkingLeft = true;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            }
         }
     }
 
