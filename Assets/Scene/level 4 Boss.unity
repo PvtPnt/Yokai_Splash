@@ -1330,6 +1330,11 @@ PrefabInstance:
       propertyPath: isPrince
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5478462117703238040, guid: 3a1665b42c65c5440b30279777e21975,
+        type: 3}
+      propertyPath: Defense
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5926346191669436289, guid: 3a1665b42c65c5440b30279777e21975,
         type: 3}
       propertyPath: Tsuchinoko_SpawnPosition_L.y
@@ -7676,6 +7681,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 198446308}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1530946325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530946324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e10a64ea9833eb46849a446778170f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerValue: 0
 --- !u!4 &1530946331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8426153069977385865, guid: 3a1665b42c65c5440b30279777e21975,
@@ -11135,3 +11153,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a63982f1f14dca40947fa5967be0189, type: 3}
+--- !u!1001 &8064236969125287150
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1530946331}
+    m_Modifications:
+    - target: {fileID: 5696053083894336382, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 1530946324}
+    - target: {fileID: 5696053083971811498, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_Name
+      value: Boss_Def
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696053083971811499, guid: 48da1cdfcdcd1c54b857479c38dd5e2b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48da1cdfcdcd1c54b857479c38dd5e2b, type: 3}

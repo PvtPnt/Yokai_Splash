@@ -29,7 +29,7 @@ public class Boss_loadNextscene : MonoBehaviour
 
         else
         {
-            if (Input.GetKeyDown(KeyCode.E) || Boss == null && Input.GetKeyDown(KeyCode.JoystickButton7))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton7))
             { SceneManager.LoadScene(Scene_to_load); }
         }
     }

@@ -196,6 +196,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5
   Defense: 0
+  isPrince: 0
+  isObject: 0
+  bucketToSpawn: {fileID: 0}
+  knockbackForce: 0
+  impact: {fileID: 0}
+  impact2: {fileID: 0}
+  isboss: 0
 --- !u!114 &8762891230457237344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +315,7 @@ MonoBehaviour:
   wallCheckRange: 0.75
   EnemyCheckRange: 10
   AttackRange: 0.75
-  Damage: 1
+  Damage: 5
   waveDirectionLeft: 0
   isWalk: 0
   isAttacking: 0
