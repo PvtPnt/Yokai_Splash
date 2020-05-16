@@ -1380,6 +1380,16 @@ PrefabInstance:
       propertyPath: bossDialogue
       value: 
       objectReference: {fileID: 1663212336}
+    - target: {fileID: 5926346191669436289, guid: 3a1665b42c65c5440b30279777e21975,
+        type: 3}
+      propertyPath: ActionMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926346191669436289, guid: 3a1665b42c65c5440b30279777e21975,
+        type: 3}
+      propertyPath: ActionMin
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6858494650411719937, guid: 3a1665b42c65c5440b30279777e21975,
         type: 3}
       propertyPath: m_Offset.y
@@ -7681,19 +7691,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 198446308}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1530946325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530946324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e10a64ea9833eb46849a446778170f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TriggerValue: 0
 --- !u!4 &1530946331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8426153069977385865, guid: 3a1665b42c65c5440b30279777e21975,

@@ -73,7 +73,7 @@ public class CorruptedPrince_Script : MonoBehaviour
         if (isWeakened) { HP_Script.Defense = 0; }
         else { HP_Script.Defense = 100; }
 
-        if (isRoaring) { Player.GetComponent<Rigidbody2D>().AddForce(Vector3.left * ShockWave_PushStrength, ForceMode2D.Force); }
+        if (isRoaring) { Player.GetComponent<Rigidbody2D>().AddForce(Vector3.left * 95 * ShockWave_PushStrength * Time.deltaTime, ForceMode2D.Force); }
     }
 
     void FixedUpdate()
